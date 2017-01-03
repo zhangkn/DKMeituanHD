@@ -15,10 +15,18 @@
 @implementation AppDelegate
 
 
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    //    Main sotry bord 的本质就是窗口window和设置根控制器
+    self.window = [[UIWindow alloc]init];
+    self.window.frame = [UIScreen mainScreen].bounds;
+    //设置根控制器
+    self.window.rootViewController = [[UIViewController alloc]init];
+    [self.window makeKeyAndVisible];
     return YES;
 }
+
 
 
 - (void)applicationWillResignActive:(UIApplication *)application {

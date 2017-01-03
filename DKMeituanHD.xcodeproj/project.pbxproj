@@ -12,7 +12,6 @@
 		E1D0EB2E1E1B7E87000C9541 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1D0EB2D1E1B7E87000C9541 /* ViewController.m */; };
 		E1D0EB311E1B7E87000C9541 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1D0EB2F1E1B7E87000C9541 /* Main.storyboard */; };
 		E1D0EB331E1B7E87000C9541 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1D0EB321E1B7E87000C9541 /* Assets.xcassets */; };
-		E1D0EB361E1B7E87000C9541 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1D0EB341E1B7E87000C9541 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,7 +23,6 @@
 		E1D0EB2D1E1B7E87000C9541 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		E1D0EB301E1B7E87000C9541 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E1D0EB321E1B7E87000C9541 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		E1D0EB351E1B7E87000C9541 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E1D0EB371E1B7E87000C9541 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -58,14 +56,6 @@
 		E1D0EB251E1B7E87000C9541 /* DKMeituanHD */ = {
 			isa = PBXGroup;
 			children = (
-				E1D0EB291E1B7E87000C9541 /* AppDelegate.h */,
-				E1D0EB2A1E1B7E87000C9541 /* AppDelegate.m */,
-				E1D0EB2C1E1B7E87000C9541 /* ViewController.h */,
-				E1D0EB2D1E1B7E87000C9541 /* ViewController.m */,
-				E1D0EB2F1E1B7E87000C9541 /* Main.storyboard */,
-				E1D0EB321E1B7E87000C9541 /* Assets.xcassets */,
-				E1D0EB341E1B7E87000C9541 /* LaunchScreen.storyboard */,
-				E1D0EB371E1B7E87000C9541 /* Info.plist */,
 				E1D0EB261E1B7E87000C9541 /* Supporting Files */,
 			);
 			path = DKMeituanHD;
@@ -74,6 +64,13 @@
 		E1D0EB261E1B7E87000C9541 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E1D0EB291E1B7E87000C9541 /* AppDelegate.h */,
+				E1D0EB2A1E1B7E87000C9541 /* AppDelegate.m */,
+				E1D0EB2C1E1B7E87000C9541 /* ViewController.h */,
+				E1D0EB2D1E1B7E87000C9541 /* ViewController.m */,
+				E1D0EB2F1E1B7E87000C9541 /* Main.storyboard */,
+				E1D0EB321E1B7E87000C9541 /* Assets.xcassets */,
+				E1D0EB371E1B7E87000C9541 /* Info.plist */,
 				E1D0EB271E1B7E87000C9541 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -105,6 +102,7 @@
 		E1D0EB1B1E1B7E86000C9541 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = DK;
 				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = hisun;
 				TargetAttributes = {
@@ -138,7 +136,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E1D0EB361E1B7E87000C9541 /* LaunchScreen.storyboard in Resources */,
 				E1D0EB331E1B7E87000C9541 /* Assets.xcassets in Resources */,
 				E1D0EB311E1B7E87000C9541 /* Main.storyboard in Resources */,
 			);
@@ -166,14 +163,6 @@
 				E1D0EB301E1B7E87000C9541 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		E1D0EB341E1B7E87000C9541 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E1D0EB351E1B7E87000C9541 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -273,6 +262,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-2";
 				DEVELOPMENT_TEAM = FUV5KWMMAV;
 				INFOPLIST_FILE = DKMeituanHD/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -285,6 +275,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-2";
 				DEVELOPMENT_TEAM = FUV5KWMMAV;
 				INFOPLIST_FILE = DKMeituanHD/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
