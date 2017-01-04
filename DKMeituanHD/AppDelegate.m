@@ -7,6 +7,9 @@
 //
 
 #import "AppDelegate.h"
+#import "DKHomeCollectionViewController.h"
+#import "DKNavigationViewController.h"
+
 
 @interface AppDelegate ()
 
@@ -22,7 +25,7 @@
     self.window = [[UIWindow alloc]init];
     self.window.frame = [UIScreen mainScreen].bounds;
     //设置根控制器
-    self.window.rootViewController = [[UIViewController alloc]init];
+    self.window.rootViewController = [[DKNavigationViewController alloc]initWithRootViewController:[[DKHomeCollectionViewController alloc]init]];
     [self.window makeKeyAndVisible];
     return YES;
 }
