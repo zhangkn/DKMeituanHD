@@ -38,9 +38,24 @@ static NSString * const reuseIdentifier = @"Cell";
     [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
     
     [self setupRightNav];
+    [self setupLeftNav];
+
 }
 
+/**
+ *设置左边的items
+ */
+- (void)setupLeftNav{
+    UIImage *logoImage = [[UIImage imageNamed:@"icon_meituan_logo"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];//不被渲染
+        UIBarButtonItem *logoItem = [[UIBarButtonItem alloc]initWithImage:logoImage style:UIBarButtonItemStyleDone target:nil action:nil];
+    logoItem.enabled = NO;
+    UIBarButtonItem *searchItem =[UIBarButtonItem barButtonItemWithTarget:nil Image:@"icon_search" highlightedImage:@"icon_search_highlighted" actionMethod:nil];
+    searchItem.customView.width = 60;
+    self.navigationItem.leftBarButtonItems = @[logoItem, searchItem];
 
+    
+    
+}
 - (void)setupRightNav
 {
     UIBarButtonItem *mapItem = [UIBarButtonItem barButtonItemWithTarget:nil Image:@"icon_map" highlightedImage:@"icon_map_highlighted" actionMethod:nil];
