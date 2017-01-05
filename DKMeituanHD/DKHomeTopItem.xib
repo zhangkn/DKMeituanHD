@@ -9,7 +9,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="DKHomeTopItem">
-            <rect key="frame" x="0.0" y="0.0" width="140" height="44"/>
+            <rect key="frame" x="0.0" y="0.0" width="140" height="40"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dv9-Oc-atF">
@@ -34,7 +34,11 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SUa-iJ-BRc"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SUa-iJ-BRc">
+                    <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" image="icon_district"/>
+                    <state key="highlighted" image="icon_district_highlighted"/>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
@@ -45,15 +49,19 @@
                 <constraint firstItem="Dv9-Oc-atF" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="5" id="YcK-XD-PM3"/>
                 <constraint firstAttribute="bottom" secondItem="Dv9-Oc-atF" secondAttribute="bottom" constant="5" id="hDA-Or-MBp"/>
                 <constraint firstItem="jZJ-z0-1IO" firstAttribute="leading" secondItem="abX-Wb-Wmk" secondAttribute="leading" id="poH-K9-LVP"/>
-                <constraint firstAttribute="trailing" secondItem="SUa-iJ-BRc" secondAttribute="trailing" constant="27" id="qQi-6L-v3g"/>
+                <constraint firstAttribute="trailing" secondItem="SUa-iJ-BRc" secondAttribute="trailing" id="qQi-6L-v3g"/>
                 <constraint firstAttribute="bottom" secondItem="SUa-iJ-BRc" secondAttribute="bottom" constant="5" id="rLb-8b-0Em"/>
-                <constraint firstItem="SUa-iJ-BRc" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="67" id="tEt-QQ-0i7"/>
+                <constraint firstItem="SUa-iJ-BRc" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="tEt-QQ-0i7"/>
                 <constraint firstItem="SUa-iJ-BRc" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="9" id="tf9-hI-NZc"/>
-                <constraint firstItem="abX-Wb-Wmk" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="5" id="tyj-uI-bUr"/>
+                <constraint firstItem="abX-Wb-Wmk" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="tyj-uI-bUr"/>
                 <constraint firstItem="jZJ-z0-1IO" firstAttribute="trailing" secondItem="abX-Wb-Wmk" secondAttribute="trailing" id="vZW-Kn-qfz"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
         </view>
     </objects>
+    <resources>
+        <image name="icon_district" width="30" height="30"/>
+        <image name="icon_district_highlighted" width="30" height="30"/>
+    </resources>
 </document>

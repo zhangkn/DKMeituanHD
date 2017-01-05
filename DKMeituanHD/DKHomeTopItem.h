@@ -10,4 +10,7 @@
 
 @interface DKHomeTopItem : UIView
 
++ (instancetype) homeTopItem;
+
+
 @end

@@ -9,6 +9,8 @@
 #import "DKHomeCollectionViewController.h"
 #import "DKConst.h"
 
+#import "DKHomeTopItem.h"
+
 @interface DKHomeCollectionViewController ()
 
 @end
@@ -49,8 +51,12 @@ static NSString * const reuseIdentifier = @"Cell";
     UIImage *logoImage = [[UIImage imageNamed:@"icon_meituan_logo"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];//不被渲染
         UIBarButtonItem *logoItem = [[UIBarButtonItem alloc]initWithImage:logoImage style:UIBarButtonItemStyleDone target:nil action:nil];
     logoItem.enabled = NO;
-    UIBarButtonItem *searchItem =[UIBarButtonItem barButtonItemWithTarget:nil Image:@"icon_search" highlightedImage:@"icon_search_highlighted" actionMethod:nil];
-    searchItem.customView.width = 60;
+    
+    
+    UIView *searchItemView = [DKHomeTopItem homeTopItem];
+    UIBarButtonItem *searchItem =  [[UIBarButtonItem alloc]initWithCustomView:searchItemView];
+//    searchItem.customView.width = 60;
+
     self.navigationItem.leftBarButtonItems = @[logoItem, searchItem];
 
     
