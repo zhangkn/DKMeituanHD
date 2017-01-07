@@ -53,14 +53,21 @@ static NSString * const reuseIdentifier = @"Cell";
     logoItem.enabled = NO;
     
     
-    UIView *searchItemView = [DKHomeTopItem homeTopItem];
-    UIBarButtonItem *searchItem =  [[UIBarButtonItem alloc]initWithCustomView:searchItemView];
+    DKHomeTopItem *addressItemView = [DKHomeTopItem homeTopItem];
+    [addressItemView addTarget:self action:@selector(clickAddressItem)];
+    UIBarButtonItem *searchItem =  [[UIBarButtonItem alloc]initWithCustomView:addressItemView];
 //    searchItem.customView.width = 60;
 
     self.navigationItem.leftBarButtonItems = @[logoItem, searchItem];
 
     
     
+}
+
+
+- (void)clickAddressItem{
+    
+    NSLog(@"%s",__func__);
 }
 - (void)setupRightNav
 {

@@ -10,7 +10,13 @@
 
 @interface DKHomeTopItem : UIView
 
-+ (instancetype) homeTopItem;
++ ( nullable instancetype)homeTopItem;
 
+/**
+ *addTarget  设置item的监听器
+ 
+ 此方法适用于简单的事件监听
+ */
+- (void)addTarget:( nullable id)target action:(nonnull SEL)action;
 
 @end

@@ -58,6 +58,9 @@
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="btn" destination="SUa-iJ-BRc" id="iDh-hF-vgr"/>
+            </connections>
         </view>
     </objects>
     <resources>
