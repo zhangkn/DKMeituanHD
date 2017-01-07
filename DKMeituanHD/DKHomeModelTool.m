@@ -9,9 +9,21 @@
 #import "DKHomeModelTool.h"
 #import "MJExtension.h"
 #import "DKCategoryModel.h"
+
+#import "DKCityGroupModel.h"
+
+
+#import "DKCityModel.h"
+
 @implementation DKHomeModelTool
 
 static NSArray *_categoryModels;
+
+static NSArray *_cityModels;
+
+static NSArray *_cityGroupModels;
+
+
 
 + (void)initialize{
     [super initialize];
@@ -20,8 +32,16 @@ static NSArray *_categoryModels;
         static dispatch_once_t onceToken;
         dispatch_once(&onceToken, ^{
             _categoryModels = [self getcategoryModels];
+            _cityModels = [self getCityModels];
+            _cityGroupModels = [self getCityGroupModels];
         });
     }
+}
+
+
+
++(NSArray *)getCityGroupModels{
+    return [DKCityGroupModel objectArrayWithFilename:@"cityGroups.plist"];
 }
 
 + (NSArray*) getcategoryModels{
@@ -33,9 +53,29 @@ static NSArray *_categoryModels;
     return tmp;
 }
 
++ (NSArray*) getCityModels {
+    //    NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"categories" ofType:@"plist"];
+    //    NSArray *dictArray = [NSArray arrayWithContentsOfFile:plistPath];
+    //    NSArray  *tmp = [DKCategoryModel objectArrayWithKeyValuesArray:dictArray];//通过字典数据进行转换
+    //    NSArray  *tmp = [DKCategoryModel objectArrayWithFile:plistPath];//通过plist文件进行转换
+    NSArray  *tmp = [DKCityModel objectArrayWithFilename:@"cities.plist"];//通过plist文件名称
+    return tmp;
+}
+
+
 
 + (NSArray*) categoryModels{
     return _categoryModels;
+}
+
++ (NSArray*) cityModels{
+    return _cityModels;
+
+}
+
++ (NSArray*) cityGroupModels{
+    return _cityGroupModels;
+    
 }
 
 

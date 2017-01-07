@@ -14,4 +14,8 @@
  */
 + (NSArray*) categoryModels;
 
++ (NSArray*) cityModels;
+
++ (NSArray*) cityGroupModels;
+
 @end

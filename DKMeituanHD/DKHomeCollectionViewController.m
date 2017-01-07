@@ -10,6 +10,7 @@
 #import "DKConst.h"
 #import "DKCategoryViewController.h"
 #import "DKHomeTopItem.h"
+#import "DKHomeAddressViewController.h"
 
 @interface DKHomeCollectionViewController ()
 
@@ -34,6 +35,19 @@
 @implementation DKHomeCollectionViewController
 
 static NSString * const reuseIdentifier = @"Cell";
+
+
+- (UIBarButtonItem *)categoryItem{
+    if (nil == _categoryItem) {
+        DKHomeTopItem *tmpItemView = [DKHomeTopItem homeTopItem];
+        //设置监听器
+        [tmpItemView addTarget:self action:@selector(clickCategoryItem)];
+        
+        UIBarButtonItem *tmpView =  [[UIBarButtonItem alloc]initWithCustomView:tmpItemView];
+        _categoryItem = tmpView;
+    }
+    return _categoryItem;
+}
 
 
 - (UIBarButtonItem *)addressItem{
@@ -85,7 +99,7 @@ static NSString * const reuseIdentifier = @"Cell";
    
 //    searchItem.customView.width = 60;
 
-    self.navigationItem.leftBarButtonItems = @[logoItem, self.addressItem];
+    self.navigationItem.leftBarButtonItems = @[logoItem, self.categoryItem,self.addressItem];
 
     
     
@@ -95,12 +109,22 @@ static NSString * const reuseIdentifier = @"Cell";
 - (void)clickAddressItem{
     
     NSLog(@"%s",__func__);
-    UIPopoverController *vc = [[UIPopoverController alloc]initWithContentViewController:[[DKCategoryViewController alloc]init]];
+    UIPopoverController *vc = [[UIPopoverController alloc]initWithContentViewController:[[DKHomeAddressViewController alloc]init]];
     [vc presentPopoverFromBarButtonItem:self.addressItem permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
     
     
     
 }
+- (void)clickCategoryItem{
+    NSLog(@"%s",__func__);
+    UIPopoverController *vc = [[UIPopoverController alloc]initWithContentViewController:[[DKCategoryViewController alloc]init]];
+    [vc presentPopoverFromBarButtonItem:self.categoryItem permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+    
+    
+}
+
+
+
 - (void)setupRightNav
 {
     UIBarButtonItem *mapItem = [UIBarButtonItem barButtonItemWithTarget:nil Image:@"icon_map" highlightedImage:@"icon_map_highlighted" actionMethod:nil];

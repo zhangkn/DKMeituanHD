@@ -19,6 +19,10 @@
 
 @implementation DKHomeTopItem
 
+- (void)awakeFromNib{
+    [super awakeFromNib];
+    self.autoresizingMask = UIViewAutoresizingNone;
+}
 
 + (instancetype)homeTopItem{
     

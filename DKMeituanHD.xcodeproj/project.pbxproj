@@ -49,6 +49,13 @@
 		E1F7A16C1E20B92A00ABDE49 /* DKHomeModelTool.m in Sources */ = {isa = PBXBuildFile; fileRef = E1F7A16B1E20B92A00ABDE49 /* DKHomeModelTool.m */; };
 		E1F7A16F1E20D67F00ABDE49 /* DKHomeMainTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E1F7A16E1E20D67F00ABDE49 /* DKHomeMainTableViewCell.m */; };
 		E1F7A1721E20D68A00ABDE49 /* DKHomeSubTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E1F7A1711E20D68A00ABDE49 /* DKHomeSubTableViewCell.m */; };
+		E1F7A1751E20DD9400ABDE49 /* DKHomeAddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1F7A1741E20DD9400ABDE49 /* DKHomeAddressViewController.m */; };
+		E1F7A1771E20DE4900ABDE49 /* DKHomeAddressViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1F7A1761E20DE4900ABDE49 /* DKHomeAddressViewController.xib */; };
+		E1F7A17B1E20E73400ABDE49 /* DKHomeCityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1F7A1791E20E73400ABDE49 /* DKHomeCityViewController.m */; };
+		E1F7A17C1E20E73400ABDE49 /* DKHomeCityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1F7A17A1E20E73400ABDE49 /* DKHomeCityViewController.xib */; };
+		E1F7A1811E20F1C800ABDE49 /* DKCityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E1F7A1801E20F1C800ABDE49 /* DKCityModel.m */; };
+		E1F7A1841E20F2BE00ABDE49 /* DKCityRegion.m in Sources */ = {isa = PBXBuildFile; fileRef = E1F7A1831E20F2BE00ABDE49 /* DKCityRegion.m */; };
+		E1F7A1871E20FA3800ABDE49 /* DKCityGroupModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E1F7A1861E20FA3800ABDE49 /* DKCityGroupModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -136,6 +143,18 @@
 		E1F7A16E1E20D67F00ABDE49 /* DKHomeMainTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKHomeMainTableViewCell.m; sourceTree = "<group>"; };
 		E1F7A1701E20D68A00ABDE49 /* DKHomeSubTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKHomeSubTableViewCell.h; sourceTree = "<group>"; };
 		E1F7A1711E20D68A00ABDE49 /* DKHomeSubTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKHomeSubTableViewCell.m; sourceTree = "<group>"; };
+		E1F7A1731E20DD9400ABDE49 /* DKHomeAddressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKHomeAddressViewController.h; sourceTree = "<group>"; };
+		E1F7A1741E20DD9400ABDE49 /* DKHomeAddressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKHomeAddressViewController.m; sourceTree = "<group>"; };
+		E1F7A1761E20DE4900ABDE49 /* DKHomeAddressViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DKHomeAddressViewController.xib; sourceTree = "<group>"; };
+		E1F7A1781E20E73400ABDE49 /* DKHomeCityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKHomeCityViewController.h; sourceTree = "<group>"; };
+		E1F7A1791E20E73400ABDE49 /* DKHomeCityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKHomeCityViewController.m; sourceTree = "<group>"; };
+		E1F7A17A1E20E73400ABDE49 /* DKHomeCityViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DKHomeCityViewController.xib; sourceTree = "<group>"; };
+		E1F7A17F1E20F1C800ABDE49 /* DKCityModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKCityModel.h; sourceTree = "<group>"; };
+		E1F7A1801E20F1C800ABDE49 /* DKCityModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKCityModel.m; sourceTree = "<group>"; };
+		E1F7A1821E20F2BE00ABDE49 /* DKCityRegion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKCityRegion.h; sourceTree = "<group>"; };
+		E1F7A1831E20F2BE00ABDE49 /* DKCityRegion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKCityRegion.m; sourceTree = "<group>"; };
+		E1F7A1851E20FA3800ABDE49 /* DKCityGroupModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKCityGroupModel.h; sourceTree = "<group>"; };
+		E1F7A1861E20FA3800ABDE49 /* DKCityGroupModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKCityGroupModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -218,7 +237,13 @@
 				E1D0EB3E1E1BA1CA000C9541 /* DKHomeCollectionViewController.h */,
 				E1D0EB3F1E1BA1CA000C9541 /* DKHomeCollectionViewController.m */,
 				E1F7A1131E20AF2800ABDE49 /* DKCategoryViewController.h */,
+				E1F7A1781E20E73400ABDE49 /* DKHomeCityViewController.h */,
+				E1F7A1791E20E73400ABDE49 /* DKHomeCityViewController.m */,
+				E1F7A17A1E20E73400ABDE49 /* DKHomeCityViewController.xib */,
 				E1F7A1141E20AF2800ABDE49 /* DKCategoryViewController.m */,
+				E1F7A1731E20DD9400ABDE49 /* DKHomeAddressViewController.h */,
+				E1F7A1761E20DE4900ABDE49 /* DKHomeAddressViewController.xib */,
+				E1F7A1741E20DD9400ABDE49 /* DKHomeAddressViewController.m */,
 				E106229B1E1CD1C50082221F /* DKNavigationViewController.h */,
 				E106229C1E1CD1C50082221F /* DKNavigationViewController.m */,
 			);
@@ -276,6 +301,12 @@
 			isa = PBXGroup;
 			children = (
 				E1F7A1211E20B65700ABDE49 /* DKCategoryModel.h */,
+				E1F7A17F1E20F1C800ABDE49 /* DKCityModel.h */,
+				E1F7A1801E20F1C800ABDE49 /* DKCityModel.m */,
+				E1F7A1821E20F2BE00ABDE49 /* DKCityRegion.h */,
+				E1F7A1851E20FA3800ABDE49 /* DKCityGroupModel.h */,
+				E1F7A1861E20FA3800ABDE49 /* DKCityGroupModel.m */,
+				E1F7A1831E20F2BE00ABDE49 /* DKCityRegion.m */,
 				E1F7A1221E20B65700ABDE49 /* DKCategoryModel.m */,
 			);
 			name = Model;
@@ -420,10 +451,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				E1F7A11C1E20B55C00ABDE49 /* categories.plist in Resources */,
+				E1F7A17C1E20E73400ABDE49 /* DKHomeCityViewController.xib in Resources */,
 				E1F4FA1A1E1E400E00DBB3A3 /* DKHomeTopItem.xib in Resources */,
 				E1F7A11F1E20B55C00ABDE49 /* sorts.plist in Resources */,
 				E1D0EB331E1B7E87000C9541 /* Assets.xcassets in Resources */,
 				E1F7A11D1E20B55C00ABDE49 /* cities.plist in Resources */,
+				E1F7A1771E20DE4900ABDE49 /* DKHomeAddressViewController.xib in Resources */,
 				E1F7A1121E20A36800ABDE49 /* DKHomeDropdownView.xib in Resources */,
 				E1F7A11E1E20B55C00ABDE49 /* cityGroups.plist in Resources */,
 			);
@@ -453,7 +486,9 @@
 				E1F7A1671E20B8A800ABDE49 /* NSObject+MJKeyValue.m in Sources */,
 				E1D0EB401E1BA1CA000C9541 /* DKHomeCollectionViewController.m in Sources */,
 				E1F7A1631E20B8A800ABDE49 /* MJMethod.m in Sources */,
+				E1F7A1841E20F2BE00ABDE49 /* DKCityRegion.m in Sources */,
 				E1F7A1651E20B8A800ABDE49 /* MJTypeEncoding.m in Sources */,
+				E1F7A1871E20FA3800ABDE49 /* DKCityGroupModel.m in Sources */,
 				E1F7A1661E20B8A800ABDE49 /* NSObject+MJCoding.m in Sources */,
 				E1F7A1611E20B8A800ABDE49 /* MJIvar.m in Sources */,
 				E1D0EB2E1E1B7E87000C9541 /* ViewController.m in Sources */,
@@ -462,9 +497,12 @@
 				E1F7A16F1E20D67F00ABDE49 /* DKHomeMainTableViewCell.m in Sources */,
 				E1F7A1231E20B65700ABDE49 /* DKCategoryModel.m in Sources */,
 				E1F7A15F1E20B8A800ABDE49 /* MJConst.m in Sources */,
+				E1F7A17B1E20E73400ABDE49 /* DKHomeCityViewController.m in Sources */,
+				E1F7A1811E20F1C800ABDE49 /* DKCityModel.m in Sources */,
 				E1F7A1601E20B8A800ABDE49 /* MJFoundation.m in Sources */,
 				E1D0EB2B1E1B7E87000C9541 /* AppDelegate.m in Sources */,
 				E1F7A1101E20A31400ABDE49 /* DKHomeDropdownView.m in Sources */,
+				E1F7A1751E20DD9400ABDE49 /* DKHomeAddressViewController.m in Sources */,
 				E10622A91E1CEC840082221F /* UIView+Extension.m in Sources */,
 				E1F7A1571E20B8A800ABDE49 /* MASConstraintMaker.m in Sources */,
 				E1F7A1151E20AF2800ABDE49 /* DKCategoryViewController.m in Sources */,
