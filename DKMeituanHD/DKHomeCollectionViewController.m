@@ -8,16 +8,45 @@
 
 #import "DKHomeCollectionViewController.h"
 #import "DKConst.h"
-
+#import "DKCategoryViewController.h"
 #import "DKHomeTopItem.h"
 
 @interface DKHomeCollectionViewController ()
+
+/** 地区*/
+@property (nonatomic,strong) UIBarButtonItem *addressItem;
+/**
+ *分类
+ */
+@property (nonatomic,strong) UIBarButtonItem *categoryItem;
+
+/**
+ *排序
+ */
+@property (nonatomic,strong) UIBarButtonItem *sortItem;
+
+
+
+
 
 @end
 
 @implementation DKHomeCollectionViewController
 
 static NSString * const reuseIdentifier = @"Cell";
+
+
+- (UIBarButtonItem *)addressItem{
+    if (nil == _addressItem) {
+        DKHomeTopItem *addressItemView = [DKHomeTopItem homeTopItem];
+        //设置监听器
+        [addressItemView addTarget:self action:@selector(clickAddressItem)];
+        UIBarButtonItem *tmpView =  [[UIBarButtonItem alloc]initWithCustomView:addressItemView];
+        _addressItem = tmpView;
+    }
+    return _addressItem;
+}
+
 - (instancetype)init
 {
     UICollectionViewLayout *layout = [[UICollectionViewFlowLayout alloc]init];//2017-01-03 17:11:29.702 DKMeituanHD[2329:230000] *** Terminating app due to uncaught exception 'NSInvalidArgumentException', reason: 'UICollectionView must be initialized with a non-nil layout parameter'
@@ -53,12 +82,10 @@ static NSString * const reuseIdentifier = @"Cell";
     logoItem.enabled = NO;
     
     
-    DKHomeTopItem *addressItemView = [DKHomeTopItem homeTopItem];
-    [addressItemView addTarget:self action:@selector(clickAddressItem)];
-    UIBarButtonItem *searchItem =  [[UIBarButtonItem alloc]initWithCustomView:addressItemView];
+   
 //    searchItem.customView.width = 60;
 
-    self.navigationItem.leftBarButtonItems = @[logoItem, searchItem];
+    self.navigationItem.leftBarButtonItems = @[logoItem, self.addressItem];
 
     
     
@@ -68,6 +95,11 @@ static NSString * const reuseIdentifier = @"Cell";
 - (void)clickAddressItem{
     
     NSLog(@"%s",__func__);
+    UIPopoverController *vc = [[UIPopoverController alloc]initWithContentViewController:[[DKCategoryViewController alloc]init]];
+    [vc presentPopoverFromBarButtonItem:self.addressItem permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+    
+    
+    
 }
 - (void)setupRightNav
 {
