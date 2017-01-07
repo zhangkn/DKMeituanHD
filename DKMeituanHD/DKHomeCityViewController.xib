@@ -8,6 +8,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DKHomeCityViewController">
             <connections>
+                <outlet property="searchBar" destination="HP5-Nv-wAk" id="5re-YA-aAl"/>
                 <outlet property="tableView" destination="O1n-bh-N7b" id="FDU-V8-qmZ"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>

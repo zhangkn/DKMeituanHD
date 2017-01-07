@@ -21,24 +21,31 @@
 
 @implementation DKCategoryViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    //1. 设置下拉菜单试图
+- (void)loadView{
+    
+    //1. 设置下拉菜单试图 为控制器视图
     DKHomeDropdownView *homeDropdownView = [DKHomeDropdownView homeDropdownView];
     NSArray *categoryModels=  [DKHomeModelTool categoryModels];
-//    //设置homeDropdownView的约束size
-//    [homeDropdownView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.width.mas_equalTo(300);
-//        make.height.mas_equalTo(300);
-//        
-//    }];
-//    self.view  =homeDropdownView;
+    //    //设置homeDropdownView的约束size
+    //    [homeDropdownView mas_makeConstraints:^(MASConstraintMaker *make) {
+    //        make.width.mas_equalTo(300);
+    //        make.height.mas_equalTo(300);
+    //
+    //    }];
+    //    self.view  =homeDropdownView;
     
     homeDropdownView.models = categoryModels;
-    [self.view addSubview:homeDropdownView];
+//    [self.view addSubview:homeDropdownView];
+    self.view = homeDropdownView;
     
     //2.控制器的view 在popover控制器中的size
     self.preferredContentSize = homeDropdownView.size;
+    
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+   
     
 }
 

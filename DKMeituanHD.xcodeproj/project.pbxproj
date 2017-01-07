@@ -56,6 +56,9 @@
 		E1F7A1811E20F1C800ABDE49 /* DKCityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E1F7A1801E20F1C800ABDE49 /* DKCityModel.m */; };
 		E1F7A1841E20F2BE00ABDE49 /* DKCityRegion.m in Sources */ = {isa = PBXBuildFile; fileRef = E1F7A1831E20F2BE00ABDE49 /* DKCityRegion.m */; };
 		E1F7A1871E20FA3800ABDE49 /* DKCityGroupModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E1F7A1861E20FA3800ABDE49 /* DKCityGroupModel.m */; };
+		E1F7A18A1E21179B00ABDE49 /* DKHomeSearchResultTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1F7A1891E21179B00ABDE49 /* DKHomeSearchResultTableViewController.m */; };
+		E1F7A18E1E2119C400ABDE49 /* Foundation+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = E1F7A18B1E2119C400ABDE49 /* Foundation+Log.m */; };
+		E1F7A18F1E2119C400ABDE49 /* UIView+AutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = E1F7A18D1E2119C400ABDE49 /* UIView+AutoLayout.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -155,6 +158,11 @@
 		E1F7A1831E20F2BE00ABDE49 /* DKCityRegion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKCityRegion.m; sourceTree = "<group>"; };
 		E1F7A1851E20FA3800ABDE49 /* DKCityGroupModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKCityGroupModel.h; sourceTree = "<group>"; };
 		E1F7A1861E20FA3800ABDE49 /* DKCityGroupModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKCityGroupModel.m; sourceTree = "<group>"; };
+		E1F7A1881E21179B00ABDE49 /* DKHomeSearchResultTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKHomeSearchResultTableViewController.h; sourceTree = "<group>"; };
+		E1F7A1891E21179B00ABDE49 /* DKHomeSearchResultTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKHomeSearchResultTableViewController.m; sourceTree = "<group>"; };
+		E1F7A18B1E2119C400ABDE49 /* Foundation+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Foundation+Log.m"; sourceTree = "<group>"; };
+		E1F7A18C1E2119C400ABDE49 /* UIView+AutoLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+AutoLayout.h"; sourceTree = "<group>"; };
+		E1F7A18D1E2119C400ABDE49 /* UIView+AutoLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+AutoLayout.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +189,9 @@
 		E10622A61E1CEC250082221F /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				E1F7A18B1E2119C400ABDE49 /* Foundation+Log.m */,
+				E1F7A18C1E2119C400ABDE49 /* UIView+AutoLayout.h */,
+				E1F7A18D1E2119C400ABDE49 /* UIView+AutoLayout.m */,
 				E10622A71E1CEC840082221F /* UIView+Extension.h */,
 				E10622A81E1CEC840082221F /* UIView+Extension.m */,
 				E10622A31E1CEC200082221F /* UIBarButtonItem+Extension.h */,
@@ -237,6 +248,8 @@
 				E1D0EB3E1E1BA1CA000C9541 /* DKHomeCollectionViewController.h */,
 				E1D0EB3F1E1BA1CA000C9541 /* DKHomeCollectionViewController.m */,
 				E1F7A1131E20AF2800ABDE49 /* DKCategoryViewController.h */,
+				E1F7A1881E21179B00ABDE49 /* DKHomeSearchResultTableViewController.h */,
+				E1F7A1891E21179B00ABDE49 /* DKHomeSearchResultTableViewController.m */,
 				E1F7A1781E20E73400ABDE49 /* DKHomeCityViewController.h */,
 				E1F7A1791E20E73400ABDE49 /* DKHomeCityViewController.m */,
 				E1F7A17A1E20E73400ABDE49 /* DKHomeCityViewController.xib */,
@@ -474,6 +487,7 @@
 				E1F7A1621E20B8A800ABDE49 /* MJMember.m in Sources */,
 				E10622A11E1CD7CC0082221F /* DKConst.m in Sources */,
 				E1F7A15B1E20B8A800ABDE49 /* NSArray+MASAdditions.m in Sources */,
+				E1F7A18F1E2119C400ABDE49 /* UIView+AutoLayout.m in Sources */,
 				E10622A51E1CEC200082221F /* UIBarButtonItem+Extension.m in Sources */,
 				E1F7A1641E20B8A800ABDE49 /* MJType.m in Sources */,
 				E1F7A15C1E20B8A800ABDE49 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
@@ -494,9 +508,11 @@
 				E1D0EB2E1E1B7E87000C9541 /* ViewController.m in Sources */,
 				E1F7A15E1E20B8A800ABDE49 /* MJArgument.m in Sources */,
 				E1F7A15A1E20B8A800ABDE49 /* MASViewConstraint.m in Sources */,
+				E1F7A18A1E21179B00ABDE49 /* DKHomeSearchResultTableViewController.m in Sources */,
 				E1F7A16F1E20D67F00ABDE49 /* DKHomeMainTableViewCell.m in Sources */,
 				E1F7A1231E20B65700ABDE49 /* DKCategoryModel.m in Sources */,
 				E1F7A15F1E20B8A800ABDE49 /* MJConst.m in Sources */,
+				E1F7A18E1E2119C400ABDE49 /* Foundation+Log.m in Sources */,
 				E1F7A17B1E20E73400ABDE49 /* DKHomeCityViewController.m in Sources */,
 				E1F7A1811E20F1C800ABDE49 /* DKCityModel.m in Sources */,
 				E1F7A1601E20B8A800ABDE49 /* MJFoundation.m in Sources */,

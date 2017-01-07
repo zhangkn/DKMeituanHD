@@ -18,4 +18,9 @@
 
 + (NSArray*) cityGroupModels;
 
++ (NSArray*) cityModelsWithSeatchText:(NSString*)searchText;
+
+
+
+
 @end
