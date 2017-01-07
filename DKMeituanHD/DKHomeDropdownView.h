@@ -14,6 +14,7 @@
 
 
 
+@property (nonatomic,strong) NSArray *models;
 
 
 + (instancetype) homeDropdownView;

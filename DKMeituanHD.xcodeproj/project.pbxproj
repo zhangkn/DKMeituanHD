@@ -47,6 +47,8 @@
 		E1F7A1671E20B8A800ABDE49 /* NSObject+MJKeyValue.m in Sources */ = {isa = PBXBuildFile; fileRef = E1F7A1521E20B8A800ABDE49 /* NSObject+MJKeyValue.m */; };
 		E1F7A1681E20B8A800ABDE49 /* NSObject+MJMember.m in Sources */ = {isa = PBXBuildFile; fileRef = E1F7A1541E20B8A800ABDE49 /* NSObject+MJMember.m */; };
 		E1F7A16C1E20B92A00ABDE49 /* DKHomeModelTool.m in Sources */ = {isa = PBXBuildFile; fileRef = E1F7A16B1E20B92A00ABDE49 /* DKHomeModelTool.m */; };
+		E1F7A16F1E20D67F00ABDE49 /* DKHomeMainTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E1F7A16E1E20D67F00ABDE49 /* DKHomeMainTableViewCell.m */; };
+		E1F7A1721E20D68A00ABDE49 /* DKHomeSubTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E1F7A1711E20D68A00ABDE49 /* DKHomeSubTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -130,6 +132,10 @@
 		E1F7A1541E20B8A800ABDE49 /* NSObject+MJMember.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MJMember.m"; sourceTree = "<group>"; };
 		E1F7A16A1E20B92A00ABDE49 /* DKHomeModelTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKHomeModelTool.h; sourceTree = "<group>"; };
 		E1F7A16B1E20B92A00ABDE49 /* DKHomeModelTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKHomeModelTool.m; sourceTree = "<group>"; };
+		E1F7A16D1E20D67F00ABDE49 /* DKHomeMainTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKHomeMainTableViewCell.h; sourceTree = "<group>"; };
+		E1F7A16E1E20D67F00ABDE49 /* DKHomeMainTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKHomeMainTableViewCell.m; sourceTree = "<group>"; };
+		E1F7A1701E20D68A00ABDE49 /* DKHomeSubTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKHomeSubTableViewCell.h; sourceTree = "<group>"; };
+		E1F7A1711E20D68A00ABDE49 /* DKHomeSubTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKHomeSubTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -224,6 +230,10 @@
 			children = (
 				E1F4FA161E1E3FD800DBB3A3 /* DKHomeTopItem.h */,
 				E1F4FA171E1E3FD800DBB3A3 /* DKHomeTopItem.m */,
+				E1F7A16D1E20D67F00ABDE49 /* DKHomeMainTableViewCell.h */,
+				E1F7A16E1E20D67F00ABDE49 /* DKHomeMainTableViewCell.m */,
+				E1F7A1701E20D68A00ABDE49 /* DKHomeSubTableViewCell.h */,
+				E1F7A1711E20D68A00ABDE49 /* DKHomeSubTableViewCell.m */,
 				E1F7A10E1E20A31400ABDE49 /* DKHomeDropdownView.h */,
 				E1F7A1111E20A36800ABDE49 /* DKHomeDropdownView.xib */,
 				E1F7A10F1E20A31400ABDE49 /* DKHomeDropdownView.m */,
@@ -439,6 +449,7 @@
 				E1F7A1591E20B8A800ABDE49 /* MASViewAttribute.m in Sources */,
 				E1F7A1581E20B8A800ABDE49 /* MASLayoutConstraint.m in Sources */,
 				E1F7A1551E20B8A800ABDE49 /* MASCompositeConstraint.m in Sources */,
+				E1F7A1721E20D68A00ABDE49 /* DKHomeSubTableViewCell.m in Sources */,
 				E1F7A1671E20B8A800ABDE49 /* NSObject+MJKeyValue.m in Sources */,
 				E1D0EB401E1BA1CA000C9541 /* DKHomeCollectionViewController.m in Sources */,
 				E1F7A1631E20B8A800ABDE49 /* MJMethod.m in Sources */,
@@ -448,6 +459,7 @@
 				E1D0EB2E1E1B7E87000C9541 /* ViewController.m in Sources */,
 				E1F7A15E1E20B8A800ABDE49 /* MJArgument.m in Sources */,
 				E1F7A15A1E20B8A800ABDE49 /* MASViewConstraint.m in Sources */,
+				E1F7A16F1E20D67F00ABDE49 /* DKHomeMainTableViewCell.m in Sources */,
 				E1F7A1231E20B65700ABDE49 /* DKCategoryModel.m in Sources */,
 				E1F7A15F1E20B8A800ABDE49 /* MJConst.m in Sources */,
 				E1F7A1601E20B8A800ABDE49 /* MJFoundation.m in Sources */,

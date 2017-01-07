@@ -9,6 +9,8 @@
 #import "DKCategoryViewController.h"
 #import "DKHomeDropdownView.h"
 #import "DKHomeModelTool.h"
+#import "Masonry.h"
+#import "DKConst.h"
 
 /**
  *显示分类列表
@@ -21,10 +23,22 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    //1. 设置下拉菜单试图
     DKHomeDropdownView *homeDropdownView = [DKHomeDropdownView homeDropdownView];
     NSArray *categoryModels=  [DKHomeModelTool categoryModels];
+//    //设置homeDropdownView的约束size
+//    [homeDropdownView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.width.mas_equalTo(300);
+//        make.height.mas_equalTo(300);
+//        
+//    }];
+//    self.view  =homeDropdownView;
     
+    homeDropdownView.models = categoryModels;
     [self.view addSubview:homeDropdownView];
+    
+    //2.控制器的view 在popover控制器中的size
+    self.preferredContentSize = homeDropdownView.size;
     
 }
 
