@@ -7,8 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "DKHomeDropdownView.h"
 
-@interface DKCityRegion : NSObject
+@interface DKCityRegion : NSObject<DKHomeDropdownViewData>
 /**
  * 区域名称
  */

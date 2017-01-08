@@ -9,6 +9,11 @@
 #import "DKCityModel.h"
 #import "DKCityRegion.h"
 #import "MJExtension.h"
+#import "DKHomeDropdownView.h"
+
+@interface DKCityModel ()<DKHomeDropdownViewData>
+
+@end
 
 @implementation DKCityModel
 
@@ -23,6 +28,22 @@
 }
 
 
+
+- (NSString *)title{
+    return self.name;
+}
+
+//- (NSString *)icon{
+//    return self.icon;
+//}
+//
+//- (NSString *)selectedIcon{
+//    return self.highlighted_icon;
+//}
+
+- (NSArray *)subdata{
+    return self.regions;
+}
 
 
 @end

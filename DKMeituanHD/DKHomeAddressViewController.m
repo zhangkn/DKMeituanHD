@@ -14,10 +14,12 @@
 #import "DKHomeCityViewController.h"
 #import "DKNavigationViewController.h"
 
-@interface DKHomeAddressViewController ()
+@interface DKHomeAddressViewController ()<DKHomeDropdownViewDataSource>
 @property (weak, nonatomic) IBOutlet UIView *changeCityView;
 
 @property (weak, nonatomic)  DKHomeDropdownView *homeDropdownView;
+
+//@property (nonatomic,strong) NSArray *models;
 
 
 @end
@@ -28,14 +30,15 @@
     _selectedRegions = selectedRegions;
     
     //刷新数据
-    self.homeDropdownView.models = selectedRegions;
+    [self.homeDropdownView reloadData];
 }
 
 
 - (DKHomeDropdownView *)homeDropdownView{
     if (nil == _homeDropdownView) {
         DKHomeDropdownView *homeDropdownView= [DKHomeDropdownView homeDropdownView];
-        homeDropdownView.models = [DKHomeModelTool categoryModels];
+//        self.models = [DKHomeModelTool cityModels];
+        homeDropdownView.dataSource = self;
         _homeDropdownView = homeDropdownView;
         [self.view addSubview:homeDropdownView];
     }
@@ -78,8 +81,22 @@
     
 
 
+#pragma mark - ******** DKHomeDropdownViewDataSource
 
 
+/**
+ 左边的表格一共有多少行。
+ 
+ @param homeDropdownView 下拉菜单
+ 
+ @return 行数
+ */
+- (NSInteger)numberOfRowsInMainTableDKHomeDropdownView:(DKHomeDropdownView*)homeDropdownView{
+   return  self.selectedRegions.count;
+}
 
+- (id<DKHomeDropdownViewData>)  homeDropdownView:(DKHomeDropdownView*)homeDropdownView  subdataForRowsInMainTable:(NSInteger)row{
+    return self.selectedRegions[row];
+}
 
 @end

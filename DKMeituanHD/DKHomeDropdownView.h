@@ -9,14 +9,28 @@
 #import <UIKit/UIKit.h>
 @class DKHomeDropdownView;
 
+@protocol DKHomeDropdownViewData <NSObject>
+@required
+- (NSString*) title;
+- (NSArray*)subdata;
+@optional
+- (NSString*)icon;
+- (NSString*)selectedIcon;
+
+@end
+
 @protocol DKHomeDropdownViewDataSource <NSObject>
 @required
+/**
+ 左边的表格一共有多少行。
 
+ @param homeDropdownView 下拉菜单
 
-
-
+ @return 行数
+ */
 - (NSInteger)numberOfRowsInMainTableDKHomeDropdownView:(DKHomeDropdownView*)homeDropdownView;
 
+- (id<DKHomeDropdownViewData>)  homeDropdownView:(DKHomeDropdownView*)homeDropdownView  subdataForRowsInMainTable:(NSInteger)row;
 
 @end
 
@@ -34,11 +48,11 @@
  
  */
 
-
-@property (nonatomic,strong) NSArray *models;
-
+@property (nonatomic,assign) id<DKHomeDropdownViewDataSource> dataSource;
 
 + (instancetype) homeDropdownView;
+
+- (void) reloadData;
 
 
 @end

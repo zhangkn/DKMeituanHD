@@ -15,7 +15,10 @@
 /**
  *显示分类列表
  */
-@interface DKCategoryViewController ()
+@interface DKCategoryViewController ()<DKHomeDropdownViewDataSource>
+
+@property (nonatomic,strong) NSArray *models;
+
 
 @end
 
@@ -25,6 +28,7 @@
     
     //1. 设置下拉菜单试图 为控制器视图
     DKHomeDropdownView *homeDropdownView = [DKHomeDropdownView homeDropdownView];
+    homeDropdownView.dataSource = self;
     NSArray *categoryModels=  [DKHomeModelTool categoryModels];
     //    //设置homeDropdownView的约束size
     //    [homeDropdownView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -34,9 +38,10 @@
     //    }];
     //    self.view  =homeDropdownView;
     
-    homeDropdownView.models = categoryModels;
+    self.models = categoryModels;
 //    [self.view addSubview:homeDropdownView];
     self.view = homeDropdownView;
+    
     
     //2.控制器的view 在popover控制器中的size
     self.preferredContentSize = homeDropdownView.size;
@@ -45,20 +50,27 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-   
+    
+    
     
 }
 
 
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+/**
+ 左边的表格一共有多少行。
+ 
+ @param homeDropdownView 下拉菜单
+ 
+ @return 行数
+ */
+- (NSInteger)numberOfRowsInMainTableDKHomeDropdownView:(DKHomeDropdownView*)homeDropdownView{
+  return   self.models.count;
 }
-*/
+
+- (id<DKHomeDropdownViewData>)  homeDropdownView:(DKHomeDropdownView*)homeDropdownView  subdataForRowsInMainTable:(NSInteger)row{
+    return self.models[row] ;
+}
+
+
 
 @end

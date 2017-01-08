@@ -13,5 +13,20 @@
 @implementation DKCategoryModel
 
 
+- (NSString *)title{
+    return self.name;
+}
+
+- (NSString *)icon{
+    return self.small_icon;
+}
+
+- (NSString *)selectedIcon{
+    return self.small_highlighted_icon;
+}
+
+- (NSArray *)subdata{
+    return self.subcategories;
+}
 
 @end

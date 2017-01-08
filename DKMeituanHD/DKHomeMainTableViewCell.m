@@ -10,18 +10,26 @@
 
 @implementation DKHomeMainTableViewCell
 
-+ (instancetype)tableVieCellWithModel:(DKCategoryModel *)model tableView:(UITableView *)tableView{
++ (instancetype)tableVieCellWithModel:( id<DKHomeDropdownViewData>)model tableView:(UITableView *)tableView{
     DKHomeMainTableViewCell *cell = [self tableViewCellWithTableView:tableView];
     cell.model = model;
     return cell;
 }
 
-- (void)setModel:(DKCategoryModel *)model{
+- (void)setModel:(id<DKHomeDropdownViewData>)model{
     _model = model;
-    self.textLabel.text = model.name;
-    [self.imageView setImage:[UIImage imageNamed:model.small_icon]];
+    self.textLabel.text = [model title];
     
-    if (model.subcategories.count) {
+    if ([model respondsToSelector:@selector(icon)]) {
+        [self.imageView setImage:[UIImage imageNamed:[model icon]]];
+    }
+    
+    if ([model respondsToSelector:@selector(selectedIcon)]) {
+        self.imageView.highlightedImage = [UIImage imageNamed:[model selectedIcon]];
+    }
+    
+    
+    if ([model subdata].count) {
         self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         
     }else{

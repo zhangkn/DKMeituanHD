@@ -12,4 +12,24 @@
 
 
 
+
+
+- (NSString *)title{
+    return self.name;
+}
+
+//- (NSString *)icon{
+//    return self.icon;
+//}
+//
+//- (NSString *)selectedIcon{
+//    return self.highlighted_icon;
+//}
+
+- (NSArray *)subdata{
+    return self.subregions;
+}
+
+
+
 @end

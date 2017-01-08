@@ -7,8 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-
-@interface DKCategoryModel : NSObject
+#import "DKHomeDropdownView.h"
+@interface DKCategoryModel : NSObject<DKHomeDropdownViewData>
 /**
  *显示在下拉菜单的小图标
  */
@@ -34,6 +34,8 @@
  *分类名称
  */
 @property (nonatomic,copy) NSString *name;
+
+
 
 
 
