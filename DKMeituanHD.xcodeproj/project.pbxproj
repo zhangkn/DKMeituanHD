@@ -11,6 +11,9 @@
 		E10622A11E1CD7CC0082221F /* DKConst.m in Sources */ = {isa = PBXBuildFile; fileRef = E10622A01E1CD7CC0082221F /* DKConst.m */; };
 		E10622A51E1CEC200082221F /* UIBarButtonItem+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = E10622A41E1CEC200082221F /* UIBarButtonItem+Extension.m */; };
 		E10622A91E1CEC840082221F /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = E10622A81E1CEC840082221F /* UIView+Extension.m */; };
+		E1A8FC4A1E2243B900D02AAA /* DKHomeSortModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E1A8FC491E2243B900D02AAA /* DKHomeSortModel.m */; };
+		E1A8FC4D1E2244B800D02AAA /* DKHomeSortViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1A8FC4C1E2244B800D02AAA /* DKHomeSortViewController.m */; };
+		E1A8FC501E224EF900D02AAA /* DKHomeSortButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E1A8FC4F1E224EF900D02AAA /* DKHomeSortButton.m */; };
 		E1D0EB281E1B7E87000C9541 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E1D0EB271E1B7E87000C9541 /* main.m */; };
 		E1D0EB2B1E1B7E87000C9541 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E1D0EB2A1E1B7E87000C9541 /* AppDelegate.m */; };
 		E1D0EB2E1E1B7E87000C9541 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1D0EB2D1E1B7E87000C9541 /* ViewController.m */; };
@@ -70,6 +73,12 @@
 		E10622A41E1CEC200082221F /* UIBarButtonItem+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Extension.m"; sourceTree = "<group>"; };
 		E10622A71E1CEC840082221F /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
 		E10622A81E1CEC840082221F /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
+		E1A8FC481E2243B900D02AAA /* DKHomeSortModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKHomeSortModel.h; sourceTree = "<group>"; };
+		E1A8FC491E2243B900D02AAA /* DKHomeSortModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKHomeSortModel.m; sourceTree = "<group>"; };
+		E1A8FC4B1E2244B800D02AAA /* DKHomeSortViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKHomeSortViewController.h; sourceTree = "<group>"; };
+		E1A8FC4C1E2244B800D02AAA /* DKHomeSortViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKHomeSortViewController.m; sourceTree = "<group>"; };
+		E1A8FC4E1E224EF900D02AAA /* DKHomeSortButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKHomeSortButton.h; sourceTree = "<group>"; };
+		E1A8FC4F1E224EF900D02AAA /* DKHomeSortButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKHomeSortButton.m; sourceTree = "<group>"; };
 		E1D0EB231E1B7E87000C9541 /* DKMeituanHD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DKMeituanHD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1D0EB271E1B7E87000C9541 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E1D0EB291E1B7E87000C9541 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -249,6 +258,8 @@
 				E1D0EB3F1E1BA1CA000C9541 /* DKHomeCollectionViewController.m */,
 				E1F7A1131E20AF2800ABDE49 /* DKCategoryViewController.h */,
 				E1F7A1881E21179B00ABDE49 /* DKHomeSearchResultTableViewController.h */,
+				E1A8FC4B1E2244B800D02AAA /* DKHomeSortViewController.h */,
+				E1A8FC4C1E2244B800D02AAA /* DKHomeSortViewController.m */,
 				E1F7A1891E21179B00ABDE49 /* DKHomeSearchResultTableViewController.m */,
 				E1F7A1781E20E73400ABDE49 /* DKHomeCityViewController.h */,
 				E1F7A1791E20E73400ABDE49 /* DKHomeCityViewController.m */,
@@ -271,6 +282,8 @@
 				E1F7A16D1E20D67F00ABDE49 /* DKHomeMainTableViewCell.h */,
 				E1F7A16E1E20D67F00ABDE49 /* DKHomeMainTableViewCell.m */,
 				E1F7A1701E20D68A00ABDE49 /* DKHomeSubTableViewCell.h */,
+				E1A8FC4E1E224EF900D02AAA /* DKHomeSortButton.h */,
+				E1A8FC4F1E224EF900D02AAA /* DKHomeSortButton.m */,
 				E1F7A1711E20D68A00ABDE49 /* DKHomeSubTableViewCell.m */,
 				E1F7A10E1E20A31400ABDE49 /* DKHomeDropdownView.h */,
 				E1F7A1111E20A36800ABDE49 /* DKHomeDropdownView.xib */,
@@ -315,6 +328,8 @@
 			children = (
 				E1F7A1211E20B65700ABDE49 /* DKCategoryModel.h */,
 				E1F7A17F1E20F1C800ABDE49 /* DKCityModel.h */,
+				E1A8FC481E2243B900D02AAA /* DKHomeSortModel.h */,
+				E1A8FC491E2243B900D02AAA /* DKHomeSortModel.m */,
 				E1F7A1801E20F1C800ABDE49 /* DKCityModel.m */,
 				E1F7A1821E20F2BE00ABDE49 /* DKCityRegion.h */,
 				E1F7A1851E20FA3800ABDE49 /* DKCityGroupModel.h */,
@@ -487,6 +502,7 @@
 				E1F7A1621E20B8A800ABDE49 /* MJMember.m in Sources */,
 				E10622A11E1CD7CC0082221F /* DKConst.m in Sources */,
 				E1F7A15B1E20B8A800ABDE49 /* NSArray+MASAdditions.m in Sources */,
+				E1A8FC4A1E2243B900D02AAA /* DKHomeSortModel.m in Sources */,
 				E1F7A18F1E2119C400ABDE49 /* UIView+AutoLayout.m in Sources */,
 				E10622A51E1CEC200082221F /* UIBarButtonItem+Extension.m in Sources */,
 				E1F7A1641E20B8A800ABDE49 /* MJType.m in Sources */,
@@ -506,6 +522,7 @@
 				E1F7A1661E20B8A800ABDE49 /* NSObject+MJCoding.m in Sources */,
 				E1F7A1611E20B8A800ABDE49 /* MJIvar.m in Sources */,
 				E1D0EB2E1E1B7E87000C9541 /* ViewController.m in Sources */,
+				E1A8FC4D1E2244B800D02AAA /* DKHomeSortViewController.m in Sources */,
 				E1F7A15E1E20B8A800ABDE49 /* MJArgument.m in Sources */,
 				E1F7A15A1E20B8A800ABDE49 /* MASViewConstraint.m in Sources */,
 				E1F7A18A1E21179B00ABDE49 /* DKHomeSearchResultTableViewController.m in Sources */,
@@ -517,6 +534,7 @@
 				E1F7A1811E20F1C800ABDE49 /* DKCityModel.m in Sources */,
 				E1F7A1601E20B8A800ABDE49 /* MJFoundation.m in Sources */,
 				E1D0EB2B1E1B7E87000C9541 /* AppDelegate.m in Sources */,
+				E1A8FC501E224EF900D02AAA /* DKHomeSortButton.m in Sources */,
 				E1F7A1101E20A31400ABDE49 /* DKHomeDropdownView.m in Sources */,
 				E1F7A1751E20DD9400ABDE49 /* DKHomeAddressViewController.m in Sources */,
 				E10622A91E1CEC840082221F /* UIView+Extension.m in Sources */,

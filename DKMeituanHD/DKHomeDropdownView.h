@@ -9,6 +9,17 @@
 #import <UIKit/UIKit.h>
 @class DKHomeDropdownView;
 
+
+@protocol DKHomeDropdownViewDelegate <NSObject>
+
+@optional
+- (void)homeDropdownView:(DKHomeDropdownView*)homeDropdownView  didSelectedRowsInMainTable:(NSInteger)row;
+- (void)homeDropdownView:(DKHomeDropdownView*)homeDropdownView  didSelectedRowsInSubTable:(NSInteger)row  inMainTable:(NSInteger)mainRow;;
+
+
+
+@end
+
 @protocol DKHomeDropdownViewData <NSObject>
 @required
 - (NSString*) title;
@@ -49,6 +60,8 @@
  */
 
 @property (nonatomic,assign) id<DKHomeDropdownViewDataSource> dataSource;
+@property (nonatomic,assign) id<DKHomeDropdownViewDelegate> delegate;
+
 
 + (instancetype) homeDropdownView;
 

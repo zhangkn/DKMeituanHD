@@ -12,7 +12,11 @@
 #import "DKHomeTopItem.h"
 #import "DKHomeAddressViewController.h"
 #import "DKHomeModelTool.h"
-
+#import "DKHomeSortViewController.h"
+#import "DKHomeSortModel.h"
+#import "DKCategoryModel.h"
+#import "DKCityModel.h"
+#import "DKCityGroupModel.h"
 @interface DKHomeCollectionViewController ()
 
 /** 地区*/
@@ -31,9 +35,17 @@
  */
 @property (nonatomic,copy) NSString *selectedCityName;
 
+/**
+ 选中的排序模型
+ */
+@property (nonatomic,strong) DKHomeSortModel *selectedDKHomeSortModel;
+
+
 
 
 @property (nonatomic,strong) UIPopoverController *addressUIPopoverController;
+@property (nonatomic,strong) UIPopoverController *homeSortViewControllerUIPopoverController;
+
 
 
 
@@ -49,8 +61,12 @@ static NSString * const reuseIdentifier = @"Cell";
 - (UIBarButtonItem *)categoryItem{
     if (nil == _categoryItem) {
         DKHomeTopItem *tmpItemView = [DKHomeTopItem homeTopItem];
+        
+        [tmpItemView setIcon:@"icon_district" hightIcon:@"icon_district_highlighted"];
+
         //设置监听器
         [tmpItemView addTarget:self action:@selector(clickCategoryItem)];
+        
         
         UIBarButtonItem *tmpView =  [[UIBarButtonItem alloc]initWithCustomView:tmpItemView];
         _categoryItem = tmpView;
@@ -58,10 +74,34 @@ static NSString * const reuseIdentifier = @"Cell";
     return _categoryItem;
 }
 
+- (UIBarButtonItem *)sortItem{
+    if (nil == _sortItem) {
+        DKHomeTopItem *tmpItemView = [DKHomeTopItem homeTopItem];
+        tmpItemView.title = @"排序";
+        [tmpItemView setIcon:@"icon_sort" hightIcon:@"icon_sort_highlighted"];
+        if (self.selectedDKHomeSortModel == nil) {
+            self.selectedDKHomeSortModel = [[DKHomeSortModel alloc]init];
+            self.selectedDKHomeSortModel.label = @"默认排序";
+            self.selectedDKHomeSortModel.value = @"1";
+            
+            tmpItemView.subTitle =self.selectedDKHomeSortModel.label;
+            
+        }
+        //设置监听器
+        [tmpItemView addTarget:self action:@selector(clickSortItem)];
+        
+        UIBarButtonItem *tmpView =  [[UIBarButtonItem alloc]initWithCustomView:tmpItemView];
+        _sortItem = tmpView;
+    }
+    return _sortItem;
+}
+
 
 - (UIBarButtonItem *)addressItem{
     if (nil == _addressItem) {
         DKHomeTopItem *addressItemView = [DKHomeTopItem homeTopItem];
+        [addressItemView setIcon:@"icon_district" hightIcon:@"icon_district_highlighted"];
+
         //设置监听器
         [addressItemView addTarget:self action:@selector(clickAddressItem)];
         UIBarButtonItem *tmpView =  [[UIBarButtonItem alloc]initWithCustomView:addressItemView];
@@ -109,10 +149,61 @@ static NSString * const reuseIdentifier = @"Cell";
     [self setupLeftNav];
     //2.监听城市的改变
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didSelectCityNotification:) name:DKdidSelectCityNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didClickSortButonNotification:) name:DKdidClickSortButonNotification object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didClickCategoryTableNotification:) name:DKdidClickCategoryTableNotification object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didClickCityTableTableNotification:) name:DKdidClickCityTableTableNotification object:nil];
+
+
+    
     
 
 
 }
+
+
+- (void)didClickCityTableTableNotification:(NSNotification*)notification{
+    NSString *title = [notification userInfo][DKdidClickCityTableTableNotificationInfoTitleKey];
+    NSString *subtitle = [notification userInfo][DKdidClickCityTableTableNotificationInfoSubTitleKey];
+    
+    DKHomeTopItem *topItem = (DKHomeTopItem*) self.addressItem.customView;
+    topItem.title = [NSString stringWithFormat:@"%@ -%@",self.selectedCityName,title];
+    topItem.subTitle = subtitle;
+#warning 设置选中的类别数据
+    
+    //    self.selectedDKHomeSortModel = subtitle;
+    //进行数据的更新（请求后台）
+}
+
+- (void)didClickCategoryTableNotification:(NSNotification*)notification{
+    NSString *title = [notification userInfo][DKdidClickCategoryTableNotificationInfoTitleKey];
+    NSString *subtitle = [notification userInfo][DKdidClickCategoryTableNotificationInfosubTitleKey];
+    DKCategoryModel *model = [notification userInfo][DKdidClickCategoryTableNotificationInfoModelKey];
+
+    
+    DKHomeTopItem *topItem = (DKHomeTopItem*) self.categoryItem.customView;
+    topItem.title = title;
+    topItem.subTitle = subtitle;
+    [topItem setIcon:model.icon hightIcon:model.highlighted_icon];
+#warning 设置选中的类别数据
+
+//    self.selectedDKHomeSortModel = subtitle;
+    //进行数据的更新（请求后台）
+}
+
+/**
+ *监听点击排序的通知
+ */
+- (void)didClickSortButonNotification:(NSNotification*)notification{
+    DKHomeSortModel *model = [notification userInfo][DKdidClickSortButonNotificationValueKey];
+    DKHomeTopItem *topItem = (DKHomeTopItem*) self.sortItem.customView;
+    topItem.subTitle = model.label;
+#warning 设置选中的类别数据
+    self.selectedDKHomeSortModel = model;
+    //进行数据的更新（请求后台）
+}
+
 /**
  *监听城市的改变
  */
@@ -152,16 +243,29 @@ static NSString * const reuseIdentifier = @"Cell";
    
 //    searchItem.customView.width = 60;
 
-    self.navigationItem.leftBarButtonItems = @[logoItem, self.categoryItem,self.addressItem];
+    self.navigationItem.leftBarButtonItems = @[logoItem, self.categoryItem,self.addressItem,self.sortItem];
 
     
     
 }
 
+#pragma mark - ******** 点击顶部的bar
+
+/**
+ 点击排序bar
+ */
+- (void)clickSortItem{
+    
+    
+    DKHomeSortViewController *homeSortViewController = [[DKHomeSortViewController alloc]init];
+    
+    self.homeSortViewControllerUIPopoverController = [[UIPopoverController alloc]initWithContentViewController:homeSortViewController];
+    [self.homeSortViewControllerUIPopoverController presentPopoverFromBarButtonItem:self.sortItem permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+    
+}
 
 - (void)clickAddressItem{
     
-    NSLog(@"%s",__func__);
     DKHomeAddressViewController *homeAddressViewController = [[DKHomeAddressViewController alloc]init];
     //获取当前定位（选中）城市的区域
 //    homeAddressViewController.selectedRegions = [DKHomeModelTool searchRegionsWithCityName:self.selectedCityName];

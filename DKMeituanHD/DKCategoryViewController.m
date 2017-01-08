@@ -11,7 +11,7 @@
 #import "DKHomeModelTool.h"
 #import "Masonry.h"
 #import "DKConst.h"
-
+#import "DKCategoryModel.h"
 /**
  *显示分类列表
  */
@@ -29,6 +29,7 @@
     //1. 设置下拉菜单试图 为控制器视图
     DKHomeDropdownView *homeDropdownView = [DKHomeDropdownView homeDropdownView];
     homeDropdownView.dataSource = self;
+    homeDropdownView.delegate = self;
     NSArray *categoryModels=  [DKHomeModelTool categoryModels];
     //    //设置homeDropdownView的约束size
     //    [homeDropdownView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -70,6 +71,50 @@
 - (id<DKHomeDropdownViewData>)  homeDropdownView:(DKHomeDropdownView*)homeDropdownView  subdataForRowsInMainTable:(NSInteger)row{
     return self.models[row] ;
 }
+
+#pragma mark - ******** DKHomeDropdownViewDelegate
+
+- (void)homeDropdownView:(DKHomeDropdownView*)homeDropdownView  didSelectedRowsInMainTable:(NSInteger)row{
+    
+    
+    // post notification
+    DKCategoryModel *model = (DKCategoryModel*)self.models[row] ;
+    
+    if (model.subcategories.count) {
+        return;
+    }
+    
+    NSString *title = model.name;
+    NSString *subTitle = @"";
+    
+    NSDictionary *userInfo = @{DKdidClickCategoryTableNotificationInfosubTitleKey: subTitle,DKdidClickCategoryTableNotificationInfoTitleKey:title,DKdidClickCategoryTableNotificationInfoModelKey:model};
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:DKdidClickCategoryTableNotification object:self userInfo:userInfo];
+    
+
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
+}
+- (void)homeDropdownView:(DKHomeDropdownView*)homeDropdownView  didSelectedRowsInSubTable:(NSInteger)row inMainTable:(NSInteger)mainRow{
+//更新数据
+//    发布通知
+    // post notification
+    DKCategoryModel *model = (DKCategoryModel*)self.models[mainRow] ;
+    
+    NSString *subTitle = model.subcategories[row];
+    NSString *title = model.name;
+    
+    NSDictionary *userInfo = @{DKdidClickCategoryTableNotificationInfosubTitleKey: subTitle,DKdidClickCategoryTableNotificationInfoTitleKey:title,DKdidClickCategoryTableNotificationInfoModelKey:model};
+
+    [[NSNotificationCenter defaultCenter] postNotificationName:DKdidClickCategoryTableNotification object:self userInfo:userInfo];
+    
+
+    [self dismissViewControllerAnimated:YES completion:nil];
+
+    
+}
+
 
 
 

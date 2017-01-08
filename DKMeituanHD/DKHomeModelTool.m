@@ -14,6 +14,8 @@
 
 
 #import "DKCityModel.h"
+#import "DKHomeSortModel.h"
+
 
 @implementation DKHomeModelTool
 
@@ -22,6 +24,9 @@ static NSArray *_categoryModels;
 static NSArray *_cityModels;
 
 static NSArray *_cityGroupModels;
+
+static NSArray *_sortModels;
+
 
 
 #if 1
@@ -34,10 +39,17 @@ static NSArray *_cityGroupModels;
             _categoryModels = [self getcategoryModels];
             _cityModels = [self getCityModels];
             _cityGroupModels = [self getCityGroupModels];
+            _sortModels = [DKHomeSortModel objectArrayWithFilename:@"sorts.plist"];
         });
     }
 }
 #endif
+
++ (NSArray*)getSortModels{
+    return _sortModels;
+}
+
+
 /**
  *或者使用懒加载
  */

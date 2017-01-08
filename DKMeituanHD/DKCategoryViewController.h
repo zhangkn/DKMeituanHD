@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface DKCategoryViewController : UIViewController
+#import "DKHomeDropdownView.h"
+@interface DKCategoryViewController : UIViewController<DKHomeDropdownViewDelegate>
 
 @end

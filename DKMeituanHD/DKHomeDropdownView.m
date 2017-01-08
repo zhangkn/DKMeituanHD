@@ -17,6 +17,11 @@
 @property (weak, nonatomic) IBOutlet UITableView *subTableView;
 
 @property (strong, nonatomic)  id<DKHomeDropdownViewData> selectedModel;
+/**
+ *主表的选中的下标
+ */
+@property (assign, nonatomic)  NSInteger selectedMianRow;
+
 
 
 
@@ -87,12 +92,13 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if (tableView == self.mainTableView) {
-        
+        self.selectedMianRow = indexPath.row;
+        //1.处理数据源代理
         if ([self.dataSource respondsToSelector:@selector(homeDropdownView:subdataForRowsInMainTable:)]) {
             id<DKHomeDropdownViewData> model = [self.dataSource homeDropdownView:self subdataForRowsInMainTable:indexPath.row];
             if ([model subdata].count) {
                 self.selectedModel = model;
-            }else{// ------没有子类的情况
+            }else{// ------没有子数据的情况
                 self.selectedModel = nil;
             }
             
@@ -100,8 +106,20 @@
         }else{// ------数据源代理对象没有实现协议的情况
             self.selectedModel = nil;
         }
-        // ------更新数据
+        //2. ------更新数据
         [self.subTableView reloadData];
+        //3. 处理代理对象
+        
+        if ([self.delegate respondsToSelector:@selector(homeDropdownView:didSelectedRowsInMainTable:)]) {
+            [self.delegate homeDropdownView:self didSelectedRowsInMainTable:indexPath.row];
+        }
+        
+        
+    }else{// ------处理点击右边表格的情况
+        
+        if ([self.delegate respondsToSelector:@selector(homeDropdownView:didSelectedRowsInSubTable:inMainTable:)]) {
+            [self.delegate homeDropdownView:self didSelectedRowsInSubTable:indexPath.row inMainTable:self.selectedMianRow];
+        }
     }
     
 }

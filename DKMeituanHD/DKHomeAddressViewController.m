@@ -14,7 +14,9 @@
 #import "DKHomeCityViewController.h"
 #import "DKNavigationViewController.h"
 
-@interface DKHomeAddressViewController ()<DKHomeDropdownViewDataSource>
+#import "DKCityRegion.h"
+
+@interface DKHomeAddressViewController ()<DKHomeDropdownViewDataSource,DKHomeDropdownViewDelegate>
 @property (weak, nonatomic) IBOutlet UIView *changeCityView;
 
 @property (weak, nonatomic)  DKHomeDropdownView *homeDropdownView;
@@ -39,6 +41,7 @@
         DKHomeDropdownView *homeDropdownView= [DKHomeDropdownView homeDropdownView];
 //        self.models = [DKHomeModelTool cityModels];
         homeDropdownView.dataSource = self;
+        homeDropdownView.delegate = self;
         _homeDropdownView = homeDropdownView;
         [self.view addSubview:homeDropdownView];
     }
@@ -63,13 +66,19 @@
  */
 - (IBAction)clickChangeCityView:(id)sender {
     NSLog(@"%s",__func__);
+    [self dismissViewControllerAnimated:YES completion:nil];
+
+    
     
     DKHomeCityViewController *city =[[DKHomeCityViewController alloc] initWithNibName:@"DKHomeCityViewController" bundle:nil];
 //    DKHomeCityViewController *city = [[DKHomeCityViewController alloc]init];    // 控制器会默认去找对应的xib来创建View。
     
     DKNavigationViewController *nav = [[DKNavigationViewController alloc]initWithRootViewController:city];
     nav.modalPresentationStyle = UIModalPresentationFormSheet;//设置modal的样式为sheet，居中显示，类似UiActionSheet的形式
-    [self presentViewController:nav animated:YES completion:nil];
+    [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:nav animated:YES completion:^{
+
+    }];// ------rootViewController  在同一时刻只能presentViewController 一个，所以必须先    [self dismissViewControllerAnimated:YES completion:nil];，否则将报错DKNavigationViewController: 0x7fdcc401d000> which is already presenting
+
     
 }
 
@@ -98,5 +107,49 @@
 - (id<DKHomeDropdownViewData>)  homeDropdownView:(DKHomeDropdownView*)homeDropdownView  subdataForRowsInMainTable:(NSInteger)row{
     return self.selectedRegions[row];
 }
+
+
+
+#pragma mark - ******** DKHomeDropdownViewDelegate
+
+- (void)homeDropdownView:(DKHomeDropdownView*)homeDropdownView  didSelectedRowsInMainTable:(NSInteger)row{
+    
+    
+    // post notification
+    DKCityRegion *model = (DKCityRegion*)self.selectedRegions[row] ;
+    
+    if (model.subregions.count) {
+        return;
+    }
+    
+    NSString *title = model.name;
+    NSString *subTitle = @"";
+    NSDictionary *userInfo = @{DKdidClickCityTableTableNotificationInfoSubTitleKey: subTitle,DKdidClickCityTableTableNotificationInfoTitleKey:title};
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:DKdidClickCityTableTableNotification object:self userInfo:userInfo];
+    
+    
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
+}
+- (void)homeDropdownView:(DKHomeDropdownView*)homeDropdownView  didSelectedRowsInSubTable:(NSInteger)row inMainTable:(NSInteger)mainRow{
+    //更新数据
+    //    发布通知
+    // post notification
+    DKCityRegion *model = (DKCityRegion*)self.selectedRegions[mainRow] ;
+    
+    NSString *subTitle = model.subregions[row];
+    NSString *title = model.name;
+    
+    NSDictionary *userInfo = @{DKdidClickCityTableTableNotificationInfoSubTitleKey: subTitle,DKdidClickCityTableTableNotificationInfoTitleKey:title};
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:DKdidClickCityTableTableNotification object:self userInfo:userInfo];
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
+    
+}
+
 
 @end

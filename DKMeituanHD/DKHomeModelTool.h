@@ -22,6 +22,11 @@
 
 + (NSArray*) searchRegionsWithCityName:(NSString*)cityName;
 
+/**
+ 排序模型数组的获取
 
+ @return 排序模型数组
+ */
++ (NSArray*)getSortModels;
 
 @end
