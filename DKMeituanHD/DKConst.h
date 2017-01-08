@@ -6,6 +6,9 @@
 #import "UIView+AutoLayout.h"
 #import "Foundation+Log.m"
 #import "DKHomeModelTool.h"
+#import "DPRequest.h"
+#import "DPAPI.h"
+
 #ifdef DEBUG
 # define NSLog(...) NSLog(__VA_ARGS__)
 #else

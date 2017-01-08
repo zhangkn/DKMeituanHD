@@ -17,7 +17,7 @@
 #import "DKCategoryModel.h"
 #import "DKCityModel.h"
 #import "DKCityGroupModel.h"
-@interface DKHomeCollectionViewController ()
+@interface DKHomeCollectionViewController ()<DPRequestDelegate>
 
 /** 地区*/
 @property (nonatomic,strong) UIBarButtonItem *addressItem;
@@ -174,6 +174,8 @@ static NSString * const reuseIdentifier = @"Cell";
     
     //    self.selectedDKHomeSortModel = subtitle;
     //进行数据的更新（请求后台）
+    [self loadNewDeals];//http://api.dianping.com/v1/deal/find_deals
+
 }
 
 - (void)didClickCategoryTableNotification:(NSNotification*)notification{
@@ -190,7 +192,9 @@ static NSString * const reuseIdentifier = @"Cell";
 
 //    self.selectedDKHomeSortModel = subtitle;
     //进行数据的更新（请求后台）
+    [self loadNewDeals];//http://api.dianping.com/v1/deal/find_deals
 }
+
 
 /**
  *监听点击排序的通知
@@ -202,7 +206,39 @@ static NSString * const reuseIdentifier = @"Cell";
 #warning 设置选中的类别数据
     self.selectedDKHomeSortModel = model;
     //进行数据的更新（请求后台）
+    [self loadNewDeals];//http://api.dianping.com/v1/deal/find_deals
 }
+
+#pragma mark - ******** 与服务器的交互
+
+- (void) loadNewDeals{//
+    
+    DPAPI *api =  [[DPAPI alloc]init];
+//    NSString *url = @"http://api.dianping.com/v1/deal/find_deals";
+    NSString *url = @"v1/deal/find_deals";
+    NSMutableDictionary *params = [[NSMutableDictionary alloc]init];
+    
+    [api requestWithURL:url params:params delegate:self];
+    
+}
+
+
+#pragma mark - ******** - DPRequestDelegate
+
+- (void)request:(DPRequest *)request didReceiveResponse:(NSURLResponse *)response{
+    
+}
+- (void)request:(DPRequest *)request didReceiveRawData:(NSData *)data{
+    
+}
+- (void)request:(DPRequest *)request didFailWithError:(NSError *)error{
+    
+}
+- (void)request:(DPRequest *)request didFinishLoadingWithResult:(id)result{
+    
+}
+
+
 
 /**
  *监听城市的改变
@@ -365,5 +401,9 @@ static NSString * const reuseIdentifier = @"Cell";
 	
 }
 */
+
+
+
+
 
 @end

@@ -14,6 +14,8 @@
 		E1A8FC4A1E2243B900D02AAA /* DKHomeSortModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E1A8FC491E2243B900D02AAA /* DKHomeSortModel.m */; };
 		E1A8FC4D1E2244B800D02AAA /* DKHomeSortViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1A8FC4C1E2244B800D02AAA /* DKHomeSortViewController.m */; };
 		E1A8FC501E224EF900D02AAA /* DKHomeSortButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E1A8FC4F1E224EF900D02AAA /* DKHomeSortButton.m */; };
+		E1A8FC571E227BD300D02AAA /* DPAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = E1A8FC531E227BD300D02AAA /* DPAPI.m */; };
+		E1A8FC581E227BD300D02AAA /* DPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E1A8FC561E227BD300D02AAA /* DPRequest.m */; };
 		E1D0EB281E1B7E87000C9541 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E1D0EB271E1B7E87000C9541 /* main.m */; };
 		E1D0EB2B1E1B7E87000C9541 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E1D0EB2A1E1B7E87000C9541 /* AppDelegate.m */; };
 		E1D0EB2E1E1B7E87000C9541 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1D0EB2D1E1B7E87000C9541 /* ViewController.m */; };
@@ -79,6 +81,11 @@
 		E1A8FC4C1E2244B800D02AAA /* DKHomeSortViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKHomeSortViewController.m; sourceTree = "<group>"; };
 		E1A8FC4E1E224EF900D02AAA /* DKHomeSortButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKHomeSortButton.h; sourceTree = "<group>"; };
 		E1A8FC4F1E224EF900D02AAA /* DKHomeSortButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKHomeSortButton.m; sourceTree = "<group>"; };
+		E1A8FC521E227BD300D02AAA /* DPAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPAPI.h; sourceTree = "<group>"; };
+		E1A8FC531E227BD300D02AAA /* DPAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPAPI.m; sourceTree = "<group>"; };
+		E1A8FC541E227BD300D02AAA /* DPConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPConstants.h; sourceTree = "<group>"; };
+		E1A8FC551E227BD300D02AAA /* DPRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPRequest.h; sourceTree = "<group>"; };
+		E1A8FC561E227BD300D02AAA /* DPRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPRequest.m; sourceTree = "<group>"; };
 		E1D0EB231E1B7E87000C9541 /* DKMeituanHD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DKMeituanHD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1D0EB271E1B7E87000C9541 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E1D0EB291E1B7E87000C9541 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -207,6 +214,18 @@
 				E10622A41E1CEC200082221F /* UIBarButtonItem+Extension.m */,
 			);
 			name = Extension;
+			sourceTree = "<group>";
+		};
+		E1A8FC511E227BD300D02AAA /* dianpingapi */ = {
+			isa = PBXGroup;
+			children = (
+				E1A8FC521E227BD300D02AAA /* DPAPI.h */,
+				E1A8FC531E227BD300D02AAA /* DPAPI.m */,
+				E1A8FC541E227BD300D02AAA /* DPConstants.h */,
+				E1A8FC551E227BD300D02AAA /* DPRequest.h */,
+				E1A8FC561E227BD300D02AAA /* DPRequest.m */,
+			);
+			path = dianpingapi;
 			sourceTree = "<group>";
 		};
 		E1D0EB1A1E1B7E86000C9541 = {
@@ -343,6 +362,7 @@
 		E1F7A1241E20B88900ABDE49 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				E1A8FC511E227BD300D02AAA /* dianpingapi */,
 				E1F7A1251E20B8A800ABDE49 /* Masonry */,
 				E1F7A13D1E20B8A800ABDE49 /* MJExtension */,
 			);
@@ -516,12 +536,14 @@
 				E1F7A1671E20B8A800ABDE49 /* NSObject+MJKeyValue.m in Sources */,
 				E1D0EB401E1BA1CA000C9541 /* DKHomeCollectionViewController.m in Sources */,
 				E1F7A1631E20B8A800ABDE49 /* MJMethod.m in Sources */,
+				E1A8FC581E227BD300D02AAA /* DPRequest.m in Sources */,
 				E1F7A1841E20F2BE00ABDE49 /* DKCityRegion.m in Sources */,
 				E1F7A1651E20B8A800ABDE49 /* MJTypeEncoding.m in Sources */,
 				E1F7A1871E20FA3800ABDE49 /* DKCityGroupModel.m in Sources */,
 				E1F7A1661E20B8A800ABDE49 /* NSObject+MJCoding.m in Sources */,
 				E1F7A1611E20B8A800ABDE49 /* MJIvar.m in Sources */,
 				E1D0EB2E1E1B7E87000C9541 /* ViewController.m in Sources */,
+				E1A8FC571E227BD300D02AAA /* DPAPI.m in Sources */,
 				E1A8FC4D1E2244B800D02AAA /* DKHomeSortViewController.m in Sources */,
 				E1F7A15E1E20B8A800ABDE49 /* MJArgument.m in Sources */,
 				E1F7A15A1E20B8A800ABDE49 /* MASViewConstraint.m in Sources */,
