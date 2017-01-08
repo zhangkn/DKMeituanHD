@@ -118,6 +118,24 @@
 }
 
 
+/**
+ *发布通知给监听者
+ */
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    //1. post notification
+    //城市名称信息
+    NSDictionary * userInfo = [NSDictionary dictionaryWithObject:[self.cityGroupModels [indexPath.section] cities][indexPath.row]forKey:DKdidSelectCityNotificationKey];
+    [[NSNotificationCenter defaultCenter] postNotificationName:DKdidSelectCityNotification object:self userInfo:userInfo];
+    
+    //2. 销毁自己
+    [self dismissViewControllerAnimated:YES completion:^{
+        
+    }];
+}
+
+
+
+
 - (NSArray<NSString *> *)sectionIndexTitlesForTableView:(UITableView *)tableView{
 //    NSMutableArray *array = [[NSMutableArray alloc]init];
 //    for (DKCityGroupModel *obj in self.cityGroupModels) {
@@ -170,7 +188,8 @@
     [searchBar setShowsCancelButton:NO animated:YES];
     
 //    [self.homeSearchResultTableViewController.view removeFromSuperview];
-    
+    self.homeSearchResultTableViewController.view.hidden = YES;
+    searchBar.text = nil;
 
 }
 

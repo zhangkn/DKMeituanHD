@@ -20,6 +20,7 @@
 
 + (NSArray*) cityModelsWithSeatchText:(NSString*)searchText;
 
++ (NSArray*) searchRegionsWithCityName:(NSString*)cityName;
 
 
 

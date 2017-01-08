@@ -9,5 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface DKHomeAddressViewController : UIViewController
+/**
+ *选中城市的区域数据
+ */
+@property (nonatomic,strong) NSArray *selectedRegions;
+
 
 @end

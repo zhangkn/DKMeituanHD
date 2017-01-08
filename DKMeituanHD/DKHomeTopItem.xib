@@ -60,6 +60,8 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="btn" destination="SUa-iJ-BRc" id="iDh-hF-vgr"/>
+                <outlet property="subTitleView" destination="jZJ-z0-1IO" id="v70-7d-OTX"/>
+                <outlet property="titleView" destination="abX-Wb-Wmk" id="0E2-qx-KjQ"/>
             </connections>
         </view>
     </objects>

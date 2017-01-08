@@ -24,6 +24,13 @@
 
 @implementation DKHomeAddressViewController
 
+- (void)setSelectedRegions:(NSArray *)selectedRegions{
+    _selectedRegions = selectedRegions;
+    
+    //刷新数据
+    self.homeDropdownView.models = selectedRegions;
+}
+
 
 - (DKHomeDropdownView *)homeDropdownView{
     if (nil == _homeDropdownView) {

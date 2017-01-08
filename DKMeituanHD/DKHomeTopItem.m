@@ -10,10 +10,14 @@
 
 @interface DKHomeTopItem ()
 
+
+
 @property (weak, nonatomic) IBOutlet UIButton *btn;
 
+@property (weak, nonatomic) IBOutlet UILabel *titleView;
 
 
+@property (weak, nonatomic) IBOutlet UILabel *subTitleView;
 
 @end
 
@@ -34,4 +38,27 @@
     [self.btn addTarget:target action:action forControlEvents:UIControlEventTouchDown];
     
 }
+- (void)setIcon:(NSString *)icon hightIcon:(NSString *)hightIcon{
+
+
+    [self.btn setImage:[UIImage imageNamed:icon] forState:UIControlStateNormal];
+    [self.btn setImage:[UIImage imageNamed:hightIcon] forState:UIControlStateHighlighted];
+
+}
+
+- (void)setTitle:(NSString *)title{
+    _title = title;
+    self.titleView.text = title;
+    
+}
+
+
+- (void)setSubTitle:(NSString *)subTitle{
+    _subTitle = subTitle;
+    self.subTitleView.text = subTitle;
+    
+}
+
+
+
 @end

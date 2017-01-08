@@ -24,7 +24,7 @@ static NSArray *_cityModels;
 static NSArray *_cityGroupModels;
 
 
-
+#if 1
 + (void)initialize{
     [super initialize];
     if (_categoryModels == nil) {
@@ -37,6 +37,44 @@ static NSArray *_cityGroupModels;
         });
     }
 }
+#endif
+/**
+ *或者使用懒加载
+ */
+
++ (NSArray *)categoryModels{
+    if (_categoryModels == nil) {
+        static dispatch_once_t onceToken;
+        dispatch_once(&onceToken, ^{
+            _categoryModels = [self getcategoryModels];
+        });
+        
+    }
+    return _categoryModels;
+}
+
++ (NSArray *)cityModels{
+    if (_cityModels == nil) {
+        static dispatch_once_t onceToken;
+        dispatch_once(&onceToken, ^{
+            _cityModels = [self getCityModels];
+            
+        });
+    }
+    return _cityModels;
+}
+
++ (NSArray *)cityGroupModels{
+    if (_cityGroupModels == nil) {
+        static dispatch_once_t onceToken;
+        dispatch_once(&onceToken, ^{
+            _cityGroupModels = [self getCityGroupModels];
+            
+        });
+    }
+    return _cityGroupModels;
+}
+
 
 
 
@@ -64,19 +102,19 @@ static NSArray *_cityGroupModels;
 
 
 
-+ (NSArray*) categoryModels{
-    return _categoryModels;
-}
-
-+ (NSArray*) cityModels{
-    return _cityModels;
-
-}
-
-+ (NSArray*) cityGroupModels{
-    return _cityGroupModels;
-    
-}
+//+ (NSArray*) categoryModels{
+//    return _categoryModels;
+//}
+//
+//+ (NSArray*) cityModels{
+//    return _cityModels;
+//
+//}
+//
+//+ (NSArray*) cityGroupModels{
+//    return _cityGroupModels;
+//    
+//}
 
 + (NSArray *)cityModelsWithSeatchText:(NSString *)searchText{
 //    方式一
@@ -157,6 +195,23 @@ static NSArray *_cityGroupModels;
     }
     return array;
 }
+
++ (NSArray *)searchRegionsWithCityName:(NSString *)cityName{
+    if (cityName == nil) {
+        return nil;
+    }
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@" name == %@",cityName];
+    NSArray *predicateArray = [[self cityModels] filteredArrayUsingPredicate:predicate];
+    if (predicateArray.count) {
+        DKCityModel* model =  (DKCityModel*)predicateArray[0];
+        return model.regions;
+    }else{
+        return nil;
+    }
+    
+}
+
 
 
 @end

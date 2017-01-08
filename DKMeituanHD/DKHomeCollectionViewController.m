@@ -11,6 +11,7 @@
 #import "DKCategoryViewController.h"
 #import "DKHomeTopItem.h"
 #import "DKHomeAddressViewController.h"
+#import "DKHomeModelTool.h"
 
 @interface DKHomeCollectionViewController ()
 
@@ -25,6 +26,14 @@
  *排序
  */
 @property (nonatomic,strong) UIBarButtonItem *sortItem;
+/**
+ *当前选中的城市名称
+ */
+@property (nonatomic,copy) NSString *selectedCityName;
+
+
+
+@property (nonatomic,strong) UIPopoverController *addressUIPopoverController;
 
 
 
@@ -56,9 +65,23 @@ static NSString * const reuseIdentifier = @"Cell";
         //设置监听器
         [addressItemView addTarget:self action:@selector(clickAddressItem)];
         UIBarButtonItem *tmpView =  [[UIBarButtonItem alloc]initWithCustomView:addressItemView];
+        if (self.selectedCityName == nil) {
+            self.selectedCityName = @"长沙";
+            
+        }
+        //设置默认的城市信息
+        NSString *title =  [NSString stringWithFormat:@"%@ - 全部",self.selectedCityName];
+
+        [self setTopItemTitle:addressItemView title:title subTitle:@""];
         _addressItem = tmpView;
     }
     return _addressItem;
+}
+
+- (void) setTopItemTitle :(DKHomeTopItem*) topItem title :(NSString*)title subTitle:(NSString*)subtitle{
+    topItem.title =title;
+    topItem.subTitle = subtitle;
+    
 }
 
 - (instancetype)init
@@ -81,10 +104,40 @@ static NSString * const reuseIdentifier = @"Cell";
     
     // Register cell classes
     [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
-    
+    //1.构件导航栏
     [self setupRightNav];
     [self setupLeftNav];
+    //2.监听城市的改变
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didSelectCityNotification:) name:DKdidSelectCityNotification object:nil];
+    
 
+
+}
+/**
+ *监听城市的改变
+ */
+#pragma mark -  *监听城市的改变
+
+- (void)didSelectCityNotification:(NSNotification*)notification{
+    NSString *cityname = notification.userInfo[DKdidSelectCityNotificationKey];
+    self.selectedCityName = cityname;
+    //更新城市下拉单数据
+    DKHomeTopItem *cityItem =(DKHomeTopItem*) [self.addressItem customView];
+    cityItem.title = [NSString stringWithFormat:@"%@ - 全部",cityname];
+
+//    [self showCitydata];
+    cityItem.subTitle = @"";
+    //获取服务器新数据
+    [self.addressUIPopoverController dismissPopoverAnimated:YES];
+    //刷新表格数据（下拉菜单）
+#warning reload data
+    
+    
+}
+
+#pragma mark - 注销监听者
+- (void)dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 /**
@@ -109,12 +162,23 @@ static NSString * const reuseIdentifier = @"Cell";
 - (void)clickAddressItem{
     
     NSLog(@"%s",__func__);
-    UIPopoverController *vc = [[UIPopoverController alloc]initWithContentViewController:[[DKHomeAddressViewController alloc]init]];
-    [vc presentPopoverFromBarButtonItem:self.addressItem permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+    DKHomeAddressViewController *homeAddressViewController = [[DKHomeAddressViewController alloc]init];
+    //获取当前定位（选中）城市的区域
+//    homeAddressViewController.selectedRegions = [DKHomeModelTool searchRegionsWithCityName:self.selectedCityName];
     
-    
-    
+    self.addressUIPopoverController = [[UIPopoverController alloc]initWithContentViewController:homeAddressViewController];
+    if (self.selectedCityName == nil) {
+      
+    }else{
+        homeAddressViewController.selectedRegions = [DKHomeModelTool searchRegionsWithCityName:self.selectedCityName];
+    }
+    [self.addressUIPopoverController presentPopoverFromBarButtonItem:self.addressItem permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
 }
+
+
+
+
+
 - (void)clickCategoryItem{
     NSLog(@"%s",__func__);
     UIPopoverController *vc = [[UIPopoverController alloc]initWithContentViewController:[[DKCategoryViewController alloc]init]];
