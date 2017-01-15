@@ -5,7 +5,8 @@
 //  Created by devzkn on 03/01/2017.
 //  Copyright © 2017 hisun. All rights reserved.
 //
-
+#import "DKDeal.h"
+#import "Foundation+Log.m"
 #import "DKHomeCollectionViewController.h"
 #import "DKConst.h"
 #import "DKCategoryViewController.h"
@@ -17,6 +18,12 @@
 #import "DKCategoryModel.h"
 #import "DKCityModel.h"
 #import "DKCityGroupModel.h"
+#import "DKDealCell.h"
+
+
+#define   cellSize   305
+
+
 @interface DKHomeCollectionViewController ()<DPRequestDelegate>
 
 /** 地区*/
@@ -40,14 +47,32 @@
  */
 @property (nonatomic,strong) DKHomeSortModel *selectedDKHomeSortModel;
 
+/**
+ 选中的分类
+ */
+@property (nonatomic,copy) NSString *selectedCategory;
+
+/**
+ 选中的区域
+ */
+@property (nonatomic,copy) NSString *selectedRegion;
 
 
-
+/**
+  区域的 UIPopoverController
+ */
 @property (nonatomic,strong) UIPopoverController *addressUIPopoverController;
+
+/**
+  排序的UIPopoverController
+ */
 @property (nonatomic,strong) UIPopoverController *homeSortViewControllerUIPopoverController;
 
 
-
+/**
+ 存放数据源
+ */
+@property (nonatomic,strong) NSMutableArray *deals;
 
 
 
@@ -55,8 +80,15 @@
 
 @implementation DKHomeCollectionViewController
 
-static NSString * const reuseIdentifier = @"Cell";
+static NSString * const reuseIdentifier = @"DKDealCell";
 
+- (NSMutableArray *)deals{
+    if (nil == _deals) {
+        NSMutableArray *tmp  = [[NSMutableArray alloc]init];
+        _deals = tmp;
+    }
+    return _deals;
+}
 
 - (UIBarButtonItem *)categoryItem{
     if (nil == _categoryItem) {
@@ -124,9 +156,52 @@ static NSString * const reuseIdentifier = @"Cell";
     
 }
 
+#pragma mark - ******** 监听控制器的尺寸变化  ，用于    //设置cell间的间距（根据横竖屏进行适配）
+
+- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator{
+    
+    
+    if (self.view.width < size.width) {//横屏 3 列
+        NSLog(@"横屏 3 列");
+        CGFloat cellCol = 3;
+        [self setupcellMarginWithcellCol:cellCol viewWillTransitionToSize:size];
+        
+        
+        
+        
+    }else{//竖屏  2列
+        CGFloat cellCol = 2;
+        NSLog(@"竖屏  2列");
+        [self setupcellMarginWithcellCol:cellCol viewWillTransitionToSize:size];
+    }
+    
+}
+
+
+- (void)setupcellMarginWithcellCol:(CGFloat)cellCol   viewWillTransitionToSize:(CGSize)size{
+    UICollectionViewFlowLayout *layout = (UICollectionViewFlowLayout*)self.collectionViewLayout;
+    CGFloat cellMargin = (size.width - (cellSize*cellCol))/(cellCol+1);
+    
+    //设置分组上下左右的内边距
+    CGFloat inset = cellMargin;
+    [layout setSectionInset:UIEdgeInsetsMake(inset, inset, inset, inset)];//The margins used to lay out content in a section
+    //设置cell间的间距（根据横竖屏进行适配）
+    layout.minimumLineSpacing = inset;
+}
+
+
+
 - (instancetype)init
 {
-    UICollectionViewLayout *layout = [[UICollectionViewFlowLayout alloc]init];//2017-01-03 17:11:29.702 DKMeituanHD[2329:230000] *** Terminating app due to uncaught exception 'NSInvalidArgumentException', reason: 'UICollectionView must be initialized with a non-nil layout parameter'
+    UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc]init];//2017-01-03 17:11:29.702 DKMeituanHD[2329:230000] *** Terminating app due to uncaught exception 'NSInvalidArgumentException', reason: 'UICollectionView must be initialized with a non-nil layout parameter'
+    
+    //设置cell大小
+   
+    [layout setItemSize:CGSizeMake(cellSize, cellSize)];
+    //设置分组上下左右的内边距
+    CGFloat inset = 15;
+    [layout setSectionInset:UIEdgeInsetsMake(inset, inset, inset, inset)];//The margins used to lay out content in a section
+    //设置cell间的间距（根据横竖屏进行适配）
 
     self = [super initWithCollectionViewLayout:layout];
     if (self) {
@@ -143,7 +218,8 @@ static NSString * const reuseIdentifier = @"Cell";
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Register cell classes
-    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
+    
+    [self.collectionView registerNib:[UINib nibWithNibName:@"DKDealCell" bundle:nil] forCellWithReuseIdentifier:reuseIdentifier];
     //1.构件导航栏
     [self setupRightNav];
     [self setupLeftNav];
@@ -170,6 +246,15 @@ static NSString * const reuseIdentifier = @"Cell";
     DKHomeTopItem *topItem = (DKHomeTopItem*) self.addressItem.customView;
     topItem.title = [NSString stringWithFormat:@"%@ -%@",self.selectedCityName,title];
     topItem.subTitle = subtitle;
+    if([title isEqualToString:@"全部"]){
+//        self.selectedRegion = self.selectedCityName;
+        self.selectedRegion = nil;
+    }
+   else  if ([subtitle isEqualToString:@"" ] || subtitle == nil || ([subtitle isEqualToString:@"全部"])) {
+        self.selectedRegion = title;
+    }else{
+        self.selectedRegion = subtitle;
+    }
 #warning 设置选中的类别数据
     
     //    self.selectedDKHomeSortModel = subtitle;
@@ -187,6 +272,18 @@ static NSString * const reuseIdentifier = @"Cell";
     DKHomeTopItem *topItem = (DKHomeTopItem*) self.categoryItem.customView;
     topItem.title = title;
     topItem.subTitle = subtitle;
+    if([title isEqualToString:@"全部分类"]){
+        //        self.selectedRegion = self.selectedCityName;
+        self.selectedCategory = nil;
+    }
+
+  else  if ([subtitle isEqualToString:@"" ] || subtitle == nil || ([subtitle isEqualToString:@"全部"])) {
+        self.selectedCategory = title;
+    }else{
+        self.selectedCategory = subtitle;
+    }
+    
+    
     [topItem setIcon:model.icon hightIcon:model.highlighted_icon];
 #warning 设置选中的类别数据
 
@@ -217,7 +314,15 @@ static NSString * const reuseIdentifier = @"Cell";
 //    NSString *url = @"http://api.dianping.com/v1/deal/find_deals";
     NSString *url = @"v1/deal/find_deals";
     NSMutableDictionary *params = [[NSMutableDictionary alloc]init];
+    params[@"city"] = self.selectedCityName;
+    params[@"region"] = self.selectedRegion;
+    params[@"category"] = self.selectedCategory;
+    params[@"sort"] = self.selectedDKHomeSortModel.value;
     
+//    params[@"sort"] = self.selectedCityName;
+
+
+
     [api requestWithURL:url params:params delegate:self];
     
 }
@@ -226,7 +331,22 @@ static NSString * const reuseIdentifier = @"Cell";
 #pragma mark - ******** - DPRequestDelegate
 
 - (void)request:(DPRequest *)request didReceiveResponse:(NSURLResponse *)response{
-    
+    NSLog(@"%s---%@",__func__,response);
+    /**
+     *didReceiveResponse
+     { status code: 200, headers {
+     Pragma = no-cache,
+     Content-Type = application/json;charset=utf-8,
+     Server = Tengine,
+     Vary = Accept-Encoding, Accept-Encoding,
+     Transfer-Encoding = Identity,
+     Date = Mon, 09 Jan 2017 00:58:44 GMT,
+     Keep-Alive = timeout=5,
+     Cache-Control = no-cache,
+     Connection = keep-alive
+     } }
+     */
+
 }
 - (void)request:(DPRequest *)request didReceiveRawData:(NSData *)data{
     
@@ -234,8 +354,56 @@ static NSString * const reuseIdentifier = @"Cell";
 - (void)request:(DPRequest *)request didFailWithError:(NSError *)error{
     
 }
+
+#pragma mark - ******** 解析服务器返回的数据
+
 - (void)request:(DPRequest *)request didFinishLoadingWithResult:(id)result{
+    NSLog(@"%s---%@",__func__,result);
+    /**
+     *{
+     description = 巴比伦滚轴溜冰场 代金券 仅售5元，价值10元代金券，节假日通用，免费wifi，男女通用，免费提供储物柜！,
+     categories = [
+     运动健身,
+     溜冰
+     ],
+     deal_url = http://t.dianping.com/deal/22748068?utm_source=open,
+     publish_date = 2016-12-12,
+     purchase_count = 1339,
+     image_url = http://p1.meituan.net/dpdeal/609c41f542d77f14024a6a6e76dc686574228.jpg%40640w_400h_1e_1c_1l%7Cwatermark%3D1%26%26r%3D1%26p%3D9%26x%3D2%26y%3D2%26relative%3D1%26o%3D20,
+     deal_id = 344-22748068,
+     title = 巴比伦滚轴溜冰场,
+     purchase_deadline = 2017-01-31,
+     s_image_url = http://p1.meituan.net/dpdeal/609c41f542d77f14024a6a6e76dc686574228.jpg%40160w_100h_1e_1c_1l%7Cwatermark%3D1%26%26r%3D1%26p%3D9%26x%3D2%26y%3D2%26relative%3D1%26o%3D20,
+     city = 长沙,
+     regions = [
+     雨花区
+     ],
+     current_price = 5,
+     businesses = [
+     {
+     h5_url = http://m.dianping.com/shop/5406854?utm_source=open,
+     city = 长沙,
+     longitude = 112.99289,
+     id = 5406854,
+     latitude = 28.164648,
+     name = 东塘巴比伦溜冰城,
+     url = http://www.dianping.com/shop/5406854?utm_source=open
+     }
+     ],
+     distance = -1,
+     deal_h5_url = http://m.dianping.com/tuan/deal/22748068?utm_source=open,
+     commission_ratio = 0,
+     list_price = 10
+     }
+     */
+    NSArray  *dealsDict = result[@"deals"];
+//    NSString  *count = result[@"count"];// ------deals 的大小 当前返回的数据数量
+//    NSString  *total_count = result[@"total_count"];// ------总数量
+//    NSString  *status = result[@"status"];
+    NSArray *dealModels= [DKDeal dealsWithDictArray:dealsDict];
+    [self.deals addObjectsFromArray:dealModels];
     
+    [self.collectionView reloadData];
 }
 
 
@@ -319,6 +487,10 @@ static NSString * const reuseIdentifier = @"Cell";
 
 
 
+/**
+ 构建左边的导航栏按钮
+
+ */
 - (void)clickCategoryItem{
     NSLog(@"%s",__func__);
     UIPopoverController *vc = [[UIPopoverController alloc]initWithContentViewController:[[DKCategoryViewController alloc]init]];
@@ -327,8 +499,9 @@ static NSString * const reuseIdentifier = @"Cell";
     
 }
 
-
-
+/**
+ 构建右边的导航栏按钮
+ */
 - (void)setupRightNav
 {
     UIBarButtonItem *mapItem = [UIBarButtonItem barButtonItemWithTarget:nil Image:@"icon_map" highlightedImage:@"icon_map_highlighted" actionMethod:nil];
@@ -340,35 +513,35 @@ static NSString * const reuseIdentifier = @"Cell";
 }
 
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 #pragma mark <UICollectionViewDataSource>
 
+/**
+ 当刷新数据的时候,布局cell。
+ */
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-#warning Incomplete implementation, return the number of sections
-    return 0;
+    
+    //计算一遍内边距 (self.collectionView.width == 1024):3?2
+    CGFloat cellCol = (self.collectionView.width == 1024)?3:2;
+    [self setupcellMarginWithcellCol:cellCol viewWillTransitionToSize:CGSizeMake(self.collectionView.width, 0)];
+     
+    return 1;
 }
 
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of items
-    return 0;
+    return self.deals.count;
 }
 
+
+/**
+ 定义cell的具体细节
+ @return cell
+ */
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
     
-    // Configure the cell
-    
-    return cell;
+        DKDeal *deal = self.deals[indexPath.row];
+    return   [DKDealCell cellWithDeal:deal collectionView:collectionView WithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
 }
 
 #pragma mark <UICollectionViewDelegate>
