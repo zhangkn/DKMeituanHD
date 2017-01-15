@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DKSearchCollectionViewController.h"
+#import "DKNavigationViewController.h"
 
 @interface DKHomeCollectionViewController : UICollectionViewController
 

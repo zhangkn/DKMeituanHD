@@ -19,8 +19,9 @@
 #import "DKCityModel.h"
 #import "DKCityGroupModel.h"
 #import "DKDealCell.h"
-
-
+#import "MJRefresh.h"
+#import "MBProgressHUD+MJ.h"
+#import "UIView+AutoLayout.h"
 #define   cellSize   305
 
 
@@ -74,6 +75,35 @@
  */
 @property (nonatomic,strong) NSMutableArray *deals;
 
+/**
+ 当前页码--- 请求成功的页码
+ */
+@property (nonatomic,assign) int currentPage;
+
+/**
+ 正在请求的页面
+ */
+@property (nonatomic,assign) int requestPage;
+
+
+
+/**
+  最新的请求对象
+ */
+@property (nonatomic,strong) DPRequest *requestObj;
+
+
+/**
+ 没有数据的体术 icon_deals_empty
+ */
+@property (nonatomic,strong) UIImageView *icon_deals_emptyView;
+
+/**
+ 当前请求数据的总数
+ */
+@property (nonatomic,assign) long total_count;
+
+
 
 
 @end
@@ -81,6 +111,21 @@
 @implementation DKHomeCollectionViewController
 
 static NSString * const reuseIdentifier = @"DKDealCell";
+
+
+- (UIImageView *)icon_deals_emptyView{
+    if (nil == _icon_deals_emptyView) {
+        UIImageView *tmpView = [[UIImageView alloc]init];
+        [tmpView setImage:[UIImage imageNamed:@"icon_deals_empty"]];
+        _icon_deals_emptyView = tmpView;
+        tmpView.hidden = YES;
+        [self.view addSubview:_icon_deals_emptyView];
+        //设置自动布局
+        [_icon_deals_emptyView autoCenterInSuperview];
+        
+    }
+    return _icon_deals_emptyView;
+}
 
 - (NSMutableArray *)deals{
     if (nil == _deals) {
@@ -213,6 +258,7 @@ static NSString * const reuseIdentifier = @"DKDealCell";
     [super viewDidLoad];
     
     self.collectionView.backgroundColor = DkGlobalBg;
+    self.collectionView.alwaysBounceVertical = YES;//设置弹簧效果
     
     // Uncomment the following line to preserve selection between presentations
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -232,11 +278,31 @@ static NSString * const reuseIdentifier = @"DKDealCell";
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didClickCityTableTableNotification:) name:DKdidClickCityTableTableNotification object:nil];
 
 
-    
-    
+    //3\ 添加刷新控件
+    [self.collectionView addFooterWithTarget:self action:@selector(loadMoreData)];
+    [self.collectionView addHeaderWithTarget:self action:@selector(loadNewData)];
 
 
 }
+
+- (void)loadNewData{
+    [self loadDataWithPage:1];
+}
+#pragma mark - ******** 加载更多数据
+
+
+
+- (void)loadMoreData{
+    
+    //设置请求页数
+    
+    // 计算总页数
+    
+    
+    [self loadDataWithPage:self.currentPage+1];
+}
+
+
 
 
 - (void)didClickCityTableTableNotification:(NSNotification*)notification{
@@ -310,23 +376,27 @@ static NSString * const reuseIdentifier = @"DKDealCell";
 
 - (void) loadNewDeals{//
     
+    
+//    [self loadDataWithPage:1];
+    [self.collectionView headerBeginRefreshing];
+}
+
+
+- (void)loadDataWithPage:(int)page{
     DPAPI *api =  [[DPAPI alloc]init];
-//    NSString *url = @"http://api.dianping.com/v1/deal/find_deals";
+    //    NSString *url = @"http://api.dianping.com/v1/deal/find_deals";
     NSString *url = @"v1/deal/find_deals";
     NSMutableDictionary *params = [[NSMutableDictionary alloc]init];
     params[@"city"] = self.selectedCityName;
     params[@"region"] = self.selectedRegion;
     params[@"category"] = self.selectedCategory;
     params[@"sort"] = self.selectedDKHomeSortModel.value;
-    
-//    params[@"sort"] = self.selectedCityName;
-
-
-
-    [api requestWithURL:url params:params delegate:self];
+    self.requestPage = page;
+    params[@"page"] = [NSString stringWithFormat:@"%d",self.requestPage];
+    //    params[@"sort"] = self.selectedCityName;
+    self.requestObj =  [api requestWithURL:url params:params delegate:self];
     
 }
-
 
 #pragma mark - ******** - DPRequestDelegate
 
@@ -352,13 +422,33 @@ static NSString * const reuseIdentifier = @"DKDealCell";
     
 }
 - (void)request:(DPRequest *)request didFailWithError:(NSError *)error{
+    if (self.requestObj != request) {
+        return;
+    }
     
+    [self.collectionView footerEndRefreshing];
+    [self.collectionView headerEndRefreshing];
+    [MBProgressHUD showError:[NSString stringWithFormat:@"%@",error] toView:self.view];
 }
 
 #pragma mark - ******** 解析服务器返回的数据
 
 - (void)request:(DPRequest *)request didFinishLoadingWithResult:(id)result{
-    NSLog(@"%s---%@",__func__,result);
+    
+    if (request != self.requestObj) {//忽略旧的请求
+        return;
+    }
+//    NSLog(@"%s---%@",__func__,result);
+    self.currentPage = self.requestPage;
+    
+    if (self.currentPage == 1) {
+        self.deals = nil;
+    }else{
+        //结束加载框
+        [self.collectionView footerEndRefreshing];
+        
+    }
+    
     /**
      *{
      description = 巴比伦滚轴溜冰场 代金券 仅售5元，价值10元代金券，节假日通用，免费wifi，男女通用，免费提供储物柜！,
@@ -398,12 +488,15 @@ static NSString * const reuseIdentifier = @"DKDealCell";
      */
     NSArray  *dealsDict = result[@"deals"];
 //    NSString  *count = result[@"count"];// ------deals 的大小 当前返回的数据数量
-//    NSString  *total_count = result[@"total_count"];// ------总数量
+    self.total_count = [result[@"total_count"] longValue];// ------总数量
 //    NSString  *status = result[@"status"];
     NSArray *dealModels= [DKDeal dealsWithDictArray:dealsDict];
     [self.deals addObjectsFromArray:dealModels];
     
     [self.collectionView reloadData];
+    [self.collectionView headerEndRefreshing];
+    [self.collectionView footerEndRefreshing];
+    
 }
 
 
@@ -426,7 +519,7 @@ static NSString * const reuseIdentifier = @"DKDealCell";
     [self.addressUIPopoverController dismissPopoverAnimated:YES];
     //刷新表格数据（下拉菜单）
 #warning reload data
-    
+    [self loadNewDeals];
     
 }
 
@@ -507,11 +600,22 @@ static NSString * const reuseIdentifier = @"DKDealCell";
     UIBarButtonItem *mapItem = [UIBarButtonItem barButtonItemWithTarget:nil Image:@"icon_map" highlightedImage:@"icon_map_highlighted" actionMethod:nil];
     mapItem.customView.width = 60;
     
-    UIBarButtonItem *searchItem =[UIBarButtonItem barButtonItemWithTarget:nil Image:@"icon_search" highlightedImage:@"icon_search_highlighted" actionMethod:nil];
+    UIBarButtonItem *searchItem =[UIBarButtonItem barButtonItemWithTarget:self Image:@"icon_search" highlightedImage:@"icon_search_highlighted" actionMethod:@selector(clickSearch)];
         searchItem.customView.width = 60;
     self.navigationItem.rightBarButtonItems = @[mapItem, searchItem];
 }
 
+
+#pragma mark - ******** 处理搜索框的点击事件
+
+- (void)clickSearch{
+    
+//    控制器跳转
+    DKSearchCollectionViewController *vc = [[DKSearchCollectionViewController alloc]init];
+    DKNavigationViewController *nav = [[DKNavigationViewController alloc]initWithRootViewController:vc];
+    [self presentViewController:nav animated:YES completion:nil];
+    
+}
 
 
 #pragma mark <UICollectionViewDataSource>
@@ -524,6 +628,17 @@ static NSString * const reuseIdentifier = @"DKDealCell";
     //计算一遍内边距 (self.collectionView.width == 1024):3?2
     CGFloat cellCol = (self.collectionView.width == 1024)?3:2;
     [self setupcellMarginWithcellCol:cellCol viewWillTransitionToSize:CGSizeMake(self.collectionView.width, 0)];
+    
+    //控制下拉加载数据控件的显示状态
+    self.collectionView.footerHidden = (self.total_count == self.deals.count);
+    
+    //处理没数据的情况
+    if (self.deals.count == 0) {
+        [self.icon_deals_emptyView setHidden:NO];
+    }else{
+        [self.icon_deals_emptyView setHidden:YES];
+    }
+
      
     return 1;
 }
