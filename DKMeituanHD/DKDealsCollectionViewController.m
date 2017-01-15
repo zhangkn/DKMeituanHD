@@ -8,7 +8,13 @@
 
 #import "DKDealsCollectionViewController.h"
 #import "MJRefresh.h"
-
+#import "DKDeal.h"
+#import "Foundation+Log.m"
+#import "DKHomeModelTool.h"
+#import "DKDealCell.h"
+#import "MBProgressHUD+MJ.h"
+#import "UIView+AutoLayout.h"
+#define   cellSize   305
 
 
 static NSString * const reuseIdentifier = @"DKDealCell";

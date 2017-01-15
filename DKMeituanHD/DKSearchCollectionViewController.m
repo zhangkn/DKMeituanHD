@@ -63,6 +63,7 @@ static NSString * const reuseIdentifier = @"Cell";
     //请求服务器
      self.keyword = searchBar.text;
     [self loadNewDeals];
+    [searchBar resignFirstResponder];
 }
 
 /**

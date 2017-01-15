@@ -8,11 +8,18 @@
 
 
 #import "DKHomeCollectionViewController.h"
+#import "AwesomeMenu.h"
+#import "DKHomeTopItem.h"
 
+#import "DKCategoryViewController.h"
+#import "DKHomeAddressViewController.h"
+#import "DKHomeSortViewController.h"
 
-
-
-@interface DKHomeCollectionViewController ()
+#import "DKHomeSortModel.h"
+#import "DKCategoryModel.h"
+#import "DKRecentCollectionViewController.h"
+#import "DKCollectCollectionViewController.h"
+@interface DKHomeCollectionViewController ()<AwesomeMenuDelegate>
 
 /** 地区*/
 @property (nonatomic,strong) UIBarButtonItem *addressItem;
@@ -57,6 +64,9 @@
 @property (nonatomic,strong) UIPopoverController *homeSortViewControllerUIPopoverController;
 
 
+
+//AwesomeMenu
+@property (nonatomic,weak) AwesomeMenu *awesomeMenu;
 
 @end
 
@@ -136,15 +146,143 @@
     //1.构件导航栏
     [self setupRightNav];
     [self setupLeftNav];
-    //2.监听城市的改变
+    //2.监听条件的改变
+    [self setupaddObserver];
+    //3. 构件AwesomeMenu.h
+    [self setupAwesomeMenu];
+   
+
+}
+#pragma mark - ********  AwesomeMenuDelegate <NSObject>
+
+- (void)awesomeMenu:(AwesomeMenu *)menu didSelectIndex:(NSInteger)idx{
+    
+    //处理item的点击事件
+    
+    
+    switch (idx) {
+        case 0:
+            [self clickCollect];
+            break;
+        case 3:
+            [self clickRecent];
+            break;
+            
+        default:
+            
+            break;
+    }
+    
+//    menu.alpha = 0.5;
+//    [menu setContentImage:[UIImage imageNamed:@"icon_pathMenu_mainMine_normal"]];
+    [self awesomeMenuWillAnimateClose:menu];
+    
+}
+
+
+#pragma mark - ******** 处理搜索框的点击事件
+
+- (void)clickCollect{
+    
+    //    控制器跳转
+    DKCollectCollectionViewController *vc = [[DKCollectCollectionViewController alloc]init];
+    DKNavigationViewController *nav = [[DKNavigationViewController alloc]initWithRootViewController:vc];
+//    vc.selectedCityName = self.selectedCityName;
+    [self presentViewController:nav animated:YES completion:nil];
+    
+}
+
+- (void)clickRecent{
+    
+    //    控制器跳转
+    DKRecentCollectionViewController *vc = [[DKRecentCollectionViewController alloc]init];
+    DKNavigationViewController *nav = [[DKNavigationViewController alloc]initWithRootViewController:vc];
+//    vc.selectedCityName = self.selectedCityName;
+    [self presentViewController:nav animated:YES completion:nil];
+    
+}
+
+
+
+- (void)awesomeMenuDidFinishAnimationClose:(AwesomeMenu *)menu{
+    
+}
+- (void)awesomeMenuDidFinishAnimationOpen:(AwesomeMenu *)menu{
+    
+}
+- (void)awesomeMenuWillAnimateOpen:(AwesomeMenu *)menu{
+    menu.alpha = 1;
+    [menu setContentImage:[UIImage imageNamed:@"icon_pathMenu_cross_normal"]];
+    
+}
+- (void)awesomeMenuWillAnimateClose:(AwesomeMenu *)menu{
+    menu.alpha = 0.5;
+    [menu setContentImage:[UIImage imageNamed:@"icon_pathMenu_mainMine_normal"]];
+}
+
+#pragma mark - ******** setupAwesomeMenu
+
+- (void)setupAwesomeMenu{
+//    AwesomeMenu *
+    
+    self.awesomeMenu.alpha = 0.5;
+    // 设置菜单的活动范围
+    self.awesomeMenu.menuWholeAngle = M_PI_2;
+    // 设置开始按钮的位置
+    self.awesomeMenu.startPoint = CGPointMake(50, 150);
+    // 设置代理
+    self.awesomeMenu.delegate = self;
+    // 不要旋转中间按钮
+    self.awesomeMenu.rotateAddButton = NO;
+    // 设置菜单永远在左下角 frame
+    [self.awesomeMenu autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:0];
+    [self.awesomeMenu autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:0];
+    [self.awesomeMenu autoSetDimensionsToSize:CGSizeMake(200, 200)];
+}
+
+- (AwesomeMenu *)awesomeMenu{
+    if (nil == _awesomeMenu) {
+        
+        CGRect frame =CGRectZero;
+//        AwesomeMenuItem *itme = [[AwesomeMenuItem alloc ]initWithImage:[UIImage imageNamed:@""] highlightedImage:[UIImage imageNamed:@""]];
+        
+        AwesomeMenuItem *itme = [[AwesomeMenuItem alloc ]initWithImage:[UIImage imageNamed:@"icon_pathMenu_background_normal"] highlightedImage:nil ContentImage:[UIImage imageNamed:@"icon_pathMenu_mainMine_normal"]
+                                                highlightedContentImage:[UIImage imageNamed:@"icon_pathMenu_cross_highlighted"]] ;
+
+                                 //收藏
+        AwesomeMenuItem *itme0 = [[AwesomeMenuItem alloc ]initWithImage:[UIImage imageNamed:@"bg_pathMenu_black_normal"] highlightedImage:nil ContentImage:[UIImage imageNamed:@"icon_pathMenu_collect_normal"]
+                                                highlightedContentImage:[UIImage imageNamed:@"icon_pathMenu_collect_highlighted"]] ;
+        
+        AwesomeMenuItem *itme1 = [[AwesomeMenuItem alloc ]initWithImage:[UIImage imageNamed:@"bg_pathMenu_black_normal"] highlightedImage:nil ContentImage:[UIImage imageNamed:@"icon_pathMenu_mainMine_normal"]
+                                                highlightedContentImage:[UIImage imageNamed:@"icon_pathMenu_mainMine_highlighted"]] ;
+        
+        AwesomeMenuItem *itme2 = [[AwesomeMenuItem alloc ]initWithImage:[UIImage imageNamed:@"bg_pathMenu_black_normal"] highlightedImage:nil ContentImage:[UIImage imageNamed:@"icon_pathMenu_more_normal"]
+                                                highlightedContentImage:[UIImage imageNamed:@"icon_pathMenu_more_highlighted"]] ;
+        
+        AwesomeMenuItem *itme3 = [[AwesomeMenuItem alloc ]initWithImage:[UIImage imageNamed:@"bg_pathMenu_black_normal"] highlightedImage:nil ContentImage:[UIImage imageNamed:@"icon_pathMenu_scan_normal"]
+                                                highlightedContentImage:[UIImage imageNamed:@"icon_pathMenu_scan_highlighted"]] ;
+
+        
+        NSArray *Menus = @[itme0,itme1,itme2,itme3];
+        
+        AwesomeMenu *tmpView = [[AwesomeMenu alloc]initWithFrame:frame startItem:itme optionMenus:Menus];
+        _awesomeMenu = tmpView;
+        
+        [self.view addSubview:_awesomeMenu];
+    }
+    return _awesomeMenu;
+}
+
+/**
+ 监听条件的改变
+ */
+- (void)setupaddObserver{
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didSelectCityNotification:) name:DKdidSelectCityNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didClickSortButonNotification:) name:DKdidClickSortButonNotification object:nil];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didClickCategoryTableNotification:) name:DKdidClickCategoryTableNotification object:nil];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didClickCityTableTableNotification:) name:DKdidClickCityTableTableNotification object:nil];
-
-
 }
 
 

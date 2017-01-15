@@ -56,6 +56,8 @@
 		E1F0242A1E2B1581007E801F /* DKCenterLineLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = E1F024291E2B1581007E801F /* DKCenterLineLabel.m */; };
 		E1F0242E1E2B6A0A007E801F /* DKSearchCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1F0242D1E2B6A0A007E801F /* DKSearchCollectionViewController.m */; };
 		E1F024361E2B7287007E801F /* DKDealsCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1F024351E2B7287007E801F /* DKDealsCollectionViewController.m */; };
+		E1F0243C1E2B9D95007E801F /* DKCollectCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1F0243B1E2B9D95007E801F /* DKCollectCollectionViewController.m */; };
+		E1F024401E2B9DA8007E801F /* DKRecentCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1F0243F1E2B9DA8007E801F /* DKRecentCollectionViewController.m */; };
 		E1F4FA181E1E3FD800DBB3A3 /* DKHomeTopItem.m in Sources */ = {isa = PBXBuildFile; fileRef = E1F4FA171E1E3FD800DBB3A3 /* DKHomeTopItem.m */; };
 		E1F4FA1A1E1E400E00DBB3A3 /* DKHomeTopItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1F4FA191E1E400E00DBB3A3 /* DKHomeTopItem.xib */; };
 		E1F7A1101E20A31400ABDE49 /* DKHomeDropdownView.m in Sources */ = {isa = PBXBuildFile; fileRef = E1F7A10F1E20A31400ABDE49 /* DKHomeDropdownView.m */; };
@@ -200,6 +202,10 @@
 		E1F0242D1E2B6A0A007E801F /* DKSearchCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKSearchCollectionViewController.m; sourceTree = "<group>"; };
 		E1F024341E2B7287007E801F /* DKDealsCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKDealsCollectionViewController.h; sourceTree = "<group>"; };
 		E1F024351E2B7287007E801F /* DKDealsCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKDealsCollectionViewController.m; sourceTree = "<group>"; };
+		E1F0243A1E2B9D95007E801F /* DKCollectCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKCollectCollectionViewController.h; sourceTree = "<group>"; };
+		E1F0243B1E2B9D95007E801F /* DKCollectCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKCollectCollectionViewController.m; sourceTree = "<group>"; };
+		E1F0243E1E2B9DA8007E801F /* DKRecentCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKRecentCollectionViewController.h; sourceTree = "<group>"; };
+		E1F0243F1E2B9DA8007E801F /* DKRecentCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKRecentCollectionViewController.m; sourceTree = "<group>"; };
 		E1F4FA161E1E3FD800DBB3A3 /* DKHomeTopItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKHomeTopItem.h; sourceTree = "<group>"; };
 		E1F4FA171E1E3FD800DBB3A3 /* DKHomeTopItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKHomeTopItem.m; sourceTree = "<group>"; };
 		E1F4FA191E1E400E00DBB3A3 /* DKHomeTopItem.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DKHomeTopItem.xib; sourceTree = "<group>"; };
@@ -437,6 +443,8 @@
 		E1D0EB251E1B7E87000C9541 /* DKMeituanHD */ = {
 			isa = PBXGroup;
 			children = (
+				E1F024381E2B9B9D007E801F /* Collect */,
+				E1F024371E2B9B97007E801F /* Recent */,
 				E1F0242F1E2B7085007E801F /* Main */,
 				E1F0242B1E2B68F0007E801F /* search */,
 				E1F4FA151E1E3F9800DBB3A3 /* Home */,
@@ -509,6 +517,40 @@
 				E1F024351E2B7287007E801F /* DKDealsCollectionViewController.m */,
 			);
 			name = Controller;
+			sourceTree = "<group>";
+		};
+		E1F024371E2B9B97007E801F /* Recent */ = {
+			isa = PBXGroup;
+			children = (
+				E1F024391E2B9D87007E801F /* Control */,
+			);
+			name = Recent;
+			sourceTree = "<group>";
+		};
+		E1F024381E2B9B9D007E801F /* Collect */ = {
+			isa = PBXGroup;
+			children = (
+				E1F0243D1E2B9D99007E801F /* Control */,
+			);
+			name = Collect;
+			sourceTree = "<group>";
+		};
+		E1F024391E2B9D87007E801F /* Control */ = {
+			isa = PBXGroup;
+			children = (
+				E1F0243E1E2B9DA8007E801F /* DKRecentCollectionViewController.h */,
+				E1F0243F1E2B9DA8007E801F /* DKRecentCollectionViewController.m */,
+			);
+			name = Control;
+			sourceTree = "<group>";
+		};
+		E1F0243D1E2B9D99007E801F /* Control */ = {
+			isa = PBXGroup;
+			children = (
+				E1F0243A1E2B9D95007E801F /* DKCollectCollectionViewController.h */,
+				E1F0243B1E2B9D95007E801F /* DKCollectCollectionViewController.m */,
+			);
+			name = Control;
 			sourceTree = "<group>";
 		};
 		E1F4FA141E1E3F8E00DBB3A3 /* View */ = {
@@ -781,6 +823,7 @@
 				E1D0EB401E1BA1CA000C9541 /* DKHomeCollectionViewController.m in Sources */,
 				E104D00E1E2A4609006BD965 /* MJRefreshConst.m in Sources */,
 				E104CFE91E2A45FB006BD965 /* SDWebImageManager.m in Sources */,
+				E1F0243C1E2B9D95007E801F /* DKCollectCollectionViewController.m in Sources */,
 				E1F7A1631E20B8A800ABDE49 /* MJMethod.m in Sources */,
 				E1A8FC581E227BD300D02AAA /* DPRequest.m in Sources */,
 				E104CFED1E2A45FB006BD965 /* UIImage+MultiFormat.m in Sources */,
@@ -794,6 +837,7 @@
 				E104CFE61E2A45FB006BD965 /* SDWebImageDecoder.m in Sources */,
 				E1D0EB2E1E1B7E87000C9541 /* ViewController.m in Sources */,
 				E1A8FC571E227BD300D02AAA /* DPAPI.m in Sources */,
+				E1F024401E2B9DA8007E801F /* DKRecentCollectionViewController.m in Sources */,
 				E1A8FC4D1E2244B800D02AAA /* DKHomeSortViewController.m in Sources */,
 				E1F7A15E1E20B8A800ABDE49 /* MJArgument.m in Sources */,
 				E104D0101E2A4609006BD965 /* MJRefreshHeaderView.m in Sources */,
