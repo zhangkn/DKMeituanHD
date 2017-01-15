@@ -7,7 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DKDealsCollectionViewController.h"
 
-@interface DKSearchCollectionViewController : UICollectionViewController
+@interface DKSearchCollectionViewController : DKDealsCollectionViewController
+
+
+/**
+ *当前选中的城市名称
+ */
+@property (nonatomic,copy) NSString *selectedCityName;
+
 
 @end

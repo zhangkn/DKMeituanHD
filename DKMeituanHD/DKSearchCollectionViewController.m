@@ -10,6 +10,13 @@
 #import "UIBarButtonItem+Extension.h"
 @interface DKSearchCollectionViewController ()<UISearchBarDelegate>
 
+
+/**
+ 关键词
+ */
+@property (nonatomic,copy)  NSString *keyword ;
+
+
 @end
 
 @implementation DKSearchCollectionViewController
@@ -17,24 +24,16 @@
 static NSString * const reuseIdentifier = @"Cell";
 
 
-- (instancetype)init
-{
-    UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc]init];
-    self = [super initWithCollectionViewLayout:layout];
-    if (self) {
-    }
-    return self;
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.collectionView.backgroundColor = [UIColor grayColor];
+//    self.collectionView.backgroundColor = [UIColor grayColor];
     // 左边的返回
 //    self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(back) image:@"icon_back" highImage:@"icon_back_highlighted"];
     
     self.navigationItem.leftBarButtonItem = [UIBarButtonItem barButtonItemWithTarget:self Image:@"icon_back" highlightedImage:@"icon_back_highlighted" actionMethod:@selector(back)];
 
-    
+    //普通控件成为self.navigationItem.titleView  可以设置size，如果是UISearchBar，则只能通过，将它添加到普通控件中进行设置size
     //    UIView *titleView = [[UIView alloc] init];
     //    titleView.width = 300;
     //    titleView.height = 35;
@@ -56,66 +55,29 @@ static NSString * const reuseIdentifier = @"Cell";
 
 
 
-/*
-#pragma mark - Navigation
+#pragma mark - ******** UISearchBarDelegate
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
-#pragma mark <UICollectionViewDataSource>
-
-- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-#warning Incomplete implementation, return the number of sections
-    return 0;
-}
-
-
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of items
-    return 0;
-}
-
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
+// called when keyboard search button pressed
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
     
-    // Configure the cell
-    
-    return cell;
+    //请求服务器
+     self.keyword = searchBar.text;
+    [self loadNewDeals];
 }
 
-#pragma mark <UICollectionViewDelegate>
-
-/*
-// Uncomment this method to specify if the specified item should be highlighted during tracking
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
-	return YES;
-}
-*/
-
-/*
-// Uncomment this method to specify if the specified item should be selected
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    return YES;
-}
-*/
-
-/*
-// Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldShowMenuForItemAtIndexPath:(NSIndexPath *)indexPath {
-	return NO;
+/**
+ 交给子类实现
+ */
+- (NSMutableDictionary*)params{
+    NSMutableDictionary *params = [[NSMutableDictionary alloc]init];
+    params[@"city"] = self.selectedCityName;
+    params[@"keyword"] = self.keyword;
+//    params[@"region"] = self.selectedRegion;
+//    params[@"category"] = self.selectedCategory;
+//    params[@"sort"] = self.selectedDKHomeSortModel.value;
+    return params;
 }
 
-- (BOOL)collectionView:(UICollectionView *)collectionView canPerformAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender {
-	return NO;
-}
 
-- (void)collectionView:(UICollectionView *)collectionView performAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender {
-	
-}
-*/
 
 @end

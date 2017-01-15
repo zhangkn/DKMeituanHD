@@ -55,6 +55,7 @@
 		E1D0EB401E1BA1CA000C9541 /* DKHomeCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1D0EB3F1E1BA1CA000C9541 /* DKHomeCollectionViewController.m */; };
 		E1F0242A1E2B1581007E801F /* DKCenterLineLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = E1F024291E2B1581007E801F /* DKCenterLineLabel.m */; };
 		E1F0242E1E2B6A0A007E801F /* DKSearchCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1F0242D1E2B6A0A007E801F /* DKSearchCollectionViewController.m */; };
+		E1F024361E2B7287007E801F /* DKDealsCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1F024351E2B7287007E801F /* DKDealsCollectionViewController.m */; };
 		E1F4FA181E1E3FD800DBB3A3 /* DKHomeTopItem.m in Sources */ = {isa = PBXBuildFile; fileRef = E1F4FA171E1E3FD800DBB3A3 /* DKHomeTopItem.m */; };
 		E1F4FA1A1E1E400E00DBB3A3 /* DKHomeTopItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1F4FA191E1E400E00DBB3A3 /* DKHomeTopItem.xib */; };
 		E1F7A1101E20A31400ABDE49 /* DKHomeDropdownView.m in Sources */ = {isa = PBXBuildFile; fileRef = E1F7A10F1E20A31400ABDE49 /* DKHomeDropdownView.m */; };
@@ -197,6 +198,8 @@
 		E1F024291E2B1581007E801F /* DKCenterLineLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKCenterLineLabel.m; sourceTree = "<group>"; };
 		E1F0242C1E2B6A0A007E801F /* DKSearchCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKSearchCollectionViewController.h; sourceTree = "<group>"; };
 		E1F0242D1E2B6A0A007E801F /* DKSearchCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKSearchCollectionViewController.m; sourceTree = "<group>"; };
+		E1F024341E2B7287007E801F /* DKDealsCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKDealsCollectionViewController.h; sourceTree = "<group>"; };
+		E1F024351E2B7287007E801F /* DKDealsCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKDealsCollectionViewController.m; sourceTree = "<group>"; };
 		E1F4FA161E1E3FD800DBB3A3 /* DKHomeTopItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKHomeTopItem.h; sourceTree = "<group>"; };
 		E1F4FA171E1E3FD800DBB3A3 /* DKHomeTopItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKHomeTopItem.m; sourceTree = "<group>"; };
 		E1F4FA191E1E400E00DBB3A3 /* DKHomeTopItem.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DKHomeTopItem.xib; sourceTree = "<group>"; };
@@ -434,10 +437,9 @@
 		E1D0EB251E1B7E87000C9541 /* DKMeituanHD */ = {
 			isa = PBXGroup;
 			children = (
+				E1F0242F1E2B7085007E801F /* Main */,
 				E1F0242B1E2B68F0007E801F /* search */,
-				E1F7A1241E20B88900ABDE49 /* Lib */,
 				E1F4FA151E1E3F9800DBB3A3 /* Home */,
-				E106229E1E1CD7BD0082221F /* common */,
 				E1D0EB261E1B7E87000C9541 /* Supporting Files */,
 			);
 			path = DKMeituanHD;
@@ -488,6 +490,25 @@
 				E1F0242D1E2B6A0A007E801F /* DKSearchCollectionViewController.m */,
 			);
 			name = search;
+			sourceTree = "<group>";
+		};
+		E1F0242F1E2B7085007E801F /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				E1F024301E2B70A2007E801F /* Controller */,
+				E106229E1E1CD7BD0082221F /* common */,
+				E1F7A1241E20B88900ABDE49 /* Lib */,
+			);
+			name = Main;
+			sourceTree = "<group>";
+		};
+		E1F024301E2B70A2007E801F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E1F024341E2B7287007E801F /* DKDealsCollectionViewController.h */,
+				E1F024351E2B7287007E801F /* DKDealsCollectionViewController.m */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 		E1F4FA141E1E3F8E00DBB3A3 /* View */ = {
@@ -741,6 +762,7 @@
 				E104CFFA1E2A4602006BD965 /* MBProgressHUD.m in Sources */,
 				E1F7A15B1E20B8A800ABDE49 /* NSArray+MASAdditions.m in Sources */,
 				E1A8FC4A1E2243B900D02AAA /* DKHomeSortModel.m in Sources */,
+				E1F024361E2B7287007E801F /* DKDealsCollectionViewController.m in Sources */,
 				E1F7A18F1E2119C400ABDE49 /* UIView+AutoLayout.m in Sources */,
 				E10622A51E1CEC200082221F /* UIBarButtonItem+Extension.m in Sources */,
 				E104CFBE1E2A456A006BD965 /* DKDealCell.m in Sources */,

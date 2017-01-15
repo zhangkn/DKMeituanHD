@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 #import "DKSearchCollectionViewController.h"
 #import "DKNavigationViewController.h"
+#import "DKDealsCollectionViewController.h"
 
-@interface DKHomeCollectionViewController : UICollectionViewController
+@interface DKHomeCollectionViewController : DKDealsCollectionViewController
 
 @end
