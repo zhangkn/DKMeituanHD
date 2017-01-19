@@ -40,3 +40,9 @@ extern NSString *const DKdidClickCityTableTableNotification;
 extern NSString *const DKdidClickCityTableTableNotificationInfoTitleKey;
 extern NSString *const DKdidClickCityTableTableNotificationInfoSubTitleKey;
 extern NSString *const DKdidClickCityTableTableNotificationInfoModelKey;
+
+
+
+extern NSString *const MTCollectStateDidChangeNotification;
+extern NSString *const MTIsCollectKey;
+extern NSString *const MTCollectDealKey;

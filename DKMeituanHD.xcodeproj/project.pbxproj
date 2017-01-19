@@ -43,6 +43,16 @@
 		E10622A11E1CD7CC0082221F /* DKConst.m in Sources */ = {isa = PBXBuildFile; fileRef = E10622A01E1CD7CC0082221F /* DKConst.m */; };
 		E10622A51E1CEC200082221F /* UIBarButtonItem+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = E10622A41E1CEC200082221F /* UIBarButtonItem+Extension.m */; };
 		E10622A91E1CEC840082221F /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = E10622A81E1CEC840082221F /* UIView+Extension.m */; };
+		E15DF2821E30BEEE00D9837F /* MTDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E15DF2801E30BEEE00D9837F /* MTDetailViewController.m */; };
+		E15DF2831E30BEEE00D9837F /* MTDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E15DF2811E30BEEE00D9837F /* MTDetailViewController.xib */; };
+		E15DF2861E30C06900D9837F /* MTRestrictions.m in Sources */ = {isa = PBXBuildFile; fileRef = E15DF2851E30C06900D9837F /* MTRestrictions.m */; };
+		E15DF28D1E30C1C200D9837F /* MTDealTool.m in Sources */ = {isa = PBXBuildFile; fileRef = E15DF28C1E30C1C200D9837F /* MTDealTool.m */; };
+		E15DF29A1E30C1F500D9837F /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = E15DF2901E30C1F500D9837F /* FMDatabase.m */; };
+		E15DF29B1E30C1F500D9837F /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = E15DF2921E30C1F500D9837F /* FMDatabaseAdditions.m */; };
+		E15DF29C1E30C1F500D9837F /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = E15DF2941E30C1F500D9837F /* FMDatabasePool.m */; };
+		E15DF29D1E30C1F500D9837F /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = E15DF2961E30C1F500D9837F /* FMDatabaseQueue.m */; };
+		E15DF29E1E30C1F500D9837F /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = E15DF2991E30C1F500D9837F /* FMResultSet.m */; };
+		E16BBF7E1E30C35B00B59BF5 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E16BBF7D1E30C35B00B59BF5 /* libsqlite3.0.tbd */; };
 		E1A8FC4A1E2243B900D02AAA /* DKHomeSortModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E1A8FC491E2243B900D02AAA /* DKHomeSortModel.m */; };
 		E1A8FC4D1E2244B800D02AAA /* DKHomeSortViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1A8FC4C1E2244B800D02AAA /* DKHomeSortViewController.m */; };
 		E1A8FC501E224EF900D02AAA /* DKHomeSortButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E1A8FC4F1E224EF900D02AAA /* DKHomeSortButton.m */; };
@@ -175,6 +185,25 @@
 		E10622A41E1CEC200082221F /* UIBarButtonItem+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Extension.m"; sourceTree = "<group>"; };
 		E10622A71E1CEC840082221F /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
 		E10622A81E1CEC840082221F /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
+		E15DF27F1E30BEEE00D9837F /* MTDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTDetailViewController.h; sourceTree = "<group>"; };
+		E15DF2801E30BEEE00D9837F /* MTDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTDetailViewController.m; sourceTree = "<group>"; };
+		E15DF2811E30BEEE00D9837F /* MTDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MTDetailViewController.xib; sourceTree = "<group>"; };
+		E15DF2841E30C06900D9837F /* MTRestrictions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTRestrictions.h; sourceTree = "<group>"; };
+		E15DF2851E30C06900D9837F /* MTRestrictions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTRestrictions.m; sourceTree = "<group>"; };
+		E15DF28B1E30C1C200D9837F /* MTDealTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTDealTool.h; sourceTree = "<group>"; };
+		E15DF28C1E30C1C200D9837F /* MTDealTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTDealTool.m; sourceTree = "<group>"; };
+		E15DF28F1E30C1F500D9837F /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
+		E15DF2901E30C1F500D9837F /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
+		E15DF2911E30C1F500D9837F /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
+		E15DF2921E30C1F500D9837F /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditions.m; sourceTree = "<group>"; };
+		E15DF2931E30C1F500D9837F /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabasePool.h; sourceTree = "<group>"; };
+		E15DF2941E30C1F500D9837F /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
+		E15DF2951E30C1F500D9837F /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseQueue.h; sourceTree = "<group>"; };
+		E15DF2961E30C1F500D9837F /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseQueue.m; sourceTree = "<group>"; };
+		E15DF2971E30C1F500D9837F /* FMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDB.h; sourceTree = "<group>"; };
+		E15DF2981E30C1F500D9837F /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
+		E15DF2991E30C1F500D9837F /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
+		E16BBF7D1E30C35B00B59BF5 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		E1A8FC481E2243B900D02AAA /* DKHomeSortModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKHomeSortModel.h; sourceTree = "<group>"; };
 		E1A8FC491E2243B900D02AAA /* DKHomeSortModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKHomeSortModel.m; sourceTree = "<group>"; };
 		E1A8FC4B1E2244B800D02AAA /* DKHomeSortViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKHomeSortViewController.h; sourceTree = "<group>"; };
@@ -296,6 +325,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E16BBF7E1E30C35B00B59BF5 /* libsqlite3.0.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -412,6 +442,62 @@
 			name = Extension;
 			sourceTree = "<group>";
 		};
+		E15DF27C1E30BEB200D9837F /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				E15DF2871E30C18B00D9837F /* Tool */,
+				E15DF2841E30C06900D9837F /* MTRestrictions.h */,
+				E15DF2851E30C06900D9837F /* MTRestrictions.m */,
+				E15DF27E1E30BEEE00D9837F /* Controller */,
+			);
+			name = Detail;
+			sourceTree = "<group>";
+		};
+		E15DF27E1E30BEEE00D9837F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E15DF27F1E30BEEE00D9837F /* MTDetailViewController.h */,
+				E15DF2801E30BEEE00D9837F /* MTDetailViewController.m */,
+				E15DF2811E30BEEE00D9837F /* MTDetailViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		E15DF2871E30C18B00D9837F /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				E15DF28B1E30C1C200D9837F /* MTDealTool.h */,
+				E15DF28C1E30C1C200D9837F /* MTDealTool.m */,
+			);
+			path = Tool;
+			sourceTree = "<group>";
+		};
+		E15DF28E1E30C1F500D9837F /* fmdb */ = {
+			isa = PBXGroup;
+			children = (
+				E15DF28F1E30C1F500D9837F /* FMDatabase.h */,
+				E15DF2901E30C1F500D9837F /* FMDatabase.m */,
+				E15DF2911E30C1F500D9837F /* FMDatabaseAdditions.h */,
+				E15DF2921E30C1F500D9837F /* FMDatabaseAdditions.m */,
+				E15DF2931E30C1F500D9837F /* FMDatabasePool.h */,
+				E15DF2941E30C1F500D9837F /* FMDatabasePool.m */,
+				E15DF2951E30C1F500D9837F /* FMDatabaseQueue.h */,
+				E15DF2961E30C1F500D9837F /* FMDatabaseQueue.m */,
+				E15DF2971E30C1F500D9837F /* FMDB.h */,
+				E15DF2981E30C1F500D9837F /* FMResultSet.h */,
+				E15DF2991E30C1F500D9837F /* FMResultSet.m */,
+			);
+			path = fmdb;
+			sourceTree = "<group>";
+		};
+		E16BBF7C1E30C35B00B59BF5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E16BBF7D1E30C35B00B59BF5 /* libsqlite3.0.tbd */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		E1A8FC511E227BD300D02AAA /* dianpingapi */ = {
 			isa = PBXGroup;
 			children = (
@@ -429,6 +515,7 @@
 			children = (
 				E1D0EB251E1B7E87000C9541 /* DKMeituanHD */,
 				E1D0EB241E1B7E87000C9541 /* Products */,
+				E16BBF7C1E30C35B00B59BF5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -443,6 +530,7 @@
 		E1D0EB251E1B7E87000C9541 /* DKMeituanHD */ = {
 			isa = PBXGroup;
 			children = (
+				E15DF27C1E30BEB200D9837F /* Detail */,
 				E1F024381E2B9B9D007E801F /* Collect */,
 				E1F024371E2B9B97007E801F /* Recent */,
 				E1F0242F1E2B7085007E801F /* Main */,
@@ -629,6 +717,7 @@
 		E1F7A1241E20B88900ABDE49 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				E15DF28E1E30C1F500D9837F /* fmdb */,
 				E104D0141E2A4618006BD965 /* AwesomeMenu */,
 				E104CFFB1E2A4609006BD965 /* MJRefresh */,
 				E104CFF21E2A4602006BD965 /* MBProgressHUD */,
@@ -773,6 +862,7 @@
 				E1F7A17C1E20E73400ABDE49 /* DKHomeCityViewController.xib in Resources */,
 				E104D00C1E2A4609006BD965 /* MJRefresh.bundle in Resources */,
 				E1F4FA1A1E1E400E00DBB3A3 /* DKHomeTopItem.xib in Resources */,
+				E15DF2831E30BEEE00D9837F /* MTDetailViewController.xib in Resources */,
 				E104CFF91E2A4602006BD965 /* MBProgressHUD.bundle in Resources */,
 				E1F7A11F1E20B55C00ABDE49 /* sorts.plist in Resources */,
 				E1D0EB331E1B7E87000C9541 /* Assets.xcassets in Resources */,
@@ -795,6 +885,8 @@
 				E104D01A1E2A4619006BD965 /* AwesomeMenuItem.m in Sources */,
 				E1F7A1681E20B8A800ABDE49 /* NSObject+MJMember.m in Sources */,
 				E104CFEF1E2A45FB006BD965 /* UIImageView+HighlightedWebCache.m in Sources */,
+				E15DF2821E30BEEE00D9837F /* MTDetailViewController.m in Sources */,
+				E15DF29C1E30C1F500D9837F /* FMDatabasePool.m in Sources */,
 				E1F7A1621E20B8A800ABDE49 /* MJMember.m in Sources */,
 				E104D00F1E2A4609006BD965 /* MJRefreshFooterView.m in Sources */,
 				E104CFF11E2A45FB006BD965 /* UIView+WebCacheOperation.m in Sources */,
@@ -811,7 +903,9 @@
 				E1F7A1641E20B8A800ABDE49 /* MJType.m in Sources */,
 				E1F7A15C1E20B8A800ABDE49 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				E104D0131E2A4609006BD965 /* UIView+MJExtension.m in Sources */,
+				E15DF28D1E30C1C200D9837F /* MTDealTool.m in Sources */,
 				E106229D1E1CD1C50082221F /* DKNavigationViewController.m in Sources */,
+				E15DF29E1E30C1F500D9837F /* FMResultSet.m in Sources */,
 				E1F4FA181E1E3FD800DBB3A3 /* DKHomeTopItem.m in Sources */,
 				E104D0121E2A4609006BD965 /* UIScrollView+MJRefresh.m in Sources */,
 				E1F7A1591E20B8A800ABDE49 /* MASViewAttribute.m in Sources */,
@@ -827,6 +921,7 @@
 				E1F7A1631E20B8A800ABDE49 /* MJMethod.m in Sources */,
 				E1A8FC581E227BD300D02AAA /* DPRequest.m in Sources */,
 				E104CFED1E2A45FB006BD965 /* UIImage+MultiFormat.m in Sources */,
+				E15DF2861E30C06900D9837F /* MTRestrictions.m in Sources */,
 				E104CFEA1E2A45FB006BD965 /* SDWebImagePrefetcher.m in Sources */,
 				E104CFF01E2A45FB006BD965 /* UIImageView+WebCache.m in Sources */,
 				E1F7A1841E20F2BE00ABDE49 /* DKCityRegion.m in Sources */,
@@ -838,7 +933,9 @@
 				E1D0EB2E1E1B7E87000C9541 /* ViewController.m in Sources */,
 				E1A8FC571E227BD300D02AAA /* DPAPI.m in Sources */,
 				E1F024401E2B9DA8007E801F /* DKRecentCollectionViewController.m in Sources */,
+				E15DF29B1E30C1F500D9837F /* FMDatabaseAdditions.m in Sources */,
 				E1A8FC4D1E2244B800D02AAA /* DKHomeSortViewController.m in Sources */,
+				E15DF29A1E30C1F500D9837F /* FMDatabase.m in Sources */,
 				E1F7A15E1E20B8A800ABDE49 /* MJArgument.m in Sources */,
 				E104D0101E2A4609006BD965 /* MJRefreshHeaderView.m in Sources */,
 				E104CFE51E2A45FB006BD965 /* SDWebImageCompat.m in Sources */,
@@ -869,6 +966,7 @@
 				E10622A91E1CEC840082221F /* UIView+Extension.m in Sources */,
 				E1F7A1571E20B8A800ABDE49 /* MASConstraintMaker.m in Sources */,
 				E1F7A1151E20AF2800ABDE49 /* DKCategoryViewController.m in Sources */,
+				E15DF29D1E30C1F500D9837F /* FMDatabaseQueue.m in Sources */,
 				E1F7A1561E20B8A800ABDE49 /* MASConstraint.m in Sources */,
 				E104D00D1E2A4609006BD965 /* MJRefreshBaseView.m in Sources */,
 				E1D0EB281E1B7E87000C9541 /* main.m in Sources */,

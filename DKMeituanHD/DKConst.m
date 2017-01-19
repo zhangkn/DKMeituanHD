@@ -24,3 +24,10 @@ NSString *const DKdidClickCategoryTableNotificationInfoModelKey=@"DKdidClickCate
 
  NSString *const DKdidClickCityTableTableNotificationInfoTitleKey =@"DKdidClickCityTableTableNotificationInfoTitleKey";
  NSString *const DKdidClickCityTableTableNotificationInfoModelKey =@"DKdidClickCityTableTableNotificationInfoModelKey";
+
+
+
+
+NSString *const MTCollectStateDidChangeNotification = @"MTCollectStateDidChangeNotification";
+NSString *const MTIsCollectKey = @"MTIsCollectKey";
+NSString *const MTCollectDealKey = @"MTCollectDealKey";
