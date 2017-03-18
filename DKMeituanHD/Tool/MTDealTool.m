@@ -45,6 +45,11 @@ static FMDatabase *_db;
     [_db executeUpdateWithFormat:@"INSERT INTO t_collect_deal(deal, deal_id) VALUES(%@, %@);", data, deal.deal_id];
 }
 
+/**
+   当存储的是nsdata 对象的时候，进行数据更新最好使用executeUpdateWithFormat
+
+ @param deal
+ */
 + (void)removeCollectDeal:(DKDeal *)deal
 {
     [_db executeUpdateWithFormat:@"DELETE FROM t_collect_deal WHERE deal_id = %@;", deal.deal_id];

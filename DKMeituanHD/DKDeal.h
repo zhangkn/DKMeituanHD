@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "MTRestrictions.h"
 
-@interface DKDeal : NSObject
+@interface DKDeal : NSObject <NSCoding>
 /** 团购单ID */
 @property (copy, nonatomic) NSString *deal_id;
 /** 团购标题 */

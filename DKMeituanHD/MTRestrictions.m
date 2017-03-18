@@ -10,5 +10,5 @@
 #import "MJExtension.h"
 
 @implementation MTRestrictions
-MJCodingImplementation
+MJCodingImplementation  //MTRestrictions  是deal 模型的属性，进行数据库存储的时候同样要进行coding
 @end
