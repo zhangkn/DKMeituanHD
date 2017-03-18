@@ -78,7 +78,7 @@
     [api requestWithURL:@"v1/deal/get_single_deal" params:params delegate:self];
     
     // 设置收藏状态
-    self.collectButton.selected = [MTDealTool isCollected:self.deal];
+    self.collectButton.selected = [MTDealTool isCollected:self.deal];//判断是否存在数据库中
 }
 
 /**
@@ -163,10 +163,12 @@
 }
 
 - (IBAction)collect {
+    
+    
     NSMutableDictionary *info = [NSMutableDictionary dictionary];
     info[MTCollectDealKey] = self.deal;
     
-    if (self.collectButton.isSelected) { // 取消收藏
+    if (self.collectButton.isSelected) { // 取消收藏, --- 第一次点击的时候，isSelected为NO，要进行收藏
         [MTDealTool removeCollectDeal:self.deal];
         [MBProgressHUD showSuccess:@"取消收藏成功" toView:self.view];
         
@@ -181,8 +183,8 @@
     // 按钮的选中取反
     self.collectButton.selected = !self.collectButton.isSelected;
     
-    // 发出通知
-    [[NSNotificationCenter defaultCenter ] postNotificationName:MTCollectStateDidChangeNotification object:nil userInfo:info];
+    // 1.发出通知----刷新收藏控制器的数据源
+    [[NSNotificationCenter defaultCenter ] postNotificationName:MTCollectStateDidChangeNotification object:nil userInfo:info];//
 }
 
 - (IBAction)share {

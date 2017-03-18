@@ -19,6 +19,11 @@
 #define DKColor(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
 #define DkGlobalBg DKColor(230, 230, 230)
 
+#define    DKDealCellSize   305
+
+#define   DKCellPagesize  9
+
+
 extern NSString *const DKdidSelectCityNotification;
 extern NSString *const DKdidSelectCityNotificationKey ;
 
@@ -46,3 +51,8 @@ extern NSString *const DKdidClickCityTableTableNotificationInfoModelKey;
 extern NSString *const MTCollectStateDidChangeNotification;
 extern NSString *const MTIsCollectKey;
 extern NSString *const MTCollectDealKey;
+
+
+
+extern  NSString *const DKDealCellReuseIdentifier;
+

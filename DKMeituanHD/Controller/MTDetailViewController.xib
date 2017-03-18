@@ -99,6 +99,7 @@
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rFV-uC-rK7" userLabel="coll">
                                     <state key="normal" backgroundImage="icon_collect"/>
+                                    <state key="selected" image="icon_collect_highlighted"/>
                                     <state key="highlighted" backgroundImage="icon_collect_highlighted"/>
                                     <connections>
                                         <action selector="collect" destination="-1" eventType="touchUpInside" id="vFA-E0-Ivr"/>

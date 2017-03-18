@@ -15,6 +15,13 @@
  *  返回第page页的收藏团购数据:page从1开始
  */
 + (NSArray *)collectDeals:(int)page;
+
+
+/**
+ 收藏总数
+
+ @return int
+ */
 + (int)collectDealsCount;
 /**
  *  收藏一个团购
@@ -28,4 +35,7 @@
  *  团购是否收藏
  */
 + (BOOL)isCollected:(DKDeal *)deal;
+
+
+
 @end

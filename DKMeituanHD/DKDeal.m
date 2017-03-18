@@ -38,4 +38,19 @@ MJCodingImplementation
 //    return nil;
 //}
 
+
+- (BOOL)isEqual:(id)other
+{
+    if (other  == nil) {
+        return NO ;
+    }
+    DKDeal *otherDeal=   (DKDeal*)other;
+    if ([self.deal_id isEqualToString:otherDeal.deal_id]){
+        return YES;
+    } else {
+        return NO;
+    }
+}
+
+
 @end

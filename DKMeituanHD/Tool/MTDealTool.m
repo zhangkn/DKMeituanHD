@@ -10,6 +10,7 @@
 #import "FMDB.h"
 #import "DKDeal.h"
 
+#import "DKConst.h"
 @implementation MTDealTool
 
 static FMDatabase *_db;
@@ -28,9 +29,8 @@ static FMDatabase *_db;
 
 + (NSArray *)collectDeals:(int)page
 {
-    int size = 20;
-    int pos = (page - 1) * size;
-    FMResultSet *set = [_db executeQueryWithFormat:@"SELECT * FROM t_collect_deal ORDER BY id DESC LIMIT %d,%d;", pos, size];
+    int pos = (page - 1) * DKCellPagesize;
+    FMResultSet *set = [_db executeQueryWithFormat:@"SELECT * FROM t_collect_deal ORDER BY id DESC LIMIT %d,%d;", pos, DKCellPagesize];
     NSMutableArray *deals = [NSMutableArray array];
     while (set.next) {
         DKDeal *deal = [NSKeyedUnarchiver unarchiveObjectWithData:[set objectForColumnName:@"deal"]];
@@ -39,6 +39,13 @@ static FMDatabase *_db;
     return deals;
 }
 
+
+
+/**
+ 最好isCollected先判断数据库中是否存在，只有不存在的时候才进行插入，存在进行更新即可
+
+ @param deal
+ */
 + (void)addCollectDeal:(DKDeal *)deal
 {
     NSData *data = [NSKeyedArchiver archivedDataWithRootObject:deal];
@@ -55,6 +62,14 @@ static FMDatabase *_db;
     [_db executeUpdateWithFormat:@"DELETE FROM t_collect_deal WHERE deal_id = %@;", deal.deal_id];
 }
 
+
+
+/**
+ 判断是否收藏
+
+
+ @return bool
+ */
 + (BOOL)isCollected:(DKDeal *)deal
 {
     FMResultSet *set = [_db executeQueryWithFormat:@"SELECT count(*) AS deal_count FROM t_collect_deal WHERE deal_id = %@;", deal.deal_id];

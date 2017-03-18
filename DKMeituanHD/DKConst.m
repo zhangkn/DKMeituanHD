@@ -31,3 +31,8 @@ NSString *const DKdidClickCategoryTableNotificationInfoModelKey=@"DKdidClickCate
 NSString *const MTCollectStateDidChangeNotification = @"MTCollectStateDidChangeNotification";
 NSString *const MTIsCollectKey = @"MTIsCollectKey";
 NSString *const MTCollectDealKey = @"MTCollectDealKey";
+
+
+
+NSString * const DKDealCellReuseIdentifier = @"DKDealCell";//必须与xib 的cell Identifier 保持一致
+

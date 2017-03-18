@@ -14,12 +14,10 @@
 #import "DKDealCell.h"
 #import "MBProgressHUD+MJ.h"
 #import "UIView+AutoLayout.h"
-#define   cellSize   305
 
 #import "MTDetailViewController.h"
 
-static NSString * const reuseIdentifier = @"DKDealCell";
-
+#import "DKConst.h"
 
 
 @interface DKDealsCollectionViewController ()
@@ -69,7 +67,7 @@ static NSString * const reuseIdentifier = @"DKDealCell";
     
     //设置cell大小
     
-    [layout setItemSize:CGSizeMake(cellSize, cellSize)];
+    [layout setItemSize:CGSizeMake(DKDealCellSize, DKDealCellSize)];
     //设置分组上下左右的内边距
     CGFloat inset = 15;
     [layout setSectionInset:UIEdgeInsetsMake(inset, inset, inset, inset)];//The margins used to lay out content in a section
@@ -88,7 +86,7 @@ static NSString * const reuseIdentifier = @"DKDealCell";
     self.collectionView.backgroundColor = DkGlobalBg;
     self.collectionView.alwaysBounceVertical = YES;//设置弹簧效果
 
-    [self.collectionView registerNib:[UINib nibWithNibName:@"DKDealCell" bundle:nil] forCellWithReuseIdentifier:reuseIdentifier];
+    [self.collectionView registerNib:[UINib nibWithNibName:@"DKDealCell" bundle:nil] forCellWithReuseIdentifier:DKDealCellReuseIdentifier];
     
     
 //    / 添加刷新控件
@@ -235,7 +233,7 @@ static NSString * const reuseIdentifier = @"DKDealCell";
 
 - (void)setupcellMarginWithcellCol:(CGFloat)cellCol   viewWillTransitionToSize:(CGSize)size{
     UICollectionViewFlowLayout *layout = (UICollectionViewFlowLayout*)self.collectionViewLayout;
-    CGFloat cellMargin = (size.width - (cellSize*cellCol))/(cellCol+1);
+    CGFloat cellMargin = (size.width - (DKDealCellSize*cellCol))/(cellCol+1);
     
     //设置分组上下左右的内边距
     CGFloat inset = cellMargin;
@@ -298,7 +296,7 @@ static NSString * const reuseIdentifier = @"DKDealCell";
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
     DKDeal *deal = self.deals[indexPath.row];
-    return   [DKDealCell cellWithDeal:deal collectionView:collectionView WithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
+    return   [DKDealCell cellWithDeal:deal collectionView:collectionView WithReuseIdentifier:DKDealCellReuseIdentifier forIndexPath:indexPath];
 }
 
 
