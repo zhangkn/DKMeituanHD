@@ -622,11 +622,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DKMeituanHD/DKCollectCollectionViewController.m"
-            timestampString = "511531016.185475"
+            timestampString = "511533909.224742"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "137"
-            endingLineNumber = "137"
+            startingLineNumber = "242"
+            endingLineNumber = "242"
             landmarkName = "-footerWithTarget"
             landmarkType = "7">
          </BreakpointContent>
@@ -638,27 +638,27 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DKMeituanHD/DKCollectCollectionViewController.m"
-            timestampString = "511531016.185475"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "135"
-            endingLineNumber = "135"
-            landmarkName = "-footerWithTarget"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "DKMeituanHD/DKCollectCollectionViewController.m"
-            timestampString = "511531016.185475"
+            timestampString = "511533909.224742"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "240"
             endingLineNumber = "240"
+            landmarkName = "-footerWithTarget"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DKMeituanHD/DKCollectCollectionViewController.m"
+            timestampString = "511533909.224742"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "345"
+            endingLineNumber = "345"
             landmarkName = "-numberOfSectionsInCollectionView:"
             landmarkType = "7">
          </BreakpointContent>
@@ -686,11 +686,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DKMeituanHD/DKCollectCollectionViewController.m"
-            timestampString = "511531016.185475"
+            timestampString = "511533909.224742"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "236"
-            endingLineNumber = "236"
+            startingLineNumber = "341"
+            endingLineNumber = "341"
             landmarkName = "-numberOfSectionsInCollectionView:"
             landmarkType = "7">
          </BreakpointContent>
@@ -702,11 +702,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DKMeituanHD/DKCollectCollectionViewController.m"
-            timestampString = "511531016.185475"
+            timestampString = "511533909.224742"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "241"
-            endingLineNumber = "241"
+            startingLineNumber = "346"
+            endingLineNumber = "346"
             landmarkName = "-numberOfSectionsInCollectionView:"
             landmarkType = "7">
          </BreakpointContent>
@@ -718,11 +718,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DKMeituanHD/DKCollectCollectionViewController.m"
-            timestampString = "511530240.528064"
+            timestampString = "511533909.224742"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "123"
-            endingLineNumber = "123"
+            startingLineNumber = "228"
+            endingLineNumber = "228"
             landmarkName = "-footerWithTargetLoadMoreData"
             landmarkType = "7">
          </BreakpointContent>
@@ -734,12 +734,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DKMeituanHD/DKCollectCollectionViewController.m"
-            timestampString = "511531016.185475"
+            timestampString = "511533909.224742"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "126"
-            endingLineNumber = "126"
+            startingLineNumber = "231"
+            endingLineNumber = "231"
             landmarkName = "-footerWithTargetLoadMoreData"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DKMeituanHD/DKCollectCollectionViewController.m"
+            timestampString = "511533909.224742"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "201"
+            endingLineNumber = "201"
+            landmarkName = "-edit:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -36,3 +36,15 @@ NSString *const MTCollectDealKey = @"MTCollectDealKey";
 
 NSString * const DKDealCellReuseIdentifier = @"DKDealCell";//必须与xib 的cell Identifier 保持一致
 
+  NSString *const DKDone= @"完成";
+  NSString *const DKEdit= @"编辑";
+
+NSString *const DkSelectAllTitle = @"  全选  ";
+
+NSString *const DkUNSelectAllTitle = @"  全不选  ";
+
+NSString *const DkDeleteAllTitle = @"  删除  ";
+
+
+
+

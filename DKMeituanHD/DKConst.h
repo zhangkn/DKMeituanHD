@@ -47,12 +47,28 @@ extern NSString *const DKdidClickCityTableTableNotificationInfoSubTitleKey;
 extern NSString *const DKdidClickCityTableTableNotificationInfoModelKey;
 
 
-
+/**
+ 团购收藏的状态监听相关的key
+ */
 extern NSString *const MTCollectStateDidChangeNotification;
 extern NSString *const MTIsCollectKey;
 extern NSString *const MTCollectDealKey;
 
 
-
+/** 
+ 团购cell 的ID
+ */
 extern  NSString *const DKDealCellReuseIdentifier;
+/**按钮常用字符串 */
+extern  NSString *const DKDone;
+extern  NSString *const DKEdit;
+
+extern NSString *const DkSelectAllTitle ;
+
+extern NSString *const DkUNSelectAllTitle;
+
+extern NSString *const DkDeleteAllTitle ;
+
+
+
 

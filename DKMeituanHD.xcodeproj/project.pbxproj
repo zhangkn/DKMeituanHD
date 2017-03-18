@@ -573,8 +573,6 @@
 				E1F7A1731E20DD9400ABDE49 /* DKHomeAddressViewController.h */,
 				E1F7A1761E20DE4900ABDE49 /* DKHomeAddressViewController.xib */,
 				E1F7A1741E20DD9400ABDE49 /* DKHomeAddressViewController.m */,
-				E106229B1E1CD1C50082221F /* DKNavigationViewController.h */,
-				E106229C1E1CD1C50082221F /* DKNavigationViewController.m */,
 			);
 			name = Control;
 			sourceTree = "<group>";
@@ -603,6 +601,8 @@
 			children = (
 				E1F024341E2B7287007E801F /* DKDealsCollectionViewController.h */,
 				E1F024351E2B7287007E801F /* DKDealsCollectionViewController.m */,
+				E106229B1E1CD1C50082221F /* DKNavigationViewController.h */,
+				E106229C1E1CD1C50082221F /* DKNavigationViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";

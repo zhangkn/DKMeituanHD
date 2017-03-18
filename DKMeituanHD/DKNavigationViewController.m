@@ -26,6 +26,10 @@
         UINavigationBar *bar = [UINavigationBar appearance];
         [bar setBackgroundImage:[UIImage imageNamed:@"bg_navigationBar_normal"] forBarMetrics:UIBarMetricsDefault];
         
+        UIBarButtonItem *barButtonItem = [UIBarButtonItem appearance];
+        [barButtonItem setTitleTextAttributes:@{NSForegroundColorAttributeName:DKColor(21, 188, 173)} forState:UIControlStateNormal];
+        [barButtonItem setTitleTextAttributes:@{NSForegroundColorAttributeName:DKColor(107, 107, 107)} forState:UIControlStateDisabled];
+        
         
         
         

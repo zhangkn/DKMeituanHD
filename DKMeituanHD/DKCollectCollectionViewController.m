@@ -38,11 +38,87 @@
  */
 @property (nonatomic,strong) UIImageView *icon_deals_emptyView;
 
+
+/**
+ 左边导航栏的item
+ */
+@property (nonatomic,strong) UIBarButtonItem *backItem;
+@property (nonatomic,strong) UIBarButtonItem *selectAllItem;
+@property (nonatomic,strong) UIBarButtonItem *unSelectAllItem;
+@property (nonatomic,strong) UIBarButtonItem *deleteItem;
+
+
+
+
 @end
 
 @implementation DKCollectCollectionViewController
 
-//static NSString * const reuseIdentifier = @"Cell";
+- (UIBarButtonItem *)backItem{
+    
+    if (_backItem == nil) {
+        _backItem = [UIBarButtonItem barButtonItemWithTarget:self Image:@"icon_back" highlightedImage:@"icon_back_highlighted" actionMethod:@selector(back)];
+        
+    }
+    return _backItem;
+}
+
+- (UIBarButtonItem *)selectAllItem{
+    
+    if (_selectAllItem == nil) {
+        NSString *title = DkSelectAllTitle;
+
+        _selectAllItem = [[UIBarButtonItem alloc]initWithTitle:title style:UIBarButtonItemStyleDone target:self action:@selector(cilckSelectAllItem:)];
+        
+    }
+    return _selectAllItem;
+}
+
+- (UIBarButtonItem *)unSelectAllItem{
+    
+    if (_unSelectAllItem == nil) {
+        NSString *title = DkUNSelectAllTitle;
+        _unSelectAllItem = [[UIBarButtonItem alloc]initWithTitle:title style:UIBarButtonItemStyleDone target:self action:@selector(cilckUNSelectAllItem:)];
+        
+    }
+    return _unSelectAllItem;
+}
+
+
+
+- (UIBarButtonItem *)deleteItem{
+    
+    if (_deleteItem == nil) {
+//        NSString *title = @"删除";
+        
+        NSString *title = DkDeleteAllTitle;
+
+        _deleteItem = [[UIBarButtonItem alloc]initWithTitle:title style:UIBarButtonItemStyleDone target:self action:@selector(cilckDeleteAllItem:)];
+        [_deleteItem setEnabled:NO];
+        
+    }
+    return _deleteItem;
+}
+
+
+
+
+- (void)cilckUNSelectAllItem:(UIBarButtonItem*)item{
+    
+}
+
+- (void)cilckSelectAllItem:(UIBarButtonItem*)item{
+    
+}
+
+- (void)cilckDeleteAllItem:(UIBarButtonItem*)item{
+    
+}
+
+
+
+
+
 
 
 - (NSMutableArray *)deals{
@@ -87,7 +163,7 @@
     // 1.左边的返回
     //    self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(back) image:@"icon_back" highImage:@"icon_back_highlighted"];
     
-    self.navigationItem.leftBarButtonItem = [UIBarButtonItem barButtonItemWithTarget:self Image:@"icon_back" highlightedImage:@"icon_back_highlighted" actionMethod:@selector(back)];
+    self.navigationItem.leftBarButtonItem = self.backItem;
     
     
 //    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
@@ -110,9 +186,38 @@
     
     [self.collectionView addFooterWithTarget:self action:@selector(footerWithTarget)];
     
+    //5. 设置导航栏的右边按钮
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"编辑" style:UIBarButtonItemStyleDone target:self action:@selector(edit:)];
+    
+
+    
     
 }
 
+#pragma mark - ******** 编辑处理
+
+- (void)edit:(UIBarButtonItem*)item{
+    if ([item.title isEqualToString:DKDone]) {
+        item.title = DKEdit;
+        //处于编辑状态，左边导航栏增加  全选、全不选、删除 按钮
+        //设置backItme
+//        self.backItem = ;
+        
+        
+      
+        self.navigationItem.leftBarButtonItems = @[self.backItem];
+
+        
+    }else{
+        item.title = DKDone;
+        self.navigationItem.leftBarButtonItems = @[self.backItem,self.selectAllItem,self.unSelectAllItem,self.deleteItem];
+        
+    }
+
+    
+    
+}
 
 /**
  上啦加载的回调方法
