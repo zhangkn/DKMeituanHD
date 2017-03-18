@@ -16,6 +16,7 @@
 #import "UIView+AutoLayout.h"
 #define   cellSize   305
 
+#import "MTDetailViewController.h"
 
 static NSString * const reuseIdentifier = @"DKDealCell";
 
@@ -301,6 +302,17 @@ static NSString * const reuseIdentifier = @"DKDealCell";
 }
 
 
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    
+    //调整到详情页
+    MTDetailViewController *vc = [[MTDetailViewController alloc]init];
+    
+    vc.deal = self.deals[indexPath.row];
+    [self presentViewController:vc animated:YES completion:nil];
+    
+    
+}
 
 
 @end

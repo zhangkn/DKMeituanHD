@@ -27,6 +27,27 @@
 
 @implementation MTDetailViewController
 
+
+- (void)setupleftTimeButtonTitle{
+    //1.计算死亡时间
+    NSDateFormatter *fmt = [[NSDateFormatter alloc] init];
+    fmt.dateFormat = @"yyyy-MM-dd";
+    NSDate *dead = [fmt dateFromString:self.deal.purchase_deadline];//死亡时间
+    // 追加1天
+    dead = [dead dateByAddingTimeInterval:24 * 60 * 60];
+    //2. 当前时间
+    NSDate *now = [NSDate date];
+    //3. 时间比较
+    NSCalendarUnit unit = NSCalendarUnitDay | NSCalendarUnitHour | NSCalendarUnitMinute;
+    NSDateComponents *cmps = [[NSCalendar currentCalendar] components:unit fromDate:now toDate:dead options:0];
+    if (cmps.day > 365) {
+        [self.leftTimeButton setTitle:@"一年内不过期" forState:UIControlStateNormal];
+    } else {
+        [self.leftTimeButton setTitle:[NSString stringWithFormat:@"%ld天%ld小时%ld分钟", (long)cmps.day, (long)cmps.hour, (long)cmps.minute] forState:UIControlStateNormal];
+    }
+    
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -34,27 +55,20 @@
     self.view.backgroundColor = DkGlobalBg;
     
     // 加载网页
-    self.webView.hidden = YES;
+    self.webView.hidden = YES;// 第一次加载的页面不显示，等第二个请求完成仔显示
     [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.deal.deal_h5_url]]];
+    self.webView.delegate = self;
     
+//    return;
     // 设置基本信息
     self.titleLabel.text = self.deal.title;
     self.descLabel.text = self.deal.desc;
     
     // 设置剩余时间
-    NSDateFormatter *fmt = [[NSDateFormatter alloc] init];
-    fmt.dateFormat = @"yyyy-MM-dd";
-    NSDate *dead = [fmt dateFromString:self.deal.purchase_deadline];
-    // 追加1天
-    dead = [dead dateByAddingTimeInterval:24 * 60 * 60];
-    NSDate *now = [NSDate date];
-    NSCalendarUnit unit = NSCalendarUnitDay | NSCalendarUnitHour | NSCalendarUnitMinute;
-    NSDateComponents *cmps = [[NSCalendar currentCalendar] components:unit fromDate:now toDate:dead options:0];
-    if (cmps.day > 365) {
-        [self.leftTimeButton setTitle:@"一年内不过期" forState:UIControlStateNormal];
-    } else {
-        [self.leftTimeButton setTitle:[NSString stringWithFormat:@"%ld天%d小时%d分钟", (long)cmps.day, cmps.hour, cmps.minute] forState:UIControlStateNormal];
-    }
+  
+    [self setupleftTimeButtonTitle];
+    // kevin  return
+//    return;
     
     // 发送请求获得更详细的团购数据
     DPAPI *api = [[DPAPI alloc] init];
@@ -75,7 +89,7 @@
     return UIInterfaceOrientationMaskLandscape;
 }
 
-#pragma mark - DPRequestDelegate
+#pragma mark - DPRequestDelegate     处理请求大众点评的请求
 - (void)request:(DPRequest *)request didFinishLoadingWithResult:(id)result
 {
     self.deal = [DKDeal objectWithKeyValues:[result[@"deals"] firstObject]];
@@ -89,9 +103,15 @@
     [MBProgressHUD showError:@"网络繁忙,请稍后再试" toView:self.view];
 }
 
-#pragma mark - UIWebViewDelegate
+#pragma mark - UIWebViewDelegate  处理webView  的请求
+
+/**
+ *http://m.dianping.com/tuan/deal/moreinfo/21930402
+ http://m.dianping.com/tuan/deal/21930402?utm_source=open
+ */
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
+    //处理deal_h5_url 加载、以及moreinfo URL 的加载情况
     if ([webView.request.URL.absoluteString isEqualToString:self.deal.deal_h5_url]) {
         // 旧的HTML5页面加载完毕
         NSString *ID = [self.deal.deal_id substringFromIndex:[self.deal.deal_id rangeOfString:@"-"].location + 1];
@@ -116,10 +136,22 @@
         // 获得页面
 //        NSString *html = [webView stringByEvaluatingJavaScriptFromString:@"document.getElementsByTagName('html')[0].outerHTML;"];
         // 显示webView
-        webView.hidden = NO;
+        webView.hidden = NO;//此时才显示weeview 的内容
         // 隐藏正在加载
         [self.loadingView stopAnimating];
     }
+}
+
+
+- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType{
+    
+    return YES;
+}
+
+- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error{
+    NSLog(@"%@",error);
+    
+    
 }
 
 - (IBAction)back {

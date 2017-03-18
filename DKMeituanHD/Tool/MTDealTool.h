@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@class MTDeal;
+@class DKDeal;
 
 @interface MTDealTool : NSObject
 /**
@@ -19,13 +19,13 @@
 /**
  *  收藏一个团购
  */
-+ (void)addCollectDeal:(MTDeal *)deal;
++ (void)addCollectDeal:(DKDeal *)deal;
 /**
  *  取消收藏一个团购
  */
-+ (void)removeCollectDeal:(MTDeal *)deal;
++ (void)removeCollectDeal:(DKDeal *)deal;
 /**
  *  团购是否收藏
  */
-+ (BOOL)isCollected:(MTDeal *)deal;
++ (BOOL)isCollected:(DKDeal *)deal;
 @end

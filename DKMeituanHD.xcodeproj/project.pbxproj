@@ -44,7 +44,6 @@
 		E10622A51E1CEC200082221F /* UIBarButtonItem+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = E10622A41E1CEC200082221F /* UIBarButtonItem+Extension.m */; };
 		E10622A91E1CEC840082221F /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = E10622A81E1CEC840082221F /* UIView+Extension.m */; };
 		E15DF2821E30BEEE00D9837F /* MTDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E15DF2801E30BEEE00D9837F /* MTDetailViewController.m */; };
-		E15DF2831E30BEEE00D9837F /* MTDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E15DF2811E30BEEE00D9837F /* MTDetailViewController.xib */; };
 		E15DF2861E30C06900D9837F /* MTRestrictions.m in Sources */ = {isa = PBXBuildFile; fileRef = E15DF2851E30C06900D9837F /* MTRestrictions.m */; };
 		E15DF28D1E30C1C200D9837F /* MTDealTool.m in Sources */ = {isa = PBXBuildFile; fileRef = E15DF28C1E30C1C200D9837F /* MTDealTool.m */; };
 		E15DF29A1E30C1F500D9837F /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = E15DF2901E30C1F500D9837F /* FMDatabase.m */; };
@@ -111,6 +110,7 @@
 		E1F7A18A1E21179B00ABDE49 /* DKHomeSearchResultTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1F7A1891E21179B00ABDE49 /* DKHomeSearchResultTableViewController.m */; };
 		E1F7A18E1E2119C400ABDE49 /* Foundation+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = E1F7A18B1E2119C400ABDE49 /* Foundation+Log.m */; };
 		E1F7A18F1E2119C400ABDE49 /* UIView+AutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = E1F7A18D1E2119C400ABDE49 /* UIView+AutoLayout.m */; };
+		E1FCCB3B1E319A3C003C612B /* MTDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1FCCB3A1E319A3C003C612B /* MTDetailViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -187,7 +187,6 @@
 		E10622A81E1CEC840082221F /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
 		E15DF27F1E30BEEE00D9837F /* MTDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTDetailViewController.h; sourceTree = "<group>"; };
 		E15DF2801E30BEEE00D9837F /* MTDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTDetailViewController.m; sourceTree = "<group>"; };
-		E15DF2811E30BEEE00D9837F /* MTDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MTDetailViewController.xib; sourceTree = "<group>"; };
 		E15DF2841E30C06900D9837F /* MTRestrictions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTRestrictions.h; sourceTree = "<group>"; };
 		E15DF2851E30C06900D9837F /* MTRestrictions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTRestrictions.m; sourceTree = "<group>"; };
 		E15DF28B1E30C1C200D9837F /* MTDealTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTDealTool.h; sourceTree = "<group>"; };
@@ -318,6 +317,7 @@
 		E1F7A18B1E2119C400ABDE49 /* Foundation+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Foundation+Log.m"; sourceTree = "<group>"; };
 		E1F7A18C1E2119C400ABDE49 /* UIView+AutoLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+AutoLayout.h"; sourceTree = "<group>"; };
 		E1F7A18D1E2119C400ABDE49 /* UIView+AutoLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+AutoLayout.m"; sourceTree = "<group>"; };
+		E1FCCB3A1E319A3C003C612B /* MTDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MTDetailViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -456,9 +456,9 @@
 		E15DF27E1E30BEEE00D9837F /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				E1FCCB3A1E319A3C003C612B /* MTDetailViewController.xib */,
 				E15DF27F1E30BEEE00D9837F /* MTDetailViewController.h */,
 				E15DF2801E30BEEE00D9837F /* MTDetailViewController.m */,
-				E15DF2811E30BEEE00D9837F /* MTDetailViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -862,7 +862,7 @@
 				E1F7A17C1E20E73400ABDE49 /* DKHomeCityViewController.xib in Resources */,
 				E104D00C1E2A4609006BD965 /* MJRefresh.bundle in Resources */,
 				E1F4FA1A1E1E400E00DBB3A3 /* DKHomeTopItem.xib in Resources */,
-				E15DF2831E30BEEE00D9837F /* MTDetailViewController.xib in Resources */,
+				E1FCCB3B1E319A3C003C612B /* MTDetailViewController.xib in Resources */,
 				E104CFF91E2A4602006BD965 /* MBProgressHUD.bundle in Resources */,
 				E1F7A11F1E20B55C00ABDE49 /* sorts.plist in Resources */,
 				E1D0EB331E1B7E87000C9541 /* Assets.xcassets in Resources */,

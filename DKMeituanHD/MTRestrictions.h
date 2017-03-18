@@ -3,11 +3,13 @@
 //  美团HD
 //
 //  Created by apple on 14/11/27.
-//  Copyright (c) 2014年 heima. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 
+/**
+ 此对象的信息从  查询团购详情接口获取
+ */
 @interface MTRestrictions : NSObject
 /** int	是否需要预约，0：不是，1：是 */
 @property (nonatomic, assign) int  is_reservation_required;
