@@ -244,7 +244,7 @@
         CLPlacemark *pm = [placemarks firstObject];
         //城市优先从CLPlacemark 的locality 获取，如果获取不到再从addressDictionary[@"State"] 获取
         NSString *city = pm.locality ? pm.locality : pm.addressDictionary[@"State"];
-        self.city = [city substringToIndex:city.length - 1];
+        self.city = [city substringToIndex:city.length - 1];//去掉市-- 最后一个字符
         
         // 第一次发送请求给服务器， 获取新的团购数据
         [self mapView:self.mapView regionDidChangeAnimated:YES];
