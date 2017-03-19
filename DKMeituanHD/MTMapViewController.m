@@ -242,6 +242,7 @@
         if (error || placemarks.count == 0) return;
         
         CLPlacemark *pm = [placemarks firstObject];
+        //城市优先从CLPlacemark 的locality 获取，如果获取不到再从addressDictionary[@"State"] 获取
         NSString *city = pm.locality ? pm.locality : pm.addressDictionary[@"State"];
         self.city = [city substringToIndex:city.length - 1];
         
