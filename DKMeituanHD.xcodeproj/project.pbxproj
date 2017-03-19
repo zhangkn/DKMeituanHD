@@ -71,6 +71,7 @@
 		E1F2E4841E7E4ADE00B2BC36 /* MTMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1F2E4821E7E4ADE00B2BC36 /* MTMapViewController.xib */; };
 		E1F2E4881E7E55CF00B2BC36 /* MTDealAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = E1F2E4871E7E55CF00B2BC36 /* MTDealAnnotation.m */; };
 		E1F2E48C1E7E5A3200B2BC36 /* MTBusiness.m in Sources */ = {isa = PBXBuildFile; fileRef = E1F2E48B1E7E5A3200B2BC36 /* MTBusiness.m */; };
+		E1F2E48E1E7E6E5100B2BC36 /* 54-58day 美团HD（美团的界面，大众点评的API） - 张坤楠 - 通联学苑.webarchive in Resources */ = {isa = PBXBuildFile; fileRef = E1F2E48D1E7E6E5100B2BC36 /* 54-58day 美团HD（美团的界面，大众点评的API） - 张坤楠 - 通联学苑.webarchive */; };
 		E1F4FA181E1E3FD800DBB3A3 /* DKHomeTopItem.m in Sources */ = {isa = PBXBuildFile; fileRef = E1F4FA171E1E3FD800DBB3A3 /* DKHomeTopItem.m */; };
 		E1F4FA1A1E1E400E00DBB3A3 /* DKHomeTopItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1F4FA191E1E400E00DBB3A3 /* DKHomeTopItem.xib */; };
 		E1F7A1101E20A31400ABDE49 /* DKHomeDropdownView.m in Sources */ = {isa = PBXBuildFile; fileRef = E1F7A10F1E20A31400ABDE49 /* DKHomeDropdownView.m */; };
@@ -245,6 +246,7 @@
 		E1F2E4871E7E55CF00B2BC36 /* MTDealAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTDealAnnotation.m; sourceTree = "<group>"; };
 		E1F2E48A1E7E5A3200B2BC36 /* MTBusiness.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTBusiness.h; sourceTree = "<group>"; };
 		E1F2E48B1E7E5A3200B2BC36 /* MTBusiness.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTBusiness.m; sourceTree = "<group>"; };
+		E1F2E48D1E7E6E5100B2BC36 /* 54-58day 美团HD（美团的界面，大众点评的API） - 张坤楠 - 通联学苑.webarchive */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = "54-58day 美团HD（美团的界面，大众点评的API） - 张坤楠 - 通联学苑.webarchive"; sourceTree = "<group>"; };
 		E1F4FA161E1E3FD800DBB3A3 /* DKHomeTopItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKHomeTopItem.h; sourceTree = "<group>"; };
 		E1F4FA171E1E3FD800DBB3A3 /* DKHomeTopItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKHomeTopItem.m; sourceTree = "<group>"; };
 		E1F4FA191E1E400E00DBB3A3 /* DKHomeTopItem.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DKHomeTopItem.xib; sourceTree = "<group>"; };
@@ -556,6 +558,7 @@
 		E1D0EB261E1B7E87000C9541 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E1F2E48D1E7E6E5100B2BC36 /* 54-58day 美团HD（美团的界面，大众点评的API） - 张坤楠 - 通联学苑.webarchive */,
 				E1F7A1161E20B55300ABDE49 /* res */,
 				E1D0EB291E1B7E87000C9541 /* AppDelegate.h */,
 				E1D0EB2A1E1B7E87000C9541 /* AppDelegate.m */,
@@ -914,6 +917,7 @@
 				E1F7A1121E20A36800ABDE49 /* DKHomeDropdownView.xib in Resources */,
 				E104CFBF1E2A456A006BD965 /* DKDealCell.xib in Resources */,
 				E1F7A11E1E20B55C00ABDE49 /* cityGroups.plist in Resources */,
+				E1F2E48E1E7E6E5100B2BC36 /* 54-58day 美团HD（美团的界面，大众点评的API） - 张坤楠 - 通联学苑.webarchive in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
