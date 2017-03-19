@@ -19,6 +19,7 @@
 #import "DKCategoryModel.h"
 #import "DKRecentCollectionViewController.h"
 #import "DKCollectCollectionViewController.h"
+#import "MTMapViewController.h"
 @interface DKHomeCollectionViewController ()<AwesomeMenuDelegate>
 
 /** 地区*/
@@ -456,7 +457,7 @@
  */
 - (void)setupRightNav
 {
-    UIBarButtonItem *mapItem = [UIBarButtonItem barButtonItemWithTarget:nil Image:@"icon_map" highlightedImage:@"icon_map_highlighted" actionMethod:nil];
+    UIBarButtonItem *mapItem = [UIBarButtonItem barButtonItemWithTarget:self Image:@"icon_map" highlightedImage:@"icon_map_highlighted" actionMethod:@selector(map)];
     mapItem.customView.width = 60;
     
     UIBarButtonItem *searchItem =[UIBarButtonItem barButtonItemWithTarget:self Image:@"icon_search" highlightedImage:@"icon_search_highlighted" actionMethod:@selector(clickSearch)];
@@ -464,6 +465,17 @@
     self.navigationItem.rightBarButtonItems = @[mapItem, searchItem];
 }
 
+#pragma mark - ******** 处理map的点击事件
+
+- (void)map{
+    
+    //    控制器跳转
+    MTMapViewController *vc = [[MTMapViewController alloc]init];
+    DKNavigationViewController *nav = [[DKNavigationViewController alloc]initWithRootViewController:vc];
+//    vc.selectedCityName = self.selectedCityName;
+    [self presentViewController:nav animated:YES completion:nil];
+    
+}
 
 #pragma mark - ******** 处理搜索框的点击事件
 

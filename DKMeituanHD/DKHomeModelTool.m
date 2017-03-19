@@ -226,4 +226,19 @@ static NSArray *_sortModels;
 
 
 
++ (DKCategoryModel *)categoryWithDeal:(DKDeal *)deal
+{
+    NSArray *cs = [self categoryModels];
+    NSString *cname = [deal.categories firstObject];//deal 所属的种类名称
+    
+    for (DKCategoryModel *c in cs) {
+        if ([cname isEqualToString:c.name]) return c;
+        if ([c.subcategories containsObject:cname]) return c;
+    }
+    return nil;
+}
+
+
+
+
 @end

@@ -8,8 +8,17 @@
 
 #import "DKDeal.h"
 #import "MJExtension.h"
-
+#import "MTBusiness.h"
 @implementation DKDeal
+
+
+- (NSDictionary *)objectClassInArray{
+//    return @{@"businesses":@"MTBusiness"};
+    
+    return @{@"businesses" : [MTBusiness class]};
+
+}
+
 
 - (NSDictionary *)replacedKeyFromPropertyName
 {

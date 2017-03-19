@@ -67,6 +67,10 @@
 		E1F024361E2B7287007E801F /* DKDealsCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1F024351E2B7287007E801F /* DKDealsCollectionViewController.m */; };
 		E1F0243C1E2B9D95007E801F /* DKCollectCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1F0243B1E2B9D95007E801F /* DKCollectCollectionViewController.m */; };
 		E1F024401E2B9DA8007E801F /* DKRecentCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1F0243F1E2B9DA8007E801F /* DKRecentCollectionViewController.m */; };
+		E1F2E4831E7E4ADE00B2BC36 /* MTMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1F2E4811E7E4ADE00B2BC36 /* MTMapViewController.m */; };
+		E1F2E4841E7E4ADE00B2BC36 /* MTMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1F2E4821E7E4ADE00B2BC36 /* MTMapViewController.xib */; };
+		E1F2E4881E7E55CF00B2BC36 /* MTDealAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = E1F2E4871E7E55CF00B2BC36 /* MTDealAnnotation.m */; };
+		E1F2E48C1E7E5A3200B2BC36 /* MTBusiness.m in Sources */ = {isa = PBXBuildFile; fileRef = E1F2E48B1E7E5A3200B2BC36 /* MTBusiness.m */; };
 		E1F4FA181E1E3FD800DBB3A3 /* DKHomeTopItem.m in Sources */ = {isa = PBXBuildFile; fileRef = E1F4FA171E1E3FD800DBB3A3 /* DKHomeTopItem.m */; };
 		E1F4FA1A1E1E400E00DBB3A3 /* DKHomeTopItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1F4FA191E1E400E00DBB3A3 /* DKHomeTopItem.xib */; };
 		E1F7A1101E20A31400ABDE49 /* DKHomeDropdownView.m in Sources */ = {isa = PBXBuildFile; fileRef = E1F7A10F1E20A31400ABDE49 /* DKHomeDropdownView.m */; };
@@ -234,6 +238,13 @@
 		E1F0243B1E2B9D95007E801F /* DKCollectCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKCollectCollectionViewController.m; sourceTree = "<group>"; };
 		E1F0243E1E2B9DA8007E801F /* DKRecentCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKRecentCollectionViewController.h; sourceTree = "<group>"; };
 		E1F0243F1E2B9DA8007E801F /* DKRecentCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKRecentCollectionViewController.m; sourceTree = "<group>"; };
+		E1F2E4801E7E4ADE00B2BC36 /* MTMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTMapViewController.h; sourceTree = "<group>"; };
+		E1F2E4811E7E4ADE00B2BC36 /* MTMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTMapViewController.m; sourceTree = "<group>"; };
+		E1F2E4821E7E4ADE00B2BC36 /* MTMapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MTMapViewController.xib; sourceTree = "<group>"; };
+		E1F2E4861E7E55CF00B2BC36 /* MTDealAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTDealAnnotation.h; sourceTree = "<group>"; };
+		E1F2E4871E7E55CF00B2BC36 /* MTDealAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTDealAnnotation.m; sourceTree = "<group>"; };
+		E1F2E48A1E7E5A3200B2BC36 /* MTBusiness.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTBusiness.h; sourceTree = "<group>"; };
+		E1F2E48B1E7E5A3200B2BC36 /* MTBusiness.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTBusiness.m; sourceTree = "<group>"; };
 		E1F4FA161E1E3FD800DBB3A3 /* DKHomeTopItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKHomeTopItem.h; sourceTree = "<group>"; };
 		E1F4FA171E1E3FD800DBB3A3 /* DKHomeTopItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKHomeTopItem.m; sourceTree = "<group>"; };
 		E1F4FA191E1E400E00DBB3A3 /* DKHomeTopItem.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DKHomeTopItem.xib; sourceTree = "<group>"; };
@@ -530,6 +541,7 @@
 		E1D0EB251E1B7E87000C9541 /* DKMeituanHD */ = {
 			isa = PBXGroup;
 			children = (
+				E1F2E47F1E7E4AB500B2BC36 /* Map */,
 				E15DF27C1E30BEB200D9837F /* Detail */,
 				E1F024381E2B9B9D007E801F /* Collect */,
 				E1F024371E2B9B97007E801F /* Recent */,
@@ -639,6 +651,36 @@
 				E1F0243B1E2B9D95007E801F /* DKCollectCollectionViewController.m */,
 			);
 			name = Control;
+			sourceTree = "<group>";
+		};
+		E1F2E47F1E7E4AB500B2BC36 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				E1F2E4851E7E4AE700B2BC36 /* VC  */,
+			);
+			name = Map;
+			sourceTree = "<group>";
+		};
+		E1F2E4851E7E4AE700B2BC36 /* VC  */ = {
+			isa = PBXGroup;
+			children = (
+				E1F2E4891E7E55D300B2BC36 /* model */,
+				E1F2E4801E7E4ADE00B2BC36 /* MTMapViewController.h */,
+				E1F2E4811E7E4ADE00B2BC36 /* MTMapViewController.m */,
+				E1F2E4821E7E4ADE00B2BC36 /* MTMapViewController.xib */,
+			);
+			name = "VC ";
+			sourceTree = "<group>";
+		};
+		E1F2E4891E7E55D300B2BC36 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				E1F2E48A1E7E5A3200B2BC36 /* MTBusiness.h */,
+				E1F2E48B1E7E5A3200B2BC36 /* MTBusiness.m */,
+				E1F2E4861E7E55CF00B2BC36 /* MTDealAnnotation.h */,
+				E1F2E4871E7E55CF00B2BC36 /* MTDealAnnotation.m */,
+			);
+			name = model;
 			sourceTree = "<group>";
 		};
 		E1F4FA141E1E3F8E00DBB3A3 /* View */ = {
@@ -864,6 +906,7 @@
 				E1F4FA1A1E1E400E00DBB3A3 /* DKHomeTopItem.xib in Resources */,
 				E1FCCB3B1E319A3C003C612B /* MTDetailViewController.xib in Resources */,
 				E104CFF91E2A4602006BD965 /* MBProgressHUD.bundle in Resources */,
+				E1F2E4841E7E4ADE00B2BC36 /* MTMapViewController.xib in Resources */,
 				E1F7A11F1E20B55C00ABDE49 /* sorts.plist in Resources */,
 				E1D0EB331E1B7E87000C9541 /* Assets.xcassets in Resources */,
 				E1F7A11D1E20B55C00ABDE49 /* cities.plist in Resources */,
@@ -920,6 +963,7 @@
 				E1F0243C1E2B9D95007E801F /* DKCollectCollectionViewController.m in Sources */,
 				E1F7A1631E20B8A800ABDE49 /* MJMethod.m in Sources */,
 				E1A8FC581E227BD300D02AAA /* DPRequest.m in Sources */,
+				E1F2E4881E7E55CF00B2BC36 /* MTDealAnnotation.m in Sources */,
 				E104CFED1E2A45FB006BD965 /* UIImage+MultiFormat.m in Sources */,
 				E15DF2861E30C06900D9837F /* MTRestrictions.m in Sources */,
 				E104CFEA1E2A45FB006BD965 /* SDWebImagePrefetcher.m in Sources */,
@@ -956,6 +1000,7 @@
 				E1F7A1601E20B8A800ABDE49 /* MJFoundation.m in Sources */,
 				E104D0111E2A4609006BD965 /* UIScrollView+MJExtension.m in Sources */,
 				E1D0EB2B1E1B7E87000C9541 /* AppDelegate.m in Sources */,
+				E1F2E4831E7E4ADE00B2BC36 /* MTMapViewController.m in Sources */,
 				E1F0242A1E2B1581007E801F /* DKCenterLineLabel.m in Sources */,
 				E104CFBA1E2A3FAA006BD965 /* DKDeal.m in Sources */,
 				E104CFE31E2A45FB006BD965 /* NSData+ImageContentType.m in Sources */,
@@ -964,6 +1009,7 @@
 				E1F7A1101E20A31400ABDE49 /* DKHomeDropdownView.m in Sources */,
 				E1F7A1751E20DD9400ABDE49 /* DKHomeAddressViewController.m in Sources */,
 				E10622A91E1CEC840082221F /* UIView+Extension.m in Sources */,
+				E1F2E48C1E7E5A3200B2BC36 /* MTBusiness.m in Sources */,
 				E1F7A1571E20B8A800ABDE49 /* MASConstraintMaker.m in Sources */,
 				E1F7A1151E20AF2800ABDE49 /* DKCategoryViewController.m in Sources */,
 				E15DF29D1E30C1F500D9837F /* FMDatabaseQueue.m in Sources */,

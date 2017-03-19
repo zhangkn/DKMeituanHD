@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "DKCategoryModel.h"
+#import "DKDeal.h"
 
 @interface DKHomeModelTool : NSObject
 /**
@@ -28,5 +30,13 @@
  @return 排序模型数组
  */
 + (NSArray*)getSortModels;
+
+
+/**
+ 根据deal 来获取对应的区域模型
+
+
+ */
++ (DKCategoryModel *)categoryWithDeal:(DKDeal *)deal;
 
 @end

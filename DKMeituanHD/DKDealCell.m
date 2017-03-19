@@ -4,7 +4,7 @@
 #import "DkDeal.h"
 #import "UIImageView+WebCache.h"
 
-@interface DKDealCell()
+@interface DKDealCell()<DKDealCellDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *descLabel;
@@ -14,7 +14,17 @@
 /**
  属性名不能以new开头
  */
-@property (weak, nonatomic) IBOutlet UIImageView *dealNewView; 
+@property (weak, nonatomic) IBOutlet UIImageView *dealNewView;
+
+
+
+/**
+ 属性名不能以new开头
+ */
+//@property (weak, nonatomic) IBOutlet UIImageView *dealNewView;
+@property (weak, nonatomic) IBOutlet UIButton *cover;
+//- (IBAction)coverClick:(UIButton *)sender;
+@property (weak, nonatomic) IBOutlet UIImageView *checkView;
 @end
 
 @implementation DKDealCell
@@ -69,6 +79,12 @@
     NSString *nowStr = [fmt stringFromDate:[NSDate date]];
     // 隐藏: 发布日期 < 今天
     self.dealNewView.hidden = ([deal.publish_date compare:nowStr] == NSOrderedAscending);
+    
+    // 根据模型属性来控制cover的显示和隐藏
+    self.cover.hidden = !deal.isEditting;
+    
+    // 根据模型属性来控制打钩的显示和隐藏
+    self.checkView.hidden = !deal.isChecking;
 }
 
 - (void)drawRect:(CGRect)rect
@@ -92,5 +108,23 @@
     cell.deal = deal;
     return cell;
 }
+
+
+
+/**
+ 蒙版的点击事件处理
+
+ */
+- (IBAction)coverClick:(UIButton *)sender {
+    // 设置模型
+    self.deal.checking = !self.deal.isChecking;//改变当前模型的勾选状态
+    // 直接修改状态
+    self.checkView.hidden = !self.checkView.isHidden;
+    
+    if ([self.delegate respondsToSelector:@selector(dealCellCheckingStateDidChange:)]) {
+        [self.delegate dealCellCheckingStateDidChange:self];
+    }
+}
+
 
 @end

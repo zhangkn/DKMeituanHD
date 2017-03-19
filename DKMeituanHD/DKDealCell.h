@@ -4,8 +4,20 @@
 #import "DKDeal.h"
 @class DKDeal, DKDealCell;
 
+@protocol DKDealCellDelegate <NSObject>
+
+
+
+@optional
+
+- (void)dealCellCheckingStateDidChange:(DKDealCell *)cell;
+
+@end
+
+
 @interface DKDealCell : UICollectionViewCell
 
+@property (nonatomic, weak) id<DKDealCellDelegate> delegate;
 
 
 

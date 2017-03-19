@@ -86,22 +86,45 @@
                             <constraint firstAttribute="height" constant="24" id="wjN-Ky-uCh"/>
                         </constraints>
                     </imageView>
+                    <button hidden="YES" opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aVV-ll-zSm">
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <state key="normal">
+                            <color key="titleShadowColor" red="0.35294117650000001" green="0.3803921569" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </state>
+                        <connections>
+                            <action selector="coverClick:" destination="leD-CM-6Zm" eventType="touchUpInside" id="P98-lb-fuq"/>
+                        </connections>
+                    </button>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_choosed" translatesAutoresizingMaskIntoConstraints="NO" id="BBL-gs-c5O">
+                        <constraints>
+                            <constraint firstAttribute="width" constant="26" id="7cR-W3-xTi"/>
+                            <constraint firstAttribute="height" constant="26" id="uSW-Hb-WIb"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
             </view>
             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstAttribute="bottom" secondItem="BBL-gs-c5O" secondAttribute="bottom" id="3c5-aa-L1c"/>
                 <constraint firstItem="AhP-s0-XNA" firstAttribute="top" secondItem="leD-CM-6Zm" secondAttribute="top" id="5OI-hn-0ZS"/>
                 <constraint firstAttribute="bottom" secondItem="a5S-9d-0ff" secondAttribute="bottom" constant="10" id="Db4-HB-ft9"/>
                 <constraint firstItem="a5S-9d-0ff" firstAttribute="leading" secondItem="leD-CM-6Zm" secondAttribute="leading" constant="10" id="HcG-F1-Zbe"/>
                 <constraint firstAttribute="trailing" secondItem="a5S-9d-0ff" secondAttribute="trailing" constant="10" id="PyO-lA-tfm"/>
                 <constraint firstAttribute="trailing" secondItem="L2U-Fs-ESo" secondAttribute="trailing" constant="5" id="URe-bT-rod"/>
+                <constraint firstAttribute="trailing" secondItem="aVV-ll-zSm" secondAttribute="trailing" id="VTy-at-wqK"/>
+                <constraint firstItem="aVV-ll-zSm" firstAttribute="top" secondItem="leD-CM-6Zm" secondAttribute="top" id="Y7T-Wd-ZJe"/>
                 <constraint firstItem="L2U-Fs-ESo" firstAttribute="top" secondItem="leD-CM-6Zm" secondAttribute="top" constant="5" id="bdt-Mb-Mlb"/>
+                <constraint firstAttribute="trailing" secondItem="BBL-gs-c5O" secondAttribute="trailing" id="dRM-oN-XJs"/>
                 <constraint firstItem="a5S-9d-0ff" firstAttribute="top" secondItem="L2U-Fs-ESo" secondAttribute="bottom" constant="10" id="gem-QM-9UQ"/>
+                <constraint firstAttribute="bottom" secondItem="aVV-ll-zSm" secondAttribute="bottom" id="n0K-Rk-C5b"/>
+                <constraint firstItem="aVV-ll-zSm" firstAttribute="leading" secondItem="leD-CM-6Zm" secondAttribute="leading" id="q7E-uU-wa0"/>
                 <constraint firstItem="AhP-s0-XNA" firstAttribute="leading" secondItem="leD-CM-6Zm" secondAttribute="leading" id="wtM-dx-LiU"/>
                 <constraint firstItem="L2U-Fs-ESo" firstAttribute="leading" secondItem="leD-CM-6Zm" secondAttribute="leading" constant="5" id="yeU-T0-pyo"/>
             </constraints>
             <size key="customSize" width="305" height="305"/>
             <connections>
+                <outlet property="checkView" destination="BBL-gs-c5O" id="sM3-38-KFe"/>
+                <outlet property="cover" destination="aVV-ll-zSm" id="b8o-h3-sUq"/>
                 <outlet property="currentPriceLabel" destination="Svs-aR-Kgo" id="QW5-sZ-dlb"/>
                 <outlet property="dealNewView" destination="AhP-s0-XNA" id="bKJ-gq-vfd"/>
                 <outlet property="descLabel" destination="E92-eQ-xc2" id="v7P-Ig-Abh"/>
@@ -114,6 +137,7 @@
         </collectionViewCell>
     </objects>
     <resources>
+        <image name="ic_choosed" width="26" height="26"/>
         <image name="ic_deal_new" width="38" height="24"/>
         <image name="placeholder_deal" width="273" height="172"/>
     </resources>

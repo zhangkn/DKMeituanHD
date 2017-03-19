@@ -39,6 +39,23 @@
 /** 团购限制条件 */
 @property (nonatomic, strong) MTRestrictions *restrictions;
 
+
+
+/** 是否正在编辑 */
+@property (nonatomic, assign, getter=isEditting) BOOL editing;
+/** 是否被勾选了 */
+@property (nonatomic, assign, getter=isChecking) BOOL checking;
+
+
+@property (nonatomic, strong) NSArray *businesses;
+
+/**
+ 新增分类属性
+ */
+@property (nonatomic, strong) NSArray *categories;
+
+
+
 /**
  提供类方法，返回数据模型数组--工厂模式
  */

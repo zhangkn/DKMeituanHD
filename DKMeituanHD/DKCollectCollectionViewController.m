@@ -104,17 +104,67 @@
 
 
 - (void)cilckUNSelectAllItem:(UIBarButtonItem*)item{
+//    1.去除勾选
+    for (DKDeal *deal in self.deals) {
+        deal.checking = NO;
+    }
+    
+    [self.collectionView reloadData];
+    
+    self.deleteItem.enabled = NO;
     
 }
 
 - (void)cilckSelectAllItem:(UIBarButtonItem*)item{
     
+//    1.全部勾选cell
+    for (DKDeal *deal in self.deals) {
+        deal.checking = YES;
+    }
+    //刷新界面
+    [self.collectionView reloadData];
+    //激活删除按钮
+    self.deleteItem.enabled = YES;
+    
+    
 }
 
 - (void)cilckDeleteAllItem:(UIBarButtonItem*)item{
     
+    NSMutableArray *tempArray = [NSMutableArray array];//用于统计被勾选的数据模型
+    for (DKDeal *deal in self.deals) {
+        //条件性的从数据库删除收藏模型
+        if (deal.isChecking) {
+            [MTDealTool removeCollectDeal:deal];
+            [tempArray addObject:deal];
+        }
+    }
+    
+    // 删除所有打钩的模型，修改本控制器的模型数据
+    [self.deals removeObjectsInArray:tempArray];
+    
+    [self.collectionView reloadData];
+    
+    self.deleteItem.enabled = NO;//处于不可编辑状态
+    
 }
 
+
+
+#pragma mark - cell的代理  监听cell的勾选状态事件
+- (void)dealCellCheckingStateDidChange:(DKDealCell *)cell
+{
+    BOOL hasChecking = NO;
+    for (DKDeal *deal in self.deals) {
+        if (deal.isChecking) {
+            hasChecking = YES;
+            break;//-- 只要有一个勾选即可
+        }
+    }
+    
+    // 根据有没有打钩的情况,决定删除按钮是否可用
+    self.deleteItem.enabled = hasChecking;
+}
 
 
 
@@ -207,15 +257,27 @@
         
       
         self.navigationItem.leftBarButtonItems = @[self.backItem];
+        
+        //结束编辑状态
+        for (DKDeal *deal in self.deals) {
+            deal.editing = NO;
+        }
 
         
     }else{
         item.title = DKDone;
         self.navigationItem.leftBarButtonItems = @[self.backItem,self.selectAllItem,self.unSelectAllItem,self.deleteItem];
+        //进入编辑状态
+        
+//        DKDeal
+        for (DKDeal *deal in self.deals) {
+            deal.editing = YES;
+        }
         
     }
 
-    
+    //每当模型数据发生改变的时候，就进行数据的重新加载，让cell 展示新的数据
+    [self.collectionView reloadData];
     
 }
 
@@ -370,7 +432,9 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
     DKDeal *deal = self.deals[indexPath.row];
-    return   [DKDealCell cellWithDeal:deal collectionView:collectionView WithReuseIdentifier:DKDealCellReuseIdentifier forIndexPath:indexPath];
+    DKDealCell *cell=    [DKDealCell cellWithDeal:deal collectionView:collectionView WithReuseIdentifier:DKDealCellReuseIdentifier forIndexPath:indexPath];
+    cell.delegate = self;//处理删除按钮的状态
+    return cell;
 }
 
 
